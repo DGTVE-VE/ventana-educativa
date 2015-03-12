@@ -1,0 +1,227 @@
+<?php
+/**
+ * Class that operate on table 'log_errores'. Database Mysql.
+ *
+ * @author: http://phpdao.com
+ * @date: 2015-02-17 19:47
+ */
+class LogErroresMySqlDAO implements LogErroresDAO{
+
+	/**
+	 * Get Domain object by primry key
+	 *
+	 * @param String $id primary key
+	 * @return LogErroresMySql 
+	 */
+	public function load($id){
+		$sql = 'SELECT * FROM log_errores WHERE id_log_error = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->setNumber($id);
+		return $this->getRow($sqlQuery);
+	}
+
+	/**
+	 * Get all records from table
+	 */
+	public function queryAll(){
+		$sql = 'SELECT * FROM log_errores';
+		$sqlQuery = new SqlQuery($sql);
+		return $this->getList($sqlQuery);
+	}
+	
+	/**
+	 * Get all records from table ordered by field
+	 *
+	 * @param $orderColumn column name
+	 */
+	public function queryAllOrderBy($orderColumn){
+		$sql = 'SELECT * FROM log_errores ORDER BY '.$orderColumn;
+		$sqlQuery = new SqlQuery($sql);
+		return $this->getList($sqlQuery);
+	}
+	
+	/**
+ 	 * Delete record from table
+ 	 * @param logErrore primary key
+ 	 */
+	public function delete($id_log_error){
+		$sql = 'DELETE FROM log_errores WHERE id_log_error = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->setNumber($id_log_error);
+		return $this->executeUpdate($sqlQuery);
+	}
+	
+	/**
+ 	 * Insert record to table
+ 	 *
+ 	 * @param LogErroresMySql logErrore
+ 	 */
+	public function insert($logErrore){
+		$sql = 'INSERT INTO log_errores (log, tipo_error, fecha_creacion, fecha_modificacion) VALUES (?, ?, ?, ?)';
+		$sqlQuery = new SqlQuery($sql);
+		
+		$sqlQuery->set($logErrore->log);
+		$sqlQuery->set($logErrore->tipoError);
+		$sqlQuery->set($logErrore->fechaCreacion);
+		$sqlQuery->set($logErrore->fechaModificacion);
+
+		$id = $this->executeInsert($sqlQuery);	
+		$logErrore->idLogError = $id;
+		return $id;
+	}
+	
+	/**
+ 	 * Update record in table
+ 	 *
+ 	 * @param LogErroresMySql logErrore
+ 	 */
+	public function update($logErrore){
+		$sql = 'UPDATE log_errores SET log = ?, tipo_error = ?, fecha_creacion = ?, fecha_modificacion = ? WHERE id_log_error = ?';
+		$sqlQuery = new SqlQuery($sql);
+		
+		$sqlQuery->set($logErrore->log);
+		$sqlQuery->set($logErrore->tipoError);
+		$sqlQuery->set($logErrore->fechaCreacion);
+		$sqlQuery->set($logErrore->fechaModificacion);
+
+		$sqlQuery->setNumber($logErrore->idLogError);
+		return $this->executeUpdate($sqlQuery);
+	}
+
+	/**
+ 	 * Delete all rows
+ 	 */
+	public function clean(){
+		$sql = 'DELETE FROM log_errores';
+		$sqlQuery = new SqlQuery($sql);
+		return $this->executeUpdate($sqlQuery);
+	}
+
+	public function queryByLog($value){
+		$sql = 'SELECT * FROM log_errores WHERE log = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->getList($sqlQuery);
+	}
+
+	public function queryByTipoError($value){
+		$sql = 'SELECT * FROM log_errores WHERE tipo_error = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->getList($sqlQuery);
+	}
+
+	public function queryByFechaCreacion($value){
+		$sql = 'SELECT * FROM log_errores WHERE fecha_creacion = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->getList($sqlQuery);
+	}
+
+	public function queryByFechaModificacion($value){
+		$sql = 'SELECT * FROM log_errores WHERE fecha_modificacion = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->getList($sqlQuery);
+	}
+
+
+	public function deleteByLog($value){
+		$sql = 'DELETE FROM log_errores WHERE log = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->executeUpdate($sqlQuery);
+	}
+
+	public function deleteByTipoError($value){
+		$sql = 'DELETE FROM log_errores WHERE tipo_error = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->executeUpdate($sqlQuery);
+	}
+
+	public function deleteByFechaCreacion($value){
+		$sql = 'DELETE FROM log_errores WHERE fecha_creacion = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->executeUpdate($sqlQuery);
+	}
+
+	public function deleteByFechaModificacion($value){
+		$sql = 'DELETE FROM log_errores WHERE fecha_modificacion = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->executeUpdate($sqlQuery);
+	}
+
+
+	
+	/**
+	 * Read row
+	 *
+	 * @return LogErroresMySql 
+	 */
+	protected function readRow($row){
+		$logErrore = new LogErrore();
+		
+		$logErrore->idLogError = $row['id_log_error'];
+		$logErrore->log = $row['log'];
+		$logErrore->tipoError = $row['tipo_error'];
+		$logErrore->fechaCreacion = $row['fecha_creacion'];
+		$logErrore->fechaModificacion = $row['fecha_modificacion'];
+
+		return $logErrore;
+	}
+	
+	protected function getList($sqlQuery){
+		$tab = QueryExecutor::execute($sqlQuery);
+		$ret = array();
+		for($i=0;$i<count($tab);$i++){
+			$ret[$i] = $this->readRow($tab[$i]);
+		}
+		return $ret;
+	}
+	
+	/**
+	 * Get row
+	 *
+	 * @return LogErroresMySql 
+	 */
+	protected function getRow($sqlQuery){
+		$tab = QueryExecutor::execute($sqlQuery);
+		if(count($tab)==0){
+			return null;
+		}
+		return $this->readRow($tab[0]);		
+	}
+	
+	/**
+	 * Execute sql query
+	 */
+	protected function execute($sqlQuery){
+		return QueryExecutor::execute($sqlQuery);
+	}
+	
+		
+	/**
+	 * Execute sql query
+	 */
+	protected function executeUpdate($sqlQuery){
+		return QueryExecutor::executeUpdate($sqlQuery);
+	}
+
+	/**
+	 * Query for one row and one column
+	 */
+	protected function querySingleResult($sqlQuery){
+		return QueryExecutor::queryForString($sqlQuery);
+	}
+
+	/**
+	 * Insert row to table
+	 */
+	protected function executeInsert($sqlQuery){
+		return QueryExecutor::executeInsert($sqlQuery);
+	}
+}
+?>

@@ -1,0 +1,97 @@
+<?php
+
+/**
+ * Object executes sql queries
+ *
+ * @author: http://phpdao.com
+ * @date: 27.11.2007
+ */
+class QueryExecutor {
+    
+    private static $transaction;
+    private static $connection;
+    
+    private static function getConnection (){        
+        if (!self::$transaction) {
+            self::$connection = new Connection();
+        } else {
+            self::$connection = self::$transaction->getConnection();
+        }
+        return self::$connection;
+    }
+    
+    private static function executeQuery ($sqlQuery){
+        self::$transaction = Transaction::getCurrentTransaction();
+        self::$connection = self::getConnection ();
+        $query = $sqlQuery->getQuery();
+        self::$connection->executeQuery("SET NAMES 'utf8'");
+        $result = self::$connection->executeQuery($query);
+        if (!$result) {
+            throw new Exception("SQL Error: -->" . $query . "<--" . mysql_error());
+        }
+        return $result;
+    }
+    
+    private static function freeMemory ($result = NULL){
+        if (!is_null($result)){
+            mysql_free_result($result);
+        }
+        if (!self::$transaction) {
+            self::$connection->close();
+        }
+    }
+    
+    /**
+     * Wykonaniew zapytania do bazy
+     *
+     * @param sqlQuery obiekt typu SqlQuery
+     * @return wynik zapytania 
+     */
+    public static function execute($sqlQuery) {
+        /**************************************/
+        /** Se busca en cache el resultado **/
+        $memcache = new Memcache;
+        $key = md5($sqlQuery->getQuery ());
+        $data = $memcache->get($key);        
+        if ($data !== false){
+            return $data; 
+        }
+        /***************************************/
+        $result = self::executeQuery($sqlQuery);
+        $i = 0;
+        $tab = array();
+        while ($row = mysql_fetch_array($result)) {
+            $tab[$i++] = $row;
+        }
+        self::freeMemory($result);
+        // Se guarda el resultado en cache
+        $memcache->set($key, $tab);
+        return $tab;
+    }
+
+    public static function executeUpdate($sqlQuery) {
+        self::executeQuery($sqlQuery);
+        self::freeMemory();
+        return mysql_affected_rows();
+    }
+
+    public static function executeInsert($sqlQuery) {
+        QueryExecutor::executeUpdate($sqlQuery);        
+        return mysql_insert_id();
+    }
+
+    /**
+     * Wykonaniew zapytania do bazy
+     *
+     * @param sqlQuery obiekt typu SqlQuery
+     * @return wynik zapytania 
+     */
+    public static function queryForString($sqlQuery) {
+        $result = self::execute($sqlQuery);
+        $row = $result[0];                
+        return $row[0];
+    }
+
+}
+
+?>

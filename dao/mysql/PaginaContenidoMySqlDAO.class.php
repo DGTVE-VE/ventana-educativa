@@ -1,0 +1,295 @@
+<?php
+/**
+ * Class that operate on table 'pagina_contenido'. Database Mysql.
+ *
+ * @author: http://phpdao.com
+ * @date: 2015-02-17 19:47
+ */
+class PaginaContenidoMySqlDAO implements PaginaContenidoDAO{
+
+	/**
+	 * Get Domain object by primry key
+	 *
+	 * @param String $id primary key
+	 * @return PaginaContenidoMySql 
+	 */
+	public function load($id){
+		$sql = 'SELECT * FROM pagina_contenido WHERE id_contenido = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->setNumber($id);
+		return $this->getRow($sqlQuery);
+	}
+
+	/**
+	 * Get all records from table
+	 */
+	public function queryAll(){
+		$sql = 'SELECT * FROM pagina_contenido';
+		$sqlQuery = new SqlQuery($sql);
+		return $this->getList($sqlQuery);
+	}
+	
+	/**
+	 * Get all records from table ordered by field
+	 *
+	 * @param $orderColumn column name
+	 */
+	public function queryAllOrderBy($orderColumn){
+		$sql = 'SELECT * FROM pagina_contenido ORDER BY '.$orderColumn;
+		$sqlQuery = new SqlQuery($sql);
+		return $this->getList($sqlQuery);
+	}
+	
+	/**
+ 	 * Delete record from table
+ 	 * @param paginaContenido primary key
+ 	 */
+	public function delete($id_contenido){
+		$sql = 'DELETE FROM pagina_contenido WHERE id_contenido = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->setNumber($id_contenido);
+		return $this->executeUpdate($sqlQuery);
+	}
+	
+	/**
+ 	 * Insert record to table
+ 	 *
+ 	 * @param PaginaContenidoMySql paginaContenido
+ 	 */
+	public function insert($paginaContenido){
+		$sql = 'INSERT INTO pagina_contenido (id_pag, id_libro, x, y, url, tipo_contenido, fecha_creacion, fecha_modificacion) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
+		$sqlQuery = new SqlQuery($sql);
+		
+		$sqlQuery->setNumber($paginaContenido->idPag);
+		$sqlQuery->setNumber($paginaContenido->idLibro);
+		$sqlQuery->setNumber($paginaContenido->x);
+		$sqlQuery->setNumber($paginaContenido->y);
+		$sqlQuery->set($paginaContenido->url);
+		$sqlQuery->set($paginaContenido->tipoContenido);
+		$sqlQuery->set($paginaContenido->fechaCreacion);
+		$sqlQuery->set($paginaContenido->fechaModificacion);
+
+		$id = $this->executeInsert($sqlQuery);	
+		$paginaContenido->idContenido = $id;
+		return $id;
+	}
+	
+	/**
+ 	 * Update record in table
+ 	 *
+ 	 * @param PaginaContenidoMySql paginaContenido
+ 	 */
+	public function update($paginaContenido){
+		$sql = 'UPDATE pagina_contenido SET id_pag = ?, id_libro = ?, x = ?, y = ?, url = ?, tipo_contenido = ?, fecha_creacion = ?, fecha_modificacion = ? WHERE id_contenido = ?';
+		$sqlQuery = new SqlQuery($sql);
+		
+		$sqlQuery->setNumber($paginaContenido->idPag);
+		$sqlQuery->setNumber($paginaContenido->idLibro);
+		$sqlQuery->setNumber($paginaContenido->x);
+		$sqlQuery->setNumber($paginaContenido->y);
+		$sqlQuery->set($paginaContenido->url);
+		$sqlQuery->set($paginaContenido->tipoContenido);
+		$sqlQuery->set($paginaContenido->fechaCreacion);
+		$sqlQuery->set($paginaContenido->fechaModificacion);
+
+		$sqlQuery->setNumber($paginaContenido->idContenido);
+		return $this->executeUpdate($sqlQuery);
+	}
+
+	/**
+ 	 * Delete all rows
+ 	 */
+	public function clean(){
+		$sql = 'DELETE FROM pagina_contenido';
+		$sqlQuery = new SqlQuery($sql);
+		return $this->executeUpdate($sqlQuery);
+	}
+
+	public function queryByIdPag($value){
+		$sql = 'SELECT * FROM pagina_contenido WHERE id_pag = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->setNumber($value);
+		return $this->getList($sqlQuery);
+	}
+
+	public function queryByIdLibro($value){
+		$sql = 'SELECT * FROM pagina_contenido WHERE id_libro = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->setNumber($value);
+		return $this->getList($sqlQuery);
+	}
+
+	public function queryByX($value){
+		$sql = 'SELECT * FROM pagina_contenido WHERE x = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->setNumber($value);
+		return $this->getList($sqlQuery);
+	}
+
+	public function queryByY($value){
+		$sql = 'SELECT * FROM pagina_contenido WHERE y = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->setNumber($value);
+		return $this->getList($sqlQuery);
+	}
+
+	public function queryByUrl($value){
+		$sql = 'SELECT * FROM pagina_contenido WHERE url = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->getList($sqlQuery);
+	}
+
+	public function queryByTipoContenido($value){
+		$sql = 'SELECT * FROM pagina_contenido WHERE tipo_contenido = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->getList($sqlQuery);
+	}
+
+	public function queryByFechaCreacion($value){
+		$sql = 'SELECT * FROM pagina_contenido WHERE fecha_creacion = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->getList($sqlQuery);
+	}
+
+	public function queryByFechaModificacion($value){
+		$sql = 'SELECT * FROM pagina_contenido WHERE fecha_modificacion = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->getList($sqlQuery);
+	}
+
+
+	public function deleteByIdPag($value){
+		$sql = 'DELETE FROM pagina_contenido WHERE id_pag = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->setNumber($value);
+		return $this->executeUpdate($sqlQuery);
+	}
+
+	public function deleteByIdLibro($value){
+		$sql = 'DELETE FROM pagina_contenido WHERE id_libro = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->setNumber($value);
+		return $this->executeUpdate($sqlQuery);
+	}
+
+	public function deleteByX($value){
+		$sql = 'DELETE FROM pagina_contenido WHERE x = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->setNumber($value);
+		return $this->executeUpdate($sqlQuery);
+	}
+
+	public function deleteByY($value){
+		$sql = 'DELETE FROM pagina_contenido WHERE y = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->setNumber($value);
+		return $this->executeUpdate($sqlQuery);
+	}
+
+	public function deleteByUrl($value){
+		$sql = 'DELETE FROM pagina_contenido WHERE url = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->executeUpdate($sqlQuery);
+	}
+
+	public function deleteByTipoContenido($value){
+		$sql = 'DELETE FROM pagina_contenido WHERE tipo_contenido = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->executeUpdate($sqlQuery);
+	}
+
+	public function deleteByFechaCreacion($value){
+		$sql = 'DELETE FROM pagina_contenido WHERE fecha_creacion = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->executeUpdate($sqlQuery);
+	}
+
+	public function deleteByFechaModificacion($value){
+		$sql = 'DELETE FROM pagina_contenido WHERE fecha_modificacion = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->executeUpdate($sqlQuery);
+	}
+
+
+	
+	/**
+	 * Read row
+	 *
+	 * @return PaginaContenidoMySql 
+	 */
+	protected function readRow($row){
+		$paginaContenido = new PaginaContenido();
+		
+		$paginaContenido->idContenido = $row['id_contenido'];
+		$paginaContenido->idPag = $row['id_pag'];
+		$paginaContenido->idLibro = $row['id_libro'];
+		$paginaContenido->x = $row['x'];
+		$paginaContenido->y = $row['y'];
+		$paginaContenido->url = $row['url'];
+		$paginaContenido->tipoContenido = $row['tipo_contenido'];
+		$paginaContenido->fechaCreacion = $row['fecha_creacion'];
+		$paginaContenido->fechaModificacion = $row['fecha_modificacion'];
+
+		return $paginaContenido;
+	}
+	
+	protected function getList($sqlQuery){
+		$tab = QueryExecutor::execute($sqlQuery);
+		$ret = array();
+		for($i=0;$i<count($tab);$i++){
+			$ret[$i] = $this->readRow($tab[$i]);
+		}
+		return $ret;
+	}
+	
+	/**
+	 * Get row
+	 *
+	 * @return PaginaContenidoMySql 
+	 */
+	protected function getRow($sqlQuery){
+		$tab = QueryExecutor::execute($sqlQuery);
+		if(count($tab)==0){
+			return null;
+		}
+		return $this->readRow($tab[0]);		
+	}
+	
+	/**
+	 * Execute sql query
+	 */
+	protected function execute($sqlQuery){
+		return QueryExecutor::execute($sqlQuery);
+	}
+	
+		
+	/**
+	 * Execute sql query
+	 */
+	protected function executeUpdate($sqlQuery){
+		return QueryExecutor::executeUpdate($sqlQuery);
+	}
+
+	/**
+	 * Query for one row and one column
+	 */
+	protected function querySingleResult($sqlQuery){
+		return QueryExecutor::queryForString($sqlQuery);
+	}
+
+	/**
+	 * Insert row to table
+	 */
+	protected function executeInsert($sqlQuery){
+		return QueryExecutor::executeInsert($sqlQuery);
+	}
+}
+?>

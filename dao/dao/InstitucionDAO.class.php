@@ -1,0 +1,85 @@
+<?php
+/**
+ * Intreface DAO
+ *
+ * @author: http://phpdao.com
+ * @date: 2015-02-17 19:47
+ */
+interface InstitucionDAO{
+
+	/**
+	 * Get Domain object by primry key
+	 *
+	 * @param String $id primary key
+	 * @Return Institucion 
+	 */
+	public function load($id);
+
+	/**
+	 * Get all records from table
+	 */
+	public function queryAll();
+	
+	/**
+	 * Get all records from table ordered by field
+	 * @Param $orderColumn column name
+	 */
+	public function queryAllOrderBy($orderColumn);
+	
+	/**
+ 	 * Delete record from table
+ 	 * @param institucion primary key
+ 	 */
+	public function delete($id_institucion);
+	
+	/**
+ 	 * Insert record to table
+ 	 *
+ 	 * @param Institucion institucion
+ 	 */
+	public function insert($institucion);
+	
+	/**
+ 	 * Update record in table
+ 	 *
+ 	 * @param Institucion institucion
+ 	 */
+	public function update($institucion);	
+
+	/**
+	 * Delete all rows
+	 */
+	public function clean();
+
+	public function queryByNombre($value);
+
+	public function queryByContacto($value);
+
+	public function queryByTelefono($value);
+
+	public function queryByCorreo($value);
+
+	public function queryByAbreviatura($value);
+
+	public function queryByFechaCreacion($value);
+
+	public function queryByFechaModificacion($value);
+
+
+	public function deleteByNombre($value);
+
+	public function deleteByContacto($value);
+
+	public function deleteByTelefono($value);
+
+	public function deleteByCorreo($value);
+
+	public function deleteByAbreviatura($value);
+
+	public function deleteByFechaCreacion($value);
+
+	public function deleteByFechaModificacion($value);
+
+
+}
+?>

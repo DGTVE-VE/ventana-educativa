@@ -1,0 +1,69 @@
+<?php
+/**
+ * Intreface DAO
+ *
+ * @author: http://phpdao.com
+ * @date: 2015-02-17 19:47
+ */
+interface TipoPantallaDAO{
+
+	/**
+	 * Get Domain object by primry key
+	 *
+	 * @param String $id primary key
+	 * @Return TipoPantalla 
+	 */
+	public function load($id);
+
+	/**
+	 * Get all records from table
+	 */
+	public function queryAll();
+	
+	/**
+	 * Get all records from table ordered by field
+	 * @Param $orderColumn column name
+	 */
+	public function queryAllOrderBy($orderColumn);
+	
+	/**
+ 	 * Delete record from table
+ 	 * @param tipoPantalla primary key
+ 	 */
+	public function delete($tipo_pantalla);
+	
+	/**
+ 	 * Insert record to table
+ 	 *
+ 	 * @param TipoPantalla tipoPantalla
+ 	 */
+	public function insert($tipoPantalla);
+	
+	/**
+ 	 * Update record in table
+ 	 *
+ 	 * @param TipoPantalla tipoPantalla
+ 	 */
+	public function update($tipoPantalla);	
+
+	/**
+	 * Delete all rows
+	 */
+	public function clean();
+
+	public function queryByDescripcion($value);
+
+	public function queryByFechaCreacion($value);
+
+	public function queryByFechaModificacion($value);
+
+
+	public function deleteByDescripcion($value);
+
+	public function deleteByFechaCreacion($value);
+
+	public function deleteByFechaModificacion($value);
+
+
+}
+?>
