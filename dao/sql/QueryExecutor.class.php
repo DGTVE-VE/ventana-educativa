@@ -50,10 +50,13 @@ class QueryExecutor {
     public static function execute($sqlQuery) {
         /**************************************/
         /** Se busca en cache el resultado **/
+//        var_dump($sqlQuery);
+        
         $memcache = new Memcache;
         $key = md5($sqlQuery->getQuery ());
         $data = $memcache->get($key);        
         if ($data !== false){
+//            var_dump($data);
             return $data; 
         }
         /***************************************/

@@ -7,6 +7,7 @@
  */
 class SerieCategoriasMySqlExtDAO extends SerieCategoriasMySqlDAO{
 
+    
 	
 }
 ?>
