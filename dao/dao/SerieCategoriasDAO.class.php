@@ -13,7 +13,7 @@ interface SerieCategoriasDAO{
 	 * @param String $id primary key
 	 * @Return SerieCategorias 
 	 */
-	public function load($idContenido, $categoria);
+	public function load($idSerie, $categoria);
 
 	/**
 	 * Get all records from table
@@ -30,7 +30,7 @@ interface SerieCategoriasDAO{
  	 * Delete record from table
  	 * @param serieCategoria primary key
  	 */
-	public function delete($idContenido, $categoria);
+	public function delete($idSerie, $categoria);
 	
 	/**
  	 * Insert record to table

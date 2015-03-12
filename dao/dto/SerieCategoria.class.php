@@ -7,10 +7,14 @@
 	 */
 	class SerieCategoria{
 		
-		var $idContenido;
-		var $categoria;
-		var $fechaCreacion;
-		var $fechaModificacion;
-		
+		var $idSerie;
+
+		var $categoria;
+
+		var $fechaCreacion;
+
+		var $fechaModificacion;
+
+		
 	}
 ?>

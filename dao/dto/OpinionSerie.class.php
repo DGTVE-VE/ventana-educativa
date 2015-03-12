@@ -7,12 +7,18 @@
 	 */
 	class OpinionSerie{
 		
-		var $idContenido;
-		var $idUsuario;
-		var $opinion;
-		var $calificacion;
-		var $fechaCreacion;
-		var $fechaModificacion;
-		
+		var $idSerie;
+
+		var $idUsuario;
+
+		var $opinion;
+
+		var $calificacion;
+
+		var $fechaCreacion;
+
+		var $fechaModificacion;
+
+		
 	}
 ?>

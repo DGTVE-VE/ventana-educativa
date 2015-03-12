@@ -1,6 +1,6 @@
-application: phpdao2
-version: 1
-runtime: php
+application: ventana-educativa
+version: 2
+runtime: php55
 api_version: 1
 threadsafe: yes
 

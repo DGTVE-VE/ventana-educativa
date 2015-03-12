@@ -13,10 +13,10 @@ class OpinionSerieMySqlDAO implements OpinionSerieDAO{
 	 * @param String $id primary key
 	 * @return OpinionSerieMySql 
 	 */
-	public function load($idContenido, $idUsuario){
+	public function load($idSerie, $idUsuario){
 		$sql = 'SELECT * FROM opinion_serie WHERE id_serie = ?  AND id_usuario = ? ';
 		$sqlQuery = new SqlQuery($sql);
-		$sqlQuery->setNumber($idContenido);
+		$sqlQuery->setNumber($idSerie);
 		$sqlQuery->setNumber($idUsuario);
 
 		return $this->getRow($sqlQuery);
@@ -46,10 +46,10 @@ class OpinionSerieMySqlDAO implements OpinionSerieDAO{
  	 * Delete record from table
  	 * @param opinionSerie primary key
  	 */
-	public function delete($idContenido, $idUsuario){
+	public function delete($idSerie, $idUsuario){
 		$sql = 'DELETE FROM opinion_serie WHERE id_serie = ?  AND id_usuario = ? ';
 		$sqlQuery = new SqlQuery($sql);
-		$sqlQuery->setNumber($idContenido);
+		$sqlQuery->setNumber($idSerie);
 		$sqlQuery->setNumber($idUsuario);
 
 		return $this->executeUpdate($sqlQuery);
@@ -70,7 +70,7 @@ class OpinionSerieMySqlDAO implements OpinionSerieDAO{
 		$sqlQuery->set($opinionSerie->fechaModificacion);
 
 		
-		$sqlQuery->setNumber($opinionSerie->idContenido);
+		$sqlQuery->setNumber($opinionSerie->idSerie);
 
 		$sqlQuery->setNumber($opinionSerie->idUsuario);
 
@@ -94,7 +94,7 @@ class OpinionSerieMySqlDAO implements OpinionSerieDAO{
 		$sqlQuery->set($opinionSerie->fechaModificacion);
 
 		
-		$sqlQuery->setNumber($opinionSerie->idContenido);
+		$sqlQuery->setNumber($opinionSerie->idSerie);
 
 		$sqlQuery->setNumber($opinionSerie->idUsuario);
 
@@ -177,7 +177,7 @@ class OpinionSerieMySqlDAO implements OpinionSerieDAO{
 	protected function readRow($row){
 		$opinionSerie = new OpinionSerie();
 		
-		$opinionSerie->idContenido = $row['id_serie'];
+		$opinionSerie->idSerie = $row['id_serie'];
 		$opinionSerie->idUsuario = $row['id_usuario'];
 		$opinionSerie->opinion = $row['opinion'];
 		$opinionSerie->calificacion = $row['calificacion'];

@@ -13,7 +13,7 @@ interface OpinionSerieDAO{
 	 * @param String $id primary key
 	 * @Return OpinionSerie 
 	 */
-	public function load($idContenido, $idUsuario);
+	public function load($idSerie, $idUsuario);
 
 	/**
 	 * Get all records from table
@@ -30,7 +30,7 @@ interface OpinionSerieDAO{
  	 * Delete record from table
  	 * @param opinionSerie primary key
  	 */
-	public function delete($idContenido, $idUsuario);
+	public function delete($idSerie, $idUsuario);
 	
 	/**
  	 * Insert record to table

@@ -13,13 +13,27 @@ class SerieCategoriasMySqlDAO implements SerieCategoriasDAO{
 	 * @param String $id primary key
 	 * @return SerieCategoriasMySql 
 	 */
-	public function load($idContenido, $categoria){
+	public function load($idSerie, $categoria){
 		$sql = 'SELECT * FROM serie_categorias WHERE id_serie = ?  AND categoria = ? ';
 		$sqlQuery = new SqlQuery($sql);
-		$sqlQuery->setNumber($idContenido);
+		$sqlQuery->setNumber($idSerie);
 		$sqlQuery->setNumber($categoria);
 
 		return $this->getRow($sqlQuery);
+	}
+        
+        /**
+	 * Get Domain object by primry key
+	 *
+	 * @param String $categoria Categoria
+	 * @return SerieCategoriasMySql 
+	 */
+	public function queryByCategoria ($categoria){
+		$sql = 'SELECT * FROM serie_categorias WHERE categoria = ? ';
+		$sqlQuery = new SqlQuery($sql);		
+		$sqlQuery->setString($categoria);
+
+		return $this->getList($sqlQuery);
 	}
 
 	/**
@@ -46,10 +60,10 @@ class SerieCategoriasMySqlDAO implements SerieCategoriasDAO{
  	 * Delete record from table
  	 * @param serieCategoria primary key
  	 */
-	public function delete($idContenido, $categoria){
+	public function delete($idSerie, $categoria){
 		$sql = 'DELETE FROM serie_categorias WHERE id_serie = ?  AND categoria = ? ';
 		$sqlQuery = new SqlQuery($sql);
-		$sqlQuery->setNumber($idContenido);
+		$sqlQuery->setNumber($idSerie);
 		$sqlQuery->setNumber($categoria);
 
 		return $this->executeUpdate($sqlQuery);
@@ -68,7 +82,7 @@ class SerieCategoriasMySqlDAO implements SerieCategoriasDAO{
 		$sqlQuery->set($serieCategoria->fechaModificacion);
 
 		
-		$sqlQuery->setNumber($serieCategoria->idContenido);
+		$sqlQuery->setNumber($serieCategoria->idSerie);
 
 		$sqlQuery->setNumber($serieCategoria->categoria);
 
@@ -90,7 +104,7 @@ class SerieCategoriasMySqlDAO implements SerieCategoriasDAO{
 		$sqlQuery->set($serieCategoria->fechaModificacion);
 
 		
-		$sqlQuery->setNumber($serieCategoria->idContenido);
+		$sqlQuery->setNumber($serieCategoria->idSerie);
 
 		$sqlQuery->setNumber($serieCategoria->categoria);
 
@@ -145,7 +159,7 @@ class SerieCategoriasMySqlDAO implements SerieCategoriasDAO{
 	protected function readRow($row){
 		$serieCategoria = new SerieCategoria();
 		
-		$serieCategoria->idContenido = $row['id_serie'];
+		$serieCategoria->idSerie = $row['id_serie'];
 		$serieCategoria->categoria = $row['categoria'];
 		$serieCategoria->fechaCreacion = $row['fecha_creacion'];
 		$serieCategoria->fechaModificacion = $row['fecha_modificacion'];
