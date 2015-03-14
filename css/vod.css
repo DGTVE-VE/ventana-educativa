@@ -1,0 +1,51 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 13/03/2015, 03:46:28 PM
+    Author     : Israel
+*/
+
+* {
+    border: dashed blue thin;
+
+}
+body {    
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+/* http://kaliko.com/blog/circled-number-with-pure-css/ */
+span.num-temporada{
+    background: #cccccc;
+    border-radius: 0.8em;
+    -moz-border-radius: 0.8em;
+    -webkit-border-radius: 0.8em;
+    color: #ffffff;
+    display: inline-block;
+    font-weight: bold;
+    line-height: 1.6em;
+    margin-right: 5px;
+    text-align: center;
+    width: 1.6em;     
+}
+.row {
+    position: relative;
+}
+.temporadas-text{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.series {
+    height: 22em;
+    overflow: auto;
+}
+
+.encabezado{
+    background-color: black;
+    height: 5em;
+}

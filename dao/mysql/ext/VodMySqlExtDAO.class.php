@@ -7,6 +7,17 @@
  */
 class VodMySqlExtDAO extends VodMySqlDAO{
 
+    public function getLastTemporadaOfSerie ($idSerie){
+        $sql = 'SELECT MAX(temporada) temporada FROM vod WHERE id_serie = ?';
+        $sqlQuery = new SqlQuery($sql);
+        $sqlQuery->set($idSerie);
+        
+        $tab = QueryExecutor::execute($sqlQuery);
+        if(count($tab)==0){
+            return null;
+	}
+        return $tab[0]['temporada'];
+    }
 	
 }
 ?>
