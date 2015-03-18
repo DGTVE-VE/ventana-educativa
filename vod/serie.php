@@ -22,11 +22,12 @@ function showTemporadas ($max){
 function showCaps ($capitulos){
     /* @var $capitulo VOD */    
     foreach ($capitulos as $capitulo){
-        print "<tr><td><img src=\"" . $capitulo->thumbnail . "\"/></td>";
+        print "<tr><td><img width=\"200\" src=\"" . $capitulo->thumbnail . "\"/></td>";
         print "<td>". $capitulo->sinopsis ."</td></tr>";                                   
     }
 }
-
+$backgroundImage = "http://concrete-envoy-87323.appspot.com/?url=";
+$backgroundImage .= $serie->thumbnail;
 
 ?>
 <!DOCTYPE html>
@@ -41,7 +42,7 @@ function showCaps ($capitulos){
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     </head>
-    <body style="background: url(<?php print $serie->thumbnail; ?>) no-repeat center center fixed">      
+    <body style="background: url(<?php print $backgroundImage; ?>) no-repeat center center fixed">      
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12 encabezado">Span 5</div>

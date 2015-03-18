@@ -7,6 +7,7 @@ function autoload($class) {
 //    $base_dir = $protocol . $_SERVER['SERVER_NAME'] .":". $_SERVER['SERVER_PORT'] . "/";
     $root = $_SERVER['DOCUMENT_ROOT'];
     $paths = array(
+        'class/',
         'dao/core/',
         'dao/dao/',
         'dao/dto/',
