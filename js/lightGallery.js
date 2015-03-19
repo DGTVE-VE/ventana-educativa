@@ -30,8 +30,8 @@
                 selector: null,
                 index: false,
 
-                lang: {
-                    allPhotos: 'All photos'
+                lang: { 
+                    allPhotos: 'Todos los videos'
                 },
                 counter: false,
 

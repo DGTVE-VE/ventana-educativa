@@ -14,7 +14,6 @@ $daoVod = DAOFactory::getVodDAO();
 $vods = $daoVod->queryAll();
 
 function getNRandomVods($vods, $n) {
-
     $array = [];
     for ($i = 0; $i < $n; $i++) {
         $randPos = rand(0, count($vods) - 1);
@@ -23,65 +22,69 @@ function getNRandomVods($vods, $n) {
     return $array;
 }
 
-function addItem ($randVods1, $isActive){    
-    print '<div class="item'.$isActive.'">';
-    print '<div class="row" id="localVideo">';
-    /* @var $vod Vod*/
-    foreach ($randVods1 as $vod){
-        print '<div class="col-md-3" data-html="#video'.$vod->idVod.'" data-sub-html=".subhtml">';
-        print '<a  href="#" class="thumbnail">';
-        print '<img class="img-responsive" src="'.$vod->thumbnail.'" alt="Thumbnail">';
-        print '</a>';
-        print '</div>';
+function addItem($randVods1, $isActive) {
+    print '<div class="item' . $isActive . '">' . "\n";
+    print '<div class="row video" id="video">' . "\n";
+    /* @var $vod Vod */
+    foreach ($randVods1 as $vod) {
+        print '<div class="col-md-3" data-src="' . trim($vod->url) . '" data-sub-html=".subhtml">' . "\n";
+        print '<a  href="#" class="thumbnail">' . "\n";
+        print '<img class="img-responsive" src="' . $vod->thumbnail . '" alt="Thumbnail">' . "\n";
+        print '</a>' . "\n";
+        print '</div>' . "\n";
     }
-    print '</div>';
-    print '</div>';
+    print '</div>' . "\n";
+    print '</div>' . "\n";
 }
 
-function addVideo ($vods){
-    /* @var $vod Vod*/
-    foreach ($vods as $vod){
-        print '<div style="display:none;"  id="video'.$vod->idVod.'">';
-        print '    <video width="100%" controls>';
-        print '        <source src="'.$vod->url.'" type="video/mp4">';
-        print '             Your browser does not support HTML5 video.</video>';
-        print '</div>';
+function addVideo($vods) {
+    /* @var $vod Vod */
+    foreach ($vods as $vod) {
+        print '<div style="display:none;"  id="video' . $vod->idVod . '">' . "\n";
+        print '    <video width="100%" controls>' . "\n";
+        print '        <source src="' . $vod->url . '" type="video/mp4">' . "\n";
+        print '             Your browser does not support HTML5 video.</video>' . "\n";
+        print '</div>' . "\n";
     }
 }
 
-function showCarrusel($titulo, $id, $vods) {    
-    $idCarousel = "carousel".$id;
-    print '<div id="'.$idCarousel.'" class="carousel slide">';
-    print '    <div class="carousel-inner">';
-    print '        <input id="texto" type="text" placeholder="'.$titulo.'" disabled/>';
-    
+function showCarrusel($titulo, $id, $vods) {
+    $idCarousel = "carousel" . $id;
+    print '     <div class="row">' . "\n";
+    print '        <div id="titserie">'. $titulo .'</div>' . "\n";
+    print '         <div class="well">' . "\n";
+    print '<div id="' . $idCarousel . '" class="carousel slide">' . "\n";
+    print '    <div class="carousel-inner">' . "\n";
+
     $randVods1 = getNRandomVods($vods, 4);
     $randVods2 = getNRandomVods($vods, 4);
     $randVods3 = getNRandomVods($vods, 4);
-    
-    addItem ($randVods1, 'active');
-    addItem ($randVods2, '');
-    addItem ($randVods3, '');
-    addVideo ($randVods1);
-    addVideo ($randVods2);
-    addVideo ($randVods3);
-    
-    print '<div style="display:none;" class="subhtml">';
-    print '    <div class="customHtml">';
-    print '        <h4>Ventana Educativa</h4>';
-    print '    </div>';
-    print '</div>';
-    print '</div> <!-- carousel-inner -->';
-    print '<a class="left carousel-control" id="carousel'.$id.'left" href="#'.$idCarousel.'" data-slide="prev">'
-    . '<i class="fa fa-chevron-left fa-2x"></i></a>';
-    print '<a class="right carousel-control" id="carousel'.$id.'right" href="#'.$idCarousel.'" data-slide="next">'
-    . '<i class="fa fa-chevron-right fa-2x"></i></a>';
-    print '<ol class="carousel-indicators">';
-    print '<li data-target="#'.$idCarousel.'" data-slide-to="0" class="active"></li>';
-    print '<li data-target="#'.$idCarousel.'" data-slide-to="1"></li>';
-    print '<li data-target="#'.$idCarousel.'" data-slide-to="2"></li>';
-    print '</ol>';
-    print '</div> <!--End Carousel-->';
+
+    addItem($randVods1, ' active');
+    addItem($randVods2, '');
+    addItem($randVods3, '');
+//    addVideo($randVods1);
+//    addVideo($randVods2);
+//    addVideo($randVods3);
+
+    print '<div style="display:none;" class="subhtml">' . "\n";
+    print '    <div class="customHtml">' . "\n";
+    print '        <h4>Ventana Educativa</h4>' . "\n";
+    print '    </div>' . "\n";
+    print '</div>' . "\n";
+    print '</div> <!-- carousel-inner -->' . "\n";
+    print '<a class="left carousel-control carouselleft"  href="#' . $idCarousel . '" data-slide="prev">'
+            . '<i class="fa fa-chevron-left fa-2x"></i></a>' . "\n";
+    print '<a class="right carousel-control carouselright"  href="#' . $idCarousel . '" data-slide="next">'
+            . '<i class="fa fa-chevron-right fa-2x"></i></a>' . "\n";
+    print '<ol class="carousel-indicators">' . "\n";
+    print '<li data-target="#' . $idCarousel . '" data-slide-to="0" class="active"></li>' . "\n";
+    print '<li data-target="#' . $idCarousel . '" data-slide-to="1"></li>' . "\n";
+    print '<li data-target="#' . $idCarousel . '" data-slide-to="2"></li>' . "\n";
+    print '</ol>' . "\n";
+    print '</div> <!--End Carousel-->' . "\n";
+    print '</div> <!--End Well-->' . "\n";
+    print '</div> <!--End row-->' . "\n";
 }
 
 function showRecomendaciones($recomendaciones) {
@@ -89,44 +92,44 @@ function showRecomendaciones($recomendaciones) {
     /* @var $recomendacion Serie */
     foreach ($recomendaciones as $recomendacion) {
         if ($primeraIteracion) {
-            print '<div class="item active">';
+            print '<div class="item active">' . "\n";
             $primeraIteracion = false;
         } else {
-            print '<div class="item">';
+            print '<div class="item">' . "\n";
         }
         print '    <div class="fill" '
                 . '         style="background-image:'
-                . ' url(\'http://concrete-envoy-87323.appspot.com/?url=' . $recomendacion->thumbnail . '\');">';
-        print '        <div class="container" id="contenidos">';
+                . ' url(\'http://concrete-envoy-87323.appspot.com/?url=' . $recomendacion->thumbnail . '\');">' . "\n";
+        print '        <div class="container" id="contenidos">' . "\n";
         print '            <div class="col-xs-6 col-md-9" id="divtitulo">' . $recomendacion->titulo
-                . '            </div>';
-        print '            <div id="divvideo" class="col-xs-9 col-md-6">';
-        print '                <a href="serie?idSerie=' . $recomendacion->idSerie . '" class="thumbnail">'
+                . '            </div>' . "\n";
+        print '            <div id="divvideo" class="col-xs-9 col-md-6">' . "\n";
+        print '                <a href="serie?idSerie=' . $recomendacion->idSerie . '" class="thumbnail thumb-sinopsis">'
                 . '                   <img src="' . $recomendacion->thumbnail . '" alt="Imagen serie">'
-                . '            </a>';
-        print '            </div>';
-        print '            <div id="divsinopsis" class="col-xs-6 col-md-10">' . $recomendacion->descripcion . '</div>';
-        print '            <div class="col-md-4 col-xs-12">';
-        print '                <div class="col-md-12">';
-        print '                    <a href="#"><span id="visto" class="glyphicon glyphicon-thumbs-up"></span><label id="texto">Agregar a mi lista</label></a>';
-        print '                </div>';
-        print '                <div class="col-md-12 col-xs-12" id="rating">';
-        print '                   <form>';
-        print '                        <input id="input-6a" data-show-clear="false" data-show-caption="false" class="rating" data-size="xs" data-stars="5" data-step="0.1"/>';
-        print '                    </form>';
-        print '                </div>';
-        print '            </div>';
-        print '            <div class="col-md-8 col-xs-12 social">';
-        print '                <ul>';
-        print '                    <li><a href="#"><i class="fa fa-lg fa-facebook"></i></a></li>';
-        print '                    <li><a href="#"><i class="fa fa-lg fa-twitter"></i></a></li>';
-        print '                    <li><a href="#"><i class="fa fa-lg fa-google-plus"></i></a></li>';
-        print '                    <li><a href="#"><i class="fa fa-lg fa-envelope"></i></a></li>';
-        print '                </ul>';
-        print '            </div>';
-        print '        </div>';
-        print '    </div>';
-        print '</div>';
+                . '            </a>' . "\n";
+        print '            </div>' . "\n";
+        print '            <div id="divsinopsis" class="col-xs-6 col-md-10 content mCustomScrollbar">' . $recomendacion->descripcion . '</div>' . "\n";
+        print '            <div class="col-md-5 col-xs-12">' . "\n";
+        print '                <div class="col-md-12">' . "\n";
+        print '                    <a href="#" class="agregar"><span class="glyphicon glyphicon-thumbs-up"> </span> Agregar a mi lista</a>' . "\n";
+        print '                </div>' . "\n";
+        print '                <div class="col-md-12 col-xs-12" id="rating">' . "\n";
+        print '                   <form>' . "\n";
+        print '                        <input id="input-6a" data-show-clear="false" data-show-caption="false" class="rating" data-size="xs" data-stars="5" data-step="0.1"/>' . "\n";
+        print '                    </form>' . "\n";
+        print '                </div>' . "\n";
+        print '            </div>' . "\n";
+        print '            <div class="col-md-7 col-xs-12 social">' . "\n";
+        print '                <ul>' . "\n";
+        print '                    <li><a href="#"><i class="fa fa-lg fa-facebook"></i></a></li>' . "\n";
+        print '                    <li><a href="#"><i class="fa fa-lg fa-twitter"></i></a></li>' . "\n";
+        print '                    <li><a href="#"><i class="fa fa-lg fa-google-plus"></i></a></li>' . "\n";
+        print '                    <li><a href="#"><i class="fa fa-lg fa-envelope"></i></a></li>' . "\n";
+        print '                </ul>' . "\n";
+        print '            </div>' . "\n";
+        print '        </div>' . "\n";
+        print '    </div>' . "\n";
+        print '</div>' . "\n";
     }
 }
 ?>
@@ -159,98 +162,20 @@ function showRecomendaciones($recomendaciones) {
         <!--        link para reconocimiento de imagenes en iconos-->
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
         <!--        link para efectos reproducción de video-->
-        <link rel="stylesheet"  href="../css/lightGallery.css"/>
-        <script src="../js/lightGallery.js"></script>
+        <link rel="stylesheet"  href="../css/lightGallery.css"/>        
+        <!--<script src="../js/lightGallery.js"></script>-->
         <script src="../js/lightGallery.min.js"></script>
 
         <!--        link para efectos de thumbnails-->
-        <link href="../css/adipoli.css" rel="stylesheet" type="text/css"/>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+        <link href="../css/adipoli.css" rel="stylesheet" type="text/css"/>        
         <script src="../js/jquery.adipoli.min.js" type="text/javascript"></script>
 
-        <script type="text/javascript">
-            ///**script para los videos**///
-            $(document).ready(function() {
-//                $('#localVideo').lightGallery();
-            });
+        <link href="../css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css" />
+        <script src="../js/jquery.mCustomScrollbar.concat.min.js"></script>
 
-        </script>
-        <!-- Script to Activate the Carousel -->
-        <script>
-
-            //    script rating
-            jQuery(document).ready(function() {
-                /*script para efectos de video*/
-
-
-                /*script para efectos de thumbnail   (startEffect : transparent, hoverEffect : boxRainGrowReverse)*/
-                $('#image1').adipoli({
-                    'startEffect': 'transparent',
-                    'hoverEffect': 'boxRainGrowReverse'
-                });
-                //    script carrusel
-//                $('#myCarousel1').carousel({
-//                    interval: 25000 //changes the speed
-//                });
-//
-//                $('#myCarousel').carousel({
-//                    interval: 4000
-//                });
-//                $('.carousel').carousel({
-//                    interval: 5000 //changes the speed
-//                });
-//                $("#input-21f").rating({
-//                    starCaptions: function(val) {
-//                        if (val < 3) {
-//                            return val;
-//                        } else {
-//                            return 'high';
-//                        }
-//                    },
-//                    starCaptionClasses: function(val) {
-//                        if (val < 3) {
-//                            return 'label label-danger';
-//                        } else {
-//                            return 'label label-success';
-//                        }
-//                    },
-//                    hoverOnClear: false
-//                });
-
-//                $('#rating-input').rating({
-//                    min: 0,
-//                    max: 5,
-//                    step: 1,
-//                    size: 'lg'
-//                });
-//
-//                $('#btn-rating-input').on('click', function() {
-//                    var $a = self.$element.closest('.star-rating');
-//                    var chk = !$a.hasClass('rating-disabled');
-//                    $('#rating-input').rating('refresh', {showClear: !chk, disabled: chk});
-//                });
-//
-//
-//                $('.btn-danger').on('click', function() {
-//                    $("#kartik").rating('destroy');
-//                });
-//
-//                $('.btn-success').on('click', function() {
-//                    $("#kartik").rating('create');
-//                });
-//
-//                $('#rating-input').on('rating.change', function() {
-//                    alert($('#rating-input').val());
-//                });
-//
-//
-//                $('.rb-rating').rating({'showCaption': true, 'stars': '3', 'min': '0', 'max': '3', 'step': '1', 'size': 'xs', 'starCaptions': {0: 'status:nix', 1: 'status:wackelt', 2: 'status:geht', 3: 'status:laeuft'}});
-            });
-
-        </script>
     </head>
 
-    <body class="back">
+    <body class="back full-page">
         <header class="page-header">
             <div class="row">
                 <div id="wrapper">
@@ -336,15 +261,15 @@ function showRecomendaciones($recomendaciones) {
             <div class="row">
                 <div class="col-lg-12">                    
                     <div class="container">
-                        <div class="row">
-                            <div class="well">
-                                <?php
-                                showCarrusel("Lo mas visto", 2, $vods);
-                                showCarrusel("Estrenos", 3, $vods);
-                                showCarrusel("Lo que ya viste", 4, $vods);
-                                ?>
-                            </div> <!--End Well -->
-                        </div>
+                        <!--                        <div class="row">
+                                                    <div class="well">-->
+                        <?php
+                        showCarrusel("Lo mas visto", 2, $vods);
+                        showCarrusel("Estrenos", 3, $vods);
+                        showCarrusel("Lo que ya viste", 4, $vods);
+                        ?>
+                        <!--                            </div> End Well 
+                                                </div>-->
                     </div>
 
                     <hr>
@@ -363,7 +288,13 @@ function showRecomendaciones($recomendaciones) {
                 </div>
             </div>
         </div>
-        <!--     /.container -->
+        <script src="../js/scrollbar.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $("#video").lightGallery();
+            });
+        </script>
     </body>
+
 
 </html>

@@ -18,6 +18,25 @@ html { height: 100%;}
 .nav .open > a:hover, 
 .nav .open > a:focus {background-color: transparent;}
 
+.agregar{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    color: #fff;
+}
+.navbar-fixed-top{
+    background: black;
+}
+
+.thumb-sinopsis img{
+    height: 160px;
+    width: 280px;
+}
+
+.carousel-control .icon-next{
+    margin-right: 0px !important; 
+}
+
+
 /*-------------------------------*/
 /*           Wrappers            */
 /*-------------------------------*/
@@ -332,7 +351,7 @@ html { height: 100%;}
 /*    margin-top: 50px;*/
 }
 #divtitulo{
-    font-family: times, Times New Roman, times-roman, georgia, serif;
+    font-family: 'Open Sans', sans-serif;
 	color: #FFF;
 	margin: 0;
 	padding: 0px 0px 6px 0px;
@@ -345,7 +364,12 @@ html { height: 100%;}
    
 }
 #divsinopsis{
-    color: #ead24c;
+/*    color: #ead24c;*/
+    color: white;
+    width: 90%;
+    height: 300px;
+    overflow: auto;
+    text-align: justify;
 }
 #divredes{
     width: 350px;
@@ -354,18 +378,31 @@ html { height: 100%;}
 #texto{
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
-    color: #fff;
+    color: #000;
     margin-left: -22px;
-margin-top: 4px;
+    margin-top: 4px;
+}
+#titserie{
+    border: 1px solid #FFF;
+    background: #FFF;
+     font-family: 'Open Sans', sans-serif;
+     font-weight: bold;
+    font-size: 16px;
+    color: #000;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    border-radius: 30px;
+    padding-left: 20px;
+    width: 300px;
 }
 .back{
-    background: #1a1a1a;
+    background: black;
 }
-#video{
+/*#video{
     width:340px;
     height:200px;
-/*    margin-top: -25px;*/
-}
+    margin-top: -25px;
+}*/
 .divconten{
     border: 2px dashed #ff0;
     margin-left: 150px;
@@ -447,26 +484,18 @@ margin-top: 4px;
 .social .fa-envelope { /* round google plus icon*/
     background: #FF57AE;
 }
-
-
-#visto{
-     color: #FFF;
-    font-size: 18px;
-    text-align:left;
-    }
-    #texto{
-        margin-left: 10px;
-        size: 8px;
-        color: #FFF;
-    }
+.glyphicon{
+    color: #FFF;
+    size: 14px;
+}
     
 /*-------------------------------*/
 /*           video               */
 /*-------------------------------*/
-.localVideo #lightGallery-action {
+.video #lightGallery-action {
         position: static;
     }
-    .localVideo #lightGallery-action a {
+    .video #lightGallery-action a {
         margin-top: -14px !important;
         position: absolute;
         top: 50%;
@@ -474,10 +503,10 @@ margin-top: 4px;
         background-color: transparent;
         font-size: 28px;
     }
-    .localVideo #lightGallery-action a#lightGallery-prev {
+    .video #lightGallery-action a#lightGallery-prev {
         left: 17px;
     }
-    .localVideo #lightGallery-action a#lightGallery-next {
+    .video #lightGallery-action a#lightGallery-next {
         right: 17px;
     }
     
@@ -508,18 +537,19 @@ Additional Styles (required)
 .carousel-control:hover {
 	color: #FFF;
 }
-#carousel2left, #carousel2right {
-	background-image:none !important;
-}
-#carousel2right {
-	left:auto;
-	right:-32px;
-}
-#carousel2left {
-	right:auto;
-	left:-32px;
-}
 
+.carouselleft{
+    right:auto;
+    left:-32px;
+}
+.carouselright{
+    left:auto;
+    right:-32px !important;
+}
+.carouselleft, .carouselright{
+    background-image:none !important;
+}
+    
 .carousel-indicators {
 	bottom:-30px;
 }
@@ -539,15 +569,9 @@ Additional Styles (required)
 .well{
     background: #000;
     border: #000;
-    margin-top: 50px;
+    margin-top: 10px;
 }
 
 #carousel3{
-    margin-top:50px;
-}
-#texto{
-    margin-bottom: 10px;
-    border-radius: 30px;
-    padding-left: 20px;
-    width: 300px;
+/*    margin-top:50px;*/
 }
