@@ -24,7 +24,7 @@ function getNRandomVods($vods, $n) {
 
 function addItem($randVods1, $isActive) {
     print '<div class="item' . $isActive . '">' . "\n";
-    print '<div class="row video" id="video">' . "\n";
+    print '<div class="row video" class="video">' . "\n";
     /* @var $vod Vod */
     foreach ($randVods1 as $vod) {
         print '<div class="col-md-3" data-src="' . trim($vod->url) . '" data-sub-html=".subhtml">' . "\n";
@@ -69,7 +69,7 @@ function showCarrusel($titulo, $id, $vods) {
 
     print '<div style="display:none;" class="subhtml">' . "\n";
     print '    <div class="customHtml">' . "\n";
-    print '        <h4>Ventana Educativa</h4>' . "\n";
+    print '        <h4> Ventana Educativa </h4>' . "\n";
     print '    </div>' . "\n";
     print '</div>' . "\n";
     print '</div> <!-- carousel-inner -->' . "\n";
@@ -291,7 +291,7 @@ function showRecomendaciones($recomendaciones) {
         <script src="../js/scrollbar.js"></script>
         <script type="text/javascript">
             $(document).ready(function() {
-                $("#video").lightGallery();
+                $(".video").lightGallery();
             });
         </script>
     </body>

@@ -1,5 +1,5 @@
-application: ventana-educativa
-version: 2
+application: vod-ventana-educativa
+version: 1
 runtime: php55
 api_version: 1
 threadsafe: yes
@@ -15,9 +15,11 @@ handlers:
 - url: /js
   static_dir: js
 
+- url: /serie
+  script: vod/serie.php
 - url: /(.+)
   script: \1.php
-  
 - url: /
-  script: index.php
+  script: vod/index.php
+
 
