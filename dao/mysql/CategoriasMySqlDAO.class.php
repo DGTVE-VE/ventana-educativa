@@ -82,8 +82,10 @@ class CategoriasMySqlDAO implements CategoriasDAO{
 		$sqlQuery->set($categoria->descripcion);
 		$sqlQuery->set($categoria->categoriaPadre);
 		$sqlQuery->set($categoria->fechaCreacion);
-//		$sqlQuery->set($categoria->fechaModificacion);
-                $sqlQuery->set(date("Y-m-d H:i:s"));
+
+		$sqlQuery->set(date("Y-m-d H:i:s"));
+
+
 		$sqlQuery->set($categoria->categoria);
 		return $this->executeUpdate($sqlQuery);
 	}
