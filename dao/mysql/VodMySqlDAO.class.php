@@ -150,7 +150,8 @@ class VodMySqlDAO implements VodDAO{
 		$sqlQuery->set($vod->thumbnail);
 		$sqlQuery->setNumber($vod->visible);
 		$sqlQuery->set($vod->fechaCreacion);
-		$sqlQuery->set($vod->fechaModificacion);
+//		$sqlQuery->set($vod->fechaModificacion);
+                $sqlQuery->set(date("Y-m-d H:i:s")); 
 
 		$sqlQuery->setNumber($vod->idVod);
 		return $this->executeUpdate($sqlQuery);
