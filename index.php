@@ -24,4 +24,6 @@ if (isset($user)) {
     header('Location: vod/index');
 } else {
     $_SESSION['loginUrl'] = UserService::createLoginUrl('/');
+    header('Location: login.php');
 }
+
