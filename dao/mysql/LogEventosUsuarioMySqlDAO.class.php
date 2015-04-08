@@ -86,7 +86,8 @@ class LogEventosUsuarioMySqlDAO implements LogEventosUsuarioDAO{
 		$sqlQuery->set($logEventosUsuario->tipoEvento);
 		$sqlQuery->set($logEventosUsuario->direccionIp);
 		$sqlQuery->set($logEventosUsuario->fechaCreacion);
-		$sqlQuery->set($logEventosUsuario->fechaModificacion);
+//		$sqlQuery->set($logEventosUsuario->fechaModificacion);
+                $sqlQuery->set(date("Y-m-d H:i:s"));
 
 		$sqlQuery->setNumber($logEventosUsuario->idLogEventosUsuario);
 		return $this->executeUpdate($sqlQuery);

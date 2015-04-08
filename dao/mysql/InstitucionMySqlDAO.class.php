@@ -67,6 +67,7 @@ class InstitucionMySqlDAO implements InstitucionDAO{
 		$sqlQuery->set($institucion->abreviatura);
 		$sqlQuery->set($institucion->fechaCreacion);
 		$sqlQuery->set($institucion->fechaModificacion);
+               
 
 		$id = $this->executeInsert($sqlQuery);	
 		$institucion->idInstitucion = $id;

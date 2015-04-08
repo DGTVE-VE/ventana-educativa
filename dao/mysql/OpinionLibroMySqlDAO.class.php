@@ -91,7 +91,8 @@ class OpinionLibroMySqlDAO implements OpinionLibroDAO{
 		$sqlQuery->set($opinionLibro->opinion);
 		$sqlQuery->setNumber($opinionLibro->calificacion);
 		$sqlQuery->set($opinionLibro->fechaCreacion);
-		$sqlQuery->set($opinionLibro->fechaModificacion);
+//		$sqlQuery->set($opinionLibro->fechaModificacion);
+                $sqlQuery->set(date("Y-m-d H:i:s"));
 
 		
 		$sqlQuery->setNumber($opinionLibro->idLibro);
