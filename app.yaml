@@ -20,6 +20,6 @@ handlers:
 - url: /(.+)
   script: \1.php
 - url: /
-  script: vod/index.php
+  script: index.php
 
 
