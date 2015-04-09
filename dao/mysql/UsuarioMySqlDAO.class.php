@@ -188,7 +188,7 @@ class UsuarioMySqlDAO implements UsuarioDAO{
 		$sql = 'SELECT * FROM usuario WHERE google = ?';
 		$sqlQuery = new SqlQuery($sql);
 		$sqlQuery->set($value);
-		return $this->getList($sqlQuery);
+		return $this->getRow($sqlQuery, false);
 	}
 
 	public function queryByLive($value){
@@ -377,8 +377,9 @@ class UsuarioMySqlDAO implements UsuarioDAO{
 		return $usuario;
 	}
 	
-	protected function getList($sqlQuery){
-		$tab = QueryExecutor::execute($sqlQuery);
+	protected function getList($sqlQuery, $buscarEnCache=true){
+                var_dump ($sqlQuery);
+		$tab = QueryExecutor::execute($sqlQuery, $buscarEnCache);                
 		$ret = array();
 		for($i=0;$i<count($tab);$i++){
 			$ret[$i] = $this->readRow($tab[$i]);
@@ -391,8 +392,8 @@ class UsuarioMySqlDAO implements UsuarioDAO{
 	 *
 	 * @return UsuarioMySql 
 	 */
-	protected function getRow($sqlQuery){
-		$tab = QueryExecutor::execute($sqlQuery);
+	protected function getRow($sqlQuery, $buscarEnCache=true){
+		$tab = QueryExecutor::execute($sqlQuery, $buscarEnCache);
 		if(count($tab)==0){
 			return null;
 		}
