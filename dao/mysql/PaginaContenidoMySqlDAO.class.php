@@ -90,7 +90,8 @@ class PaginaContenidoMySqlDAO implements PaginaContenidoDAO{
 		$sqlQuery->set($paginaContenido->url);
 		$sqlQuery->set($paginaContenido->tipoContenido);
 		$sqlQuery->set($paginaContenido->fechaCreacion);
-		$sqlQuery->set($paginaContenido->fechaModificacion);
+//		$sqlQuery->set($paginaContenido->fechaModificacion);
+                $sqlQuery->set(date("Y-m-d H:i:s"));
 
 		$sqlQuery->setNumber($paginaContenido->idContenido);
 		return $this->executeUpdate($sqlQuery);

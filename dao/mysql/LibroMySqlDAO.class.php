@@ -133,8 +133,9 @@ class LibroMySqlDAO implements LibroDAO{
 		$sqlQuery->set($libro->thumbnail);
 		$sqlQuery->setNumber($libro->idInstitucion);
 		$sqlQuery->set($libro->fechaCreacion);
-		$sqlQuery->set($libro->fechaModificacion);
+//		$sqlQuery->set($libro->fechaModificacion);
 		$sqlQuery->setNumber($libro->visible);
+                $sqlQuery->set(date("Y-m-d H:i:s"));
 
 		$sqlQuery->setNumber($libro->idLibro);
 		return $this->executeUpdate($sqlQuery);
