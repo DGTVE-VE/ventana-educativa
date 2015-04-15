@@ -102,7 +102,8 @@ class PantallaMySqlDAO implements PantallaDAO{
 		$sqlQuery->setNumber($pantalla->columnas);
 		$sqlQuery->set($pantalla->tipoVentana);
 		$sqlQuery->set($pantalla->fechaCreacion);
-		$sqlQuery->set($pantalla->fechaModificacion);
+//		$sqlQuery->set($pantalla->fechaModificacion);
+                $sqlQuery->set(date("Y-m-d H:i:s"));
 
 		$sqlQuery->setNumber($pantalla->idPantalla);
 		return $this->executeUpdate($sqlQuery);

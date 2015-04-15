@@ -1,4 +1,8 @@
 <?php
+session_start ();
+if (! isset ($_SESSION['usuario'])){
+    header ('Location: ../index');
+}
 //set_include_path('dao' . PATH_SEPARATOR . get_include_path());
 require_once '../autoload.php';
 
@@ -213,7 +217,9 @@ function showRecomendaciones($recomendaciones) {
                         <div class="col-md-2 visible-md visible-lg text-left" id="texto">
                             Televisión <br> Educativa
                         </div>
-                        <div class="col-md-2"></div>
+                        <div class="col-md-2"> 
+                            <a href="<?php print $_SESSION['logoutUrl']; ?>" > Cerrar sesión </a>
+                        </div>
                         <div class="col-md-2 pull-right col-xs-4">
                             <form role="search">
                                 <div class="input-group">

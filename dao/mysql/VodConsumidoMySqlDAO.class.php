@@ -86,7 +86,8 @@ class VodConsumidoMySqlDAO implements VodConsumidoDAO{
 		$sqlQuery->set($vodConsumido->tiempo);
 		$sqlQuery->set($vodConsumido->ip);
 		$sqlQuery->set($vodConsumido->fechaCreacion);
-		$sqlQuery->set($vodConsumido->fechaModificacion);
+//		$sqlQuery->set($vodConsumido->fechaModificacion);
+                $sqlQuery->set(date("Y-m-d H:i:s")); 
 
 		$sqlQuery->setNumber($vodConsumido->idVodConsumido);
 		return $this->executeUpdate($sqlQuery);

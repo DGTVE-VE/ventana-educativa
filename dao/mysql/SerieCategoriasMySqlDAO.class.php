@@ -101,7 +101,8 @@ class SerieCategoriasMySqlDAO implements SerieCategoriasDAO{
 		$sqlQuery = new SqlQuery($sql);
 		
 		$sqlQuery->set($serieCategoria->fechaCreacion);
-		$sqlQuery->set($serieCategoria->fechaModificacion);
+//		$sqlQuery->set($serieCategoria->fechaModificacion);
+                $sqlQuery->set(date("Y-m-d H:i:s"));
 
 		
 		$sqlQuery->setNumber($serieCategoria->idSerie);

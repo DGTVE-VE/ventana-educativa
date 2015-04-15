@@ -98,7 +98,8 @@ class EscuelaMySqlDAO implements EscuelaDAO{
 		$sqlQuery->set($escuela->nivel);
 		$sqlQuery->set($escuela->institucion);
 		$sqlQuery->set($escuela->fechaCreacion);
-		$sqlQuery->set($escuela->fechaModificacion);
+//		$sqlQuery->set($escuela->fechaModificacion);
+                $sqlQuery->set(date("Y-m-d H:i:s"));
 
 		$sqlQuery->setNumber($escuela->idEscuela);
 		return $this->executeUpdate($sqlQuery);

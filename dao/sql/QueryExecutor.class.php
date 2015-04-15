@@ -47,17 +47,16 @@ class QueryExecutor {
      * @param sqlQuery obiekt typu SqlQuery
      * @return wynik zapytania 
      */
-    public static function execute($sqlQuery) {
+    public static function execute($sqlQuery, $buscaEnCache=true) {
         /**************************************/
         /** Se busca en cache el resultado **/
-//        var_dump($sqlQuery);
-        
         $memcache = new Memcache;
-        $key = md5($sqlQuery->getQuery ());
-        $data = $memcache->get($key);        
-        if ($data !== false){
-//            var_dump($data);
-            return $data; 
+        if ($buscaEnCache){            
+            $key = md5($sqlQuery->getQuery ());
+            $data = $memcache->get($key);        
+            if ($data !== false){
+                return $data; 
+            }
         }
         /***************************************/
         $result = self::executeQuery($sqlQuery);

@@ -94,7 +94,8 @@ class SerieMySqlDAO implements SerieDAO{
 		$sqlQuery->setNumber($serie->calificacion);
 		$sqlQuery->setNumber($serie->visible);
 		$sqlQuery->set($serie->fechaCreacion);
-		$sqlQuery->set($serie->fechaModificacion);
+//		$sqlQuery->set($serie->fechaModificacion);
+                $sqlQuery->set(date("Y-m-d H:i:s"));
 
 		$sqlQuery->setNumber($serie->idSerie);
 		return $this->executeUpdate($sqlQuery);

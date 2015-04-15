@@ -91,7 +91,8 @@ class OpinionSerieMySqlDAO implements OpinionSerieDAO{
 		$sqlQuery->set($opinionSerie->opinion);
 		$sqlQuery->setNumber($opinionSerie->calificacion);
 		$sqlQuery->set($opinionSerie->fechaCreacion);
-		$sqlQuery->set($opinionSerie->fechaModificacion);
+//		$sqlQuery->set($opinionSerie->fechaModificacion);
+                $sqlQuery->set(date("Y-m-d H:i:s"));
 
 		
 		$sqlQuery->setNumber($opinionSerie->idSerie);
