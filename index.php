@@ -4,7 +4,8 @@ require_once 'autoload.php';
 use google\appengine\api\users\User;
 use google\appengine\api\users\UserService;
 session_start();
-
+$memcache = new Memcache;
+$memcache->flush();
 $usuario = new Usuario;
 $daoUsuario = DAOFactory::getUsuarioDAO();
 

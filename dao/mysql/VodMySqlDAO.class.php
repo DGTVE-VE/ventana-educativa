@@ -57,7 +57,21 @@ class VodMySqlDAO implements VodDAO{
  	 * @param VodMySql vod
  	 */
 	public function insert($vod){
-		$sql = 'INSERT INTO vod (id_institucion, autor, productor, derecho_autor, serie, titulo, subserie, subtitulo, titulo_traducido, clave_identificacion, numero_obra, numero_serie, formato, nnnov, creditos, lugar_produccion, temas, sinopsis, duracion, anio_produccion, idioma, versiones, sistema_grabacion, color, sonido, disponibilidad, observaciones, disponible_hasta, episodio, temporada, calificacion, tags, id_serie, url, thumbnail, visible, fecha_creacion, fecha_modificacion) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+		$sql = 'INSERT INTO vod (id_institucion, autor, productor, '
+                     . 'derecho_autor, serie, titulo, subserie, subtitulo, '
+                     . 'titulo_traducido, clave_identificacion, numero_obra, '
+                     . 'numero_serie, formato, nnnov, creditos, '
+                     . 'lugar_produccion, temas, sinopsis, duracion, '
+                     . 'anio_produccion, idioma, versiones, sistema_grabacion, '
+                     . 'color, sonido, disponibilidad, observaciones, '
+                     . 'disponible_hasta, episodio, temporada, calificacion, '
+                     . 'tags, id_serie, url, thumbnail, visible, '
+                     . 'youtube_list_id, youtube_id, fecha_creacion, '
+                     . 'fecha_modificacion) '
+                     . 'VALUES '
+                     . '(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, '
+                     . ' ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, '
+                     . ' ?, ?, ?, ?)';
 		$sqlQuery = new SqlQuery($sql);
 		
 		$sqlQuery->setNumber($vod->idInstitucion);
@@ -96,6 +110,8 @@ class VodMySqlDAO implements VodDAO{
 		$sqlQuery->set($vod->url);
 		$sqlQuery->set($vod->thumbnail);
 		$sqlQuery->setNumber($vod->visible);
+                $sqlQuery->set($vod->youtubeListId);
+                $sqlQuery->set($vod->youtubeId);
 		$sqlQuery->set($vod->fechaCreacion);
 		$sqlQuery->set($vod->fechaModificacion);
 
@@ -110,7 +126,21 @@ class VodMySqlDAO implements VodDAO{
  	 * @param VodMySql vod
  	 */
 	public function update($vod){
-		$sql = 'UPDATE vod SET id_institucion = ?, autor = ?, productor = ?, derecho_autor = ?, serie = ?, titulo = ?, subserie = ?, subtitulo = ?, titulo_traducido = ?, clave_identificacion = ?, numero_obra = ?, numero_serie = ?, formato = ?, nnnov = ?, creditos = ?, lugar_produccion = ?, temas = ?, sinopsis = ?, duracion = ?, anio_produccion = ?, idioma = ?, versiones = ?, sistema_grabacion = ?, color = ?, sonido = ?, disponibilidad = ?, observaciones = ?, disponible_hasta = ?, episodio = ?, temporada = ?, calificacion = ?, tags = ?, id_serie = ?, url = ?, thumbnail = ?, visible = ?, fecha_creacion = ?, fecha_modificacion = ? WHERE id_vod = ?';
+		$sql = 'UPDATE vod SET id_institucion = ?, autor = ?, '
+                        . 'productor = ?, derecho_autor = ?, serie = ?, '
+                        . 'titulo = ?, subserie = ?, subtitulo = ?, '
+                        . 'titulo_traducido = ?, clave_identificacion = ?, '
+                        . 'numero_obra = ?, numero_serie = ?, formato = ?, '
+                        . 'nnnov = ?, creditos = ?, lugar_produccion = ?, '
+                        . 'temas = ?, sinopsis = ?, duracion = ?, '
+                        . 'anio_produccion = ?, idioma = ?, versiones = ?, '
+                        . 'sistema_grabacion = ?, color = ?, sonido = ?, '
+                        . 'disponibilidad = ?, observaciones = ?, '
+                        . 'disponible_hasta = ?, episodio = ?, temporada = ?, '
+                        . 'calificacion = ?, tags = ?, id_serie = ?, url = ?, '
+                        . 'thumbnail = ?, visible = ?, youtube_list_id = ?, '
+                        . 'youtube_id, fecha_creacion = ?, '
+                        . 'fecha_modificacion = ? WHERE id_vod = ?';
 		$sqlQuery = new SqlQuery($sql);
 		
 		$sqlQuery->setNumber($vod->idInstitucion);
@@ -149,6 +179,8 @@ class VodMySqlDAO implements VodDAO{
 		$sqlQuery->set($vod->url);
 		$sqlQuery->set($vod->thumbnail);
 		$sqlQuery->setNumber($vod->visible);
+                $sqlQuery->set($vod->youtubeListId);
+                $sqlQuery->set($vod->youtubeId);
 		$sqlQuery->set($vod->fechaCreacion);
 //		$sqlQuery->set($vod->fechaModificacion);
                 $sqlQuery->set(date("Y-m-d H:i:s")); 
@@ -707,6 +739,7 @@ class VodMySqlDAO implements VodDAO{
 	 * @return VodMySql 
 	 */
 	protected function readRow($row){
+                /* @var $vod Vod*/
 		$vod = new Vod();
 		
 		$vod->idVod = $row['id_vod'];
@@ -746,6 +779,8 @@ class VodMySqlDAO implements VodDAO{
 		$vod->url = $row['url'];
 		$vod->thumbnail = $row['thumbnail'];
 		$vod->visible = $row['visible'];
+                $vod->youtubeListId = $row['youtube_list_id'];
+                $vod->youtubeId = $row['youtube_id'];
 		$vod->fechaCreacion = $row['fecha_creacion'];
 		$vod->fechaModificacion = $row['fecha_modificacion'];
 

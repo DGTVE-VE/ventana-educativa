@@ -6,9 +6,9 @@
  * @date: 27.11.2007
  */
 class ConnectionProperty{
-	private static $host = 'localhost';
-	private static $user = 'root';
-	private static $password = '';
+	private static $host = '172.16.107.157';
+	private static $user = 'vema';
+	private static $password = 'vema';
 	private static $database = 'vema';
 
 	public static function getHost(){

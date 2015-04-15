@@ -15,6 +15,7 @@ $daoVod = DAOFactory::getVodDAO();
 $serie = $daoSerie->load($_GET['idSerie']);
 
 $capitulos = $daoVod->queryByIdSerie($serie->idSerie);
+
 $maxTemporada = $daoVod->getLastTemporadaOfSerie($serie->idSerie);
 
 function showTemporadas ($max){
@@ -25,9 +26,9 @@ function showTemporadas ($max){
 
 function showCaps ($capitulos){
     /* @var $capitulo VOD */    
-    foreach ($capitulos as $capitulo){
+    foreach ($capitulos as $capitulo){        
         print '<tr><td class="video">';
-        print '<div data-src="'.trim($capitulo->url).'" data-sub-html=".subhtml">';
+        print '<div data-iframe="true" data-src="video?youtube='.$capitulo->youtubeId.'" data-sub-html=".subhtml">';
         print '<a href="#"> <img width="200" src="' . $capitulo->thumbnail . '"/></a> </div> </td>';
         print "<td class=\"opaco\" id='texto1'>". $capitulo->sinopsis ."</td></tr>";                                   
     }
@@ -161,7 +162,9 @@ $backgroundImage .= $serie->thumbnail;
         </div>
         <script type="text/javascript">
             $(document).ready(function() {
-                $(".video").lightGallery();
+                $(".video").lightGallery({onCloseAfter : function (e1){
+                        alert ("salio");
+                } });
             });
         </script>
     </body>
