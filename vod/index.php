@@ -28,7 +28,7 @@ function getNRandomVods($vods, $n) {
 
 function addItem($randVods1, $isActive) {
     print '<div class="item' . $isActive . '">' . "\n";
-    print '<div class="row video" class="video">' . "\n";
+    print '<div class="row video">' . "\n";
     /* @var $vod Vod */
     foreach ($randVods1 as $vod) {
         print '<div class="col-md-3" data-src="' . trim($vod->url) . '" data-sub-html=".subhtml">' . "\n";
