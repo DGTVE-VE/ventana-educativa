@@ -15,10 +15,13 @@ handlers:
 - url: /js
   static_dir: js
 
-- url: /serie
-  script: vod/serie.php
+#- url: /serie
+#  script: vod/serie.php
+#- url: /(.+)
+#  script: \1.php
 - url: /(.+)
-  script: \1.php
+  script: index.php
+
 - url: /
   script: index.php
 

@@ -1,25 +1,31 @@
 <?php
 
+$paths = array(
+    'class/',
+    'model/core/',
+    'model/dao/',
+    'model/dto/',
+    'model/mysql/',
+    'model/mysql/ext/',
+    'model/sql/',
+    'controllers/',
+);
+
 spl_autoload_register('autoload');
 
-//echo $protocol . $_SERVER['SERVER_NAME'] .":". $_SERVER['SERVER_PORT']. $_SERVER['REQUEST_URI'] . '<br>';
 function autoload($class) {
-//    $base_dir = $protocol . $_SERVER['SERVER_NAME'] .":". $_SERVER['SERVER_PORT'] . "/";
-    $root = $_SERVER['DOCUMENT_ROOT'];
-    $paths = array(
-        'class/',
-        'dao/core/',
-        'dao/dao/',
-        'dao/dto/',
-        'dao/mysql/',
-        'dao/mysql/ext/',
-        'dao/sql/'
-    );
-    foreach ($paths as $path) {
-        $file = $root ."/". $path . $class . '.class.php';        
-        if (file_exists($file)){            
-            include $file;
-            return;
-        }
+  global $paths;
+  $root = $_SERVER['DOCUMENT_ROOT'];
+  $file = $root . "/" . $_SESSION['autoload_dir'] . $class . '.class.php';
+  if (file_exists($file)) {
+    include $file;
+    return;
+  }
+  foreach ($paths as $path) {
+    $file = $root . "/" . $path . $class . '.class.php';
+    if (file_exists($file)) {
+      include $file;
+      return;
     }
+  }
 }

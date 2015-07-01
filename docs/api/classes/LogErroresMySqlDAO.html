@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">2417</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-833592156"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-833592156" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/AdministradorDAO.html">AdministradorDAO</a></li>
+                                                    <li class="interface"><a href="../classes/CategoriasDAO.html">CategoriasDAO</a></li>
+                                                    <li class="interface"><a href="../classes/CategoriasVodDAO.html">CategoriasVodDAO</a></li>
+                                                    <li class="interface"><a href="../classes/EscuelaDAO.html">EscuelaDAO</a></li>
+                                                    <li class="interface"><a href="../classes/InstitucionDAO.html">InstitucionDAO</a></li>
+                                                    <li class="interface"><a href="../classes/LibroConsumidoDAO.html">LibroConsumidoDAO</a></li>
+                                                    <li class="interface"><a href="../classes/LibroDAO.html">LibroDAO</a></li>
+                                                    <li class="interface"><a href="../classes/LogErroresDAO.html">LogErroresDAO</a></li>
+                                                    <li class="interface"><a href="../classes/LogEventosAdministradorDAO.html">LogEventosAdministradorDAO</a></li>
+                                                    <li class="interface"><a href="../classes/LogEventosUsuarioDAO.html">LogEventosUsuarioDAO</a></li>
+                                                    <li class="interface"><a href="../classes/OpinionLibroDAO.html">OpinionLibroDAO</a></li>
+                                                    <li class="interface"><a href="../classes/OpinionSerieDAO.html">OpinionSerieDAO</a></li>
+                                                    <li class="interface"><a href="../classes/OpinionVodDAO.html">OpinionVodDAO</a></li>
+                                                    <li class="interface"><a href="../classes/PaginaContenidoDAO.html">PaginaContenidoDAO</a></li>
+                                                    <li class="interface"><a href="../classes/PaginaDAO.html">PaginaDAO</a></li>
+                                                    <li class="interface"><a href="../classes/PantallaDAO.html">PantallaDAO</a></li>
+                                                    <li class="interface"><a href="../classes/SerieCategoriasDAO.html">SerieCategoriasDAO</a></li>
+                                                    <li class="interface"><a href="../classes/SerieDAO.html">SerieDAO</a></li>
+                                                    <li class="interface"><a href="../classes/TipoPantallaDAO.html">TipoPantallaDAO</a></li>
+                                                    <li class="interface"><a href="../classes/UsuarioDAO.html">UsuarioDAO</a></li>
+                                                    <li class="interface"><a href="../classes/UsuarioEscuelaDAO.html">UsuarioEscuelaDAO</a></li>
+                                                    <li class="interface"><a href="../classes/VodConsumidoDAO.html">VodConsumidoDAO</a></li>
+                                                    <li class="interface"><a href="../classes/VodDAO.html">VodDAO</a></li>
+                                                                                                    <li class="class"><a href="../classes/_BaseController.html">_BaseController</a></li>
+                                                    <li class="class"><a href="../classes/Administrador.html">Administrador</a></li>
+                                                    <li class="class"><a href="../classes/AdministradorMySqlDAO.html">AdministradorMySqlDAO</a></li>
+                                                    <li class="class"><a href="../classes/AdministradorMySqlExtDAO.html">AdministradorMySqlExtDAO</a></li>
+                                                    <li class="class"><a href="../classes/ApiController.html">ApiController</a></li>
+                                                    <li class="class"><a href="../classes/ArrayList.html">ArrayList</a></li>
+                                                    <li class="class"><a href="../classes/Categoria.html">Categoria</a></li>
+                                                    <li class="class"><a href="../classes/CategoriasMySqlDAO.html">CategoriasMySqlDAO</a></li>
+                                                    <li class="class"><a href="../classes/CategoriasMySqlExtDAO.html">CategoriasMySqlExtDAO</a></li>
+                                                    <li class="class"><a href="../classes/CategoriasVod.html">CategoriasVod</a></li>
+                                                    <li class="class"><a href="../classes/CategoriasVodMySqlDAO.html">CategoriasVodMySqlDAO</a></li>
+                                                    <li class="class"><a href="../classes/CategoriasVodMySqlExtDAO.html">CategoriasVodMySqlExtDAO</a></li>
+                                                    <li class="class"><a href="../classes/Connection.html">Connection</a></li>
+                                                    <li class="class"><a href="../classes/ConnectionFactory.html">ConnectionFactory</a></li>
+                                                    <li class="class"><a href="../classes/ConnectionProperty.html">ConnectionProperty</a></li>
+                                                    <li class="class"><a href="../classes/DAOFactory.html">DAOFactory</a></li>
+                                                    <li class="class"><a href="../classes/Escuela.html">Escuela</a></li>
+                                                    <li class="class"><a href="../classes/EscuelaMySqlDAO.html">EscuelaMySqlDAO</a></li>
+                                                    <li class="class"><a href="../classes/EscuelaMySqlExtDAO.html">EscuelaMySqlExtDAO</a></li>
+                                                    <li class="class"><a href="../classes/html_element.html">html_element</a></li>
+                                                    <li class="class"><a href="../classes/ImageUtil.html">ImageUtil</a></li>
+                                                    <li class="class"><a href="../classes/IndexController.html">IndexController</a></li>
+                                                    <li class="class"><a href="../classes/Institucion.html">Institucion</a></li>
+                                                    <li class="class"><a href="../classes/InstitucionMySqlDAO.html">InstitucionMySqlDAO</a></li>
+                                                    <li class="class"><a href="../classes/InstitucionMySqlExtDAO.html">InstitucionMySqlExtDAO</a></li>
+                                                    <li class="class"><a href="../classes/Libro.html">Libro</a></li>
+                                                    <li class="class"><a href="../classes/LibroConsumido.html">LibroConsumido</a></li>
+                                                    <li class="class"><a href="../classes/LibroConsumidoMySqlDAO.html">LibroConsumidoMySqlDAO</a></li>
+                                                    <li class="class"><a href="../classes/LibroConsumidoMySqlExtDAO.html">LibroConsumidoMySqlExtDAO</a></li>
+                                                    <li class="class"><a href="../classes/LibroMySqlDAO.html">LibroMySqlDAO</a></li>
+                                                    <li class="class"><a href="../classes/LibroMySqlExtDAO.html">LibroMySqlExtDAO</a></li>
+                                                    <li class="class"><a href="../classes/LogErrore.html">LogErrore</a></li>
+                                                    <li class="class"><a href="../classes/LogErroresMySqlDAO.html">LogErroresMySqlDAO</a></li>
+                                                    <li class="class"><a href="../classes/LogErroresMySqlExtDAO.html">LogErroresMySqlExtDAO</a></li>
+                                                    <li class="class"><a href="../classes/LogEventosAdministrador.html">LogEventosAdministrador</a></li>
+                                                    <li class="class"><a href="../classes/LogEventosAdministradorMySqlDAO.html">LogEventosAdministradorMySqlDAO</a></li>
+                                                    <li class="class"><a href="../classes/LogEventosAdministradorMySqlExtDAO.html">LogEventosAdministradorMySqlExtDAO</a></li>
+                                                    <li class="class"><a href="../classes/LogEventosUsuario.html">LogEventosUsuario</a></li>
+                                                    <li class="class"><a href="../classes/LogEventosUsuarioMySqlDAO.html">LogEventosUsuarioMySqlDAO</a></li>
+                                                    <li class="class"><a href="../classes/LogEventosUsuarioMySqlExtDAO.html">LogEventosUsuarioMySqlExtDAO</a></li>
+                                                    <li class="class"><a href="../classes/OpinionLibro.html">OpinionLibro</a></li>
+                                                    <li class="class"><a href="../classes/OpinionLibroMySqlDAO.html">OpinionLibroMySqlDAO</a></li>
+                                                    <li class="class"><a href="../classes/OpinionLibroMySqlExtDAO.html">OpinionLibroMySqlExtDAO</a></li>
+                                                    <li class="class"><a href="../classes/OpinionSerie.html">OpinionSerie</a></li>
+                                                    <li class="class"><a href="../classes/OpinionSerieMySqlDAO.html">OpinionSerieMySqlDAO</a></li>
+                                                    <li class="class"><a href="../classes/OpinionSerieMySqlExtDAO.html">OpinionSerieMySqlExtDAO</a></li>
+                                                    <li class="class"><a href="../classes/OpinionVod.html">OpinionVod</a></li>
+                                                    <li class="class"><a href="../classes/OpinionVodMySqlDAO.html">OpinionVodMySqlDAO</a></li>
+                                                    <li class="class"><a href="../classes/OpinionVodMySqlExtDAO.html">OpinionVodMySqlExtDAO</a></li>
+                                                    <li class="class"><a href="../classes/Pagina.html">Pagina</a></li>
+                                                    <li class="class"><a href="../classes/PaginaContenido.html">PaginaContenido</a></li>
+                                                    <li class="class"><a href="../classes/PaginaContenidoMySqlDAO.html">PaginaContenidoMySqlDAO</a></li>
+                                                    <li class="class"><a href="../classes/PaginaContenidoMySqlExtDAO.html">PaginaContenidoMySqlExtDAO</a></li>
+                                                    <li class="class"><a href="../classes/PaginaMySqlDAO.html">PaginaMySqlDAO</a></li>
+                                                    <li class="class"><a href="../classes/PaginaMySqlExtDAO.html">PaginaMySqlExtDAO</a></li>
+                                                    <li class="class"><a href="../classes/Pantalla.html">Pantalla</a></li>
+                                                    <li class="class"><a href="../classes/PantallaMySqlDAO.html">PantallaMySqlDAO</a></li>
+                                                    <li class="class"><a href="../classes/PantallaMySqlExtDAO.html">PantallaMySqlExtDAO</a></li>
+                                                    <li class="class"><a href="../classes/QueryExecutor.html">QueryExecutor</a></li>
+                                                    <li class="class"><a href="../classes/Serie.html">Serie</a></li>
+                                                    <li class="class"><a href="../classes/SerieCategoria.html">SerieCategoria</a></li>
+                                                    <li class="class"><a href="../classes/SerieCategoriasMySqlDAO.html">SerieCategoriasMySqlDAO</a></li>
+                                                    <li class="class"><a href="../classes/SerieCategoriasMySqlExtDAO.html">SerieCategoriasMySqlExtDAO</a></li>
+                                                    <li class="class"><a href="../classes/SerieMySqlDAO.html">SerieMySqlDAO</a></li>
+                                                    <li class="class"><a href="../classes/SerieMySqlExtDAO.html">SerieMySqlExtDAO</a></li>
+                                                    <li class="class"><a href="../classes/SimpleFrontController.html">SimpleFrontController</a></li>
+                                                    <li class="class"><a href="../classes/SqlQuery.html">SqlQuery</a></li>
+                                                    <li class="class"><a href="../classes/TipoPantalla.html">TipoPantalla</a></li>
+                                                    <li class="class"><a href="../classes/TipoPantallaMySqlDAO.html">TipoPantallaMySqlDAO</a></li>
+                                                    <li class="class"><a href="../classes/TipoPantallaMySqlExtDAO.html">TipoPantallaMySqlExtDAO</a></li>
+                                                    <li class="class"><a href="../classes/Transaction.html">Transaction</a></li>
+                                                    <li class="class"><a href="../classes/Usuario.html">Usuario</a></li>
+                                                    <li class="class"><a href="../classes/UsuarioEscuela.html">UsuarioEscuela</a></li>
+                                                    <li class="class"><a href="../classes/UsuarioEscuelaMySqlDAO.html">UsuarioEscuelaMySqlDAO</a></li>
+                                                    <li class="class"><a href="../classes/UsuarioEscuelaMySqlExtDAO.html">UsuarioEscuelaMySqlExtDAO</a></li>
+                                                    <li class="class"><a href="../classes/UsuarioMySqlDAO.html">UsuarioMySqlDAO</a></li>
+                                                    <li class="class"><a href="../classes/UsuarioMySqlExtDAO.html">UsuarioMySqlExtDAO</a></li>
+                                                    <li class="class"><a href="../classes/Vod.html">Vod</a></li>
+                                                    <li class="class"><a href="../classes/Vod.html">Vod</a></li>
+                                                    <li class="class"><a href="../classes/VodConsumido.html">VodConsumido</a></li>
+                                                    <li class="class"><a href="../classes/VodConsumidoMySqlDAO.html">VodConsumidoMySqlDAO</a></li>
+                                                    <li class="class"><a href="../classes/VodConsumidoMySqlExtDAO.html">VodConsumidoMySqlExtDAO</a></li>
+                                                    <li class="class"><a href="../classes/VodController.html">VodController</a></li>
+                                                    <li class="class"><a href="../classes/VodMySqlDAO.html">VodMySqlDAO</a></li>
+                                                    <li class="class"><a href="../classes/VodMySqlExtDAO.html">VodMySqlExtDAO</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/default.html">\</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\</small>LogErroresMySqlDAO</h1>
+                    <p><em>Class that operate on table &#039;log_errores&#039;. Database Mysql.</em></p>
+                    
+                    
+                                        
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/LogErroresMySqlDAO.html#method_load" class="">load()</a><br />
+                                                                    <a href="../classes/LogErroresMySqlDAO.html#method_queryAll" class="">queryAll()</a><br />
+                                                                    <a href="../classes/LogErroresMySqlDAO.html#method_queryAllOrderBy" class="">queryAllOrderBy()</a><br />
+                                                                    <a href="../classes/LogErroresMySqlDAO.html#method_delete" class="">delete()</a><br />
+                                                                    <a href="../classes/LogErroresMySqlDAO.html#method_insert" class="">insert()</a><br />
+                                                                    <a href="../classes/LogErroresMySqlDAO.html#method_update" class="">update()</a><br />
+                                                                    <a href="../classes/LogErroresMySqlDAO.html#method_clean" class="">clean()</a><br />
+                                                                    <a href="../classes/LogErroresMySqlDAO.html#method_queryByLog" class="">queryByLog()</a><br />
+                                                                    <a href="../classes/LogErroresMySqlDAO.html#method_queryByTipoError" class="">queryByTipoError()</a><br />
+                                                                    <a href="../classes/LogErroresMySqlDAO.html#method_queryByFechaCreacion" class="">queryByFechaCreacion()</a><br />
+                                                                    <a href="../classes/LogErroresMySqlDAO.html#method_queryByFechaModificacion" class="">queryByFechaModificacion()</a><br />
+                                                                    <a href="../classes/LogErroresMySqlDAO.html#method_deleteByLog" class="">deleteByLog()</a><br />
+                                                                    <a href="../classes/LogErroresMySqlDAO.html#method_deleteByTipoError" class="">deleteByTipoError()</a><br />
+                                                                    <a href="../classes/LogErroresMySqlDAO.html#method_deleteByFechaCreacion" class="">deleteByFechaCreacion()</a><br />
+                                                                    <a href="../classes/LogErroresMySqlDAO.html#method_deleteByFechaModificacion" class="">deleteByFechaModificacion()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No public properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No constants found</em>
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <a href="../classes/LogErroresMySqlDAO.html#method_readRow" class="">readRow()</a><br />
+                                                                    <a href="../classes/LogErroresMySqlDAO.html#method_getList" class="">getList()</a><br />
+                                                                    <a href="../classes/LogErroresMySqlDAO.html#method_getRow" class="">getRow()</a><br />
+                                                                    <a href="../classes/LogErroresMySqlDAO.html#method_execute" class="">execute()</a><br />
+                                                                    <a href="../classes/LogErroresMySqlDAO.html#method_executeUpdate" class="">executeUpdate()</a><br />
+                                                                    <a href="../classes/LogErroresMySqlDAO.html#method_querySingleResult" class="">querySingleResult()</a><br />
+                                                                    <a href="../classes/LogErroresMySqlDAO.html#method_executeInsert" class="">executeInsert()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No protected properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <em>No private methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No private properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/model.mysql.LogErroresMySqlDAO.class.html"><div class="path-wrapper">model\mysql\LogErroresMySqlDAO.class.php</div></a></dd>
+                                                <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">Default</div></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                    <div class="namespace-wrapper">\LogErroresMySqlDAO</div>
+                            </dd>
+
+                                                                            <dt>Implements</dt>
+                                                        <dd><a href="../classes/LogErroresDAO.html"><div class="namespace-wrapper">\LogErroresDAO</div></a></dd>
+                        
+                        
+                        
+                        
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr>
+                            <th>
+                                author
+                            </th>
+                            <td>
+                                                                    <p>: <a href="http://phpdao.com">http://phpdao.com</a></p>
+                                                            </td>
+                        </tr>
+                                            <tr>
+                            <th>
+                                date
+                            </th>
+                            <td>
+                                                                    <p>: 2015-02-17 19:47</p>
+                                                            </td>
+                        </tr>
+                                        </table>
+                </aside>
+            </div>
+
+                        
+                        
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_load" name="method_load" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">load()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">load(String  <span class="argument">$id</span>) : \LogErroresMySql</pre>
+                <p><em>Get Domain object by primry key</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>String</td>
+                                <td>$id </td>
+                                <td><p>primary key</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \LogErroresMySql
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_queryAll" name="method_queryAll" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">queryAll()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">queryAll() </pre>
+                <p><em>Get all records from table</em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_queryAllOrderBy" name="method_queryAllOrderBy" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">queryAllOrderBy()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">queryAllOrderBy(  <span class="argument">$orderColumn</span>) </pre>
+                <p><em>Get all records from table ordered by field</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$orderColumn </td>
+                                <td><p>column name</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_delete" name="method_delete" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">delete()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">delete(  <span class="argument">$id_log_error</span>) </pre>
+                <p><em>Delete record from table</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$id_log_error </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_insert" name="method_insert" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">insert()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">insert(  <span class="argument">$logErrore</span>) </pre>
+                <p><em>Insert record to table</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$logErrore </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_update" name="method_update" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">update()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">update(  <span class="argument">$logErrore</span>) </pre>
+                <p><em>Update record in table</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$logErrore </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_clean" name="method_clean" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">clean()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">clean() </pre>
+                <p><em>Delete all rows</em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_queryByLog" name="method_queryByLog" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">queryByLog()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">queryByLog(  <span class="argument">$value</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$value </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_queryByTipoError" name="method_queryByTipoError" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">queryByTipoError()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">queryByTipoError(  <span class="argument">$value</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$value </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_queryByFechaCreacion" name="method_queryByFechaCreacion" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">queryByFechaCreacion()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">queryByFechaCreacion(  <span class="argument">$value</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$value </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_queryByFechaModificacion" name="method_queryByFechaModificacion" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">queryByFechaModificacion()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">queryByFechaModificacion(  <span class="argument">$value</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$value </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_deleteByLog" name="method_deleteByLog" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">deleteByLog()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">deleteByLog(  <span class="argument">$value</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$value </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_deleteByTipoError" name="method_deleteByTipoError" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">deleteByTipoError()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">deleteByTipoError(  <span class="argument">$value</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$value </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_deleteByFechaCreacion" name="method_deleteByFechaCreacion" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">deleteByFechaCreacion()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">deleteByFechaCreacion(  <span class="argument">$value</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$value </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_deleteByFechaModificacion" name="method_deleteByFechaModificacion" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">deleteByFechaModificacion()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">deleteByFechaModificacion(  <span class="argument">$value</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$value </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_readRow" name="method_readRow" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">readRow()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">readRow(  <span class="argument">$row</span>) : \LogErroresMySql</pre>
+                <p><em>Read row</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$row </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \LogErroresMySql
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getList" name="method_getList" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">getList()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getList(  <span class="argument">$sqlQuery</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$sqlQuery </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getRow" name="method_getRow" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">getRow()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getRow(  <span class="argument">$sqlQuery</span>) : \LogErroresMySql</pre>
+                <p><em>Get row</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$sqlQuery </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \LogErroresMySql
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_execute" name="method_execute" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">execute()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">execute(  <span class="argument">$sqlQuery</span>) </pre>
+                <p><em>Execute sql query</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$sqlQuery </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_executeUpdate" name="method_executeUpdate" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">executeUpdate()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">executeUpdate(  <span class="argument">$sqlQuery</span>) </pre>
+                <p><em>Execute sql query</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$sqlQuery </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_querySingleResult" name="method_querySingleResult" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">querySingleResult()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">querySingleResult(  <span class="argument">$sqlQuery</span>) </pre>
+                <p><em>Query for one row and one column</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$sqlQuery </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_executeInsert" name="method_executeInsert" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">executeInsert()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">executeInsert(  <span class="argument">$sqlQuery</span>) </pre>
+                <p><em>Insert row to table</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$sqlQuery </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">LogErroresMySqlDAO.class.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/model\mysql\LogErroresMySqlDAO.class.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on June 30th, 2015 at 20:06.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>
