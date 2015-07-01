@@ -9,8 +9,8 @@
  * For more Yii related demos visit http://demos.krajee.com
  */
 .rating-loading {
-    width: 25px;
-    height: 25px;
+    width: 15px;
+    height: 15px;
     font-size: 0px;
     color: #fff;
     background: transparent url('../img/loading.gif') top left no-repeat;

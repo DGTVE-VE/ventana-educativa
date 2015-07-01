@@ -36,7 +36,22 @@ html { height: 100%;}
     margin-right: 0px !important; 
 }
 
+#textoLogo{
+color: white;    
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+}
+#btnSesion{
+    margin-top: 1%;
+}
 
+@media screen and (max-width: 768px) {
+   #divtitulo{
+    	font-size: 10px !important;
+        letter-spacing: 2px !important;
+    }
+    
+}
 /*-------------------------------*/
 /*           Wrappers            */
 /*-------------------------------*/
@@ -412,7 +427,7 @@ html { height: 100%;}
     margin-left: 200px;
 }
 .row-fluid{
-    z-index: 1000px;
+    z-index: 1000;
     color: #ff0;
     
 }
@@ -570,8 +585,4 @@ Additional Styles (required)
     background: #000;
     border: #000;
     margin-top: 10px;
-}
-
-#carousel3{
-/*    margin-top:50px;*/
 }

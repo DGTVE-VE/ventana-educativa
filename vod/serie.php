@@ -55,7 +55,7 @@ $backgroundImage .= $serie->thumbnail;
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-<!--        <link href="../css/estilo.css" rel="stylesheet">-->
+        <link href="../css/estilo.css" rel="stylesheet">
         <!--        link para slider pantalla completa-->
         <link href="../css/full-slider.css" rel="stylesheet">
         <script src="../js/jscript.js" type="text/javascript"></script>
@@ -106,17 +106,22 @@ $backgroundImage .= $serie->thumbnail;
                                  Page Content -->
 
                     <div class="row navbar-fixed-top navbar-inverse">                       
-                        <div class="col-md-4 col-xs-2">
+                        <div class="col-md-2 col-xs-2">
                             <a href="#"><img class="hamburger" data-toggle="offcanvas" src="../imagenes/logove.png" alt=""></a>
                         </div>
-                        <div class="col-md-2 col-xs-5 text-right">
-                            <a href="#"><img src="../imagenes/logosolo.png" alt=""></a>
+                        <div class="col-md-2 visible-lg text-right">
+                            <a href="#"><img src="../imagenes/logoDGTVEsolo.png" alt=""></a>
                         </div>
-                        <div class="col-md-2 visible-md visible-lg text-left" id="texto">
+                        <div class="col-md-2 visible-lg text-left" id="textoLogo">
                             Televisión <br> Educativa
                         </div>
-                        <div class="col-md-2"></div>
-                        <div class="col-md-2 pull-right col-xs-4">
+                        <div class="col-md-2 visible-lg">
+                            <img src="../imagenes/logoVE1.png" width="55" height="55" alt="">
+                        </div>
+                        <div class="col-md-2 col-sm-1 col-xs-4 text-right" id="btnSesion"> 
+                            <a href="<?php print $_SESSION['logoutUrl']; ?>" ><img src="../imagenes/CCR.png" width="25" height="25" title="Cerrar Sesión"></a>
+                        </div>
+                        <div class="col-md-2 pull-right col-xs-6 col-sm-5">
                             <form role="search">
                                 <div class="input-group">
                                     <input type="text" class="form-control"  placeholder="Buscar">

@@ -1,0 +1,99 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 15/04/2015, 02:45:31 PM
+    Author     : SMARTINEZ
+*/
+
+  
+#bodyLog{
+    background: url("../imagenes/login/backinicio.png") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+*{
+    /*border: 2px dashed yellow;*/    
+}
+
+
+#globologin{
+    height: 600px;
+}
+#logove{
+    /*background-size: 50% 50%;*/
+    width: 40%;
+    height: 40%;
+}
+.bubble 
+{
+    margin-top: 5%;
+    position: relative;
+    width: 40%;
+    height: 500px;
+    padding: 40px;
+    background: #000;
+    -webkit-border-radius: 80px;
+    -moz-border-radius: 80px;
+    border-radius: 80px;
+}
+
+/*.bubble:after 
+{
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 100px 26px 0;
+    border-color: #000 transparent;
+    display: block;
+    width: 0;
+    z-index: 1;
+    bottom: -100px;
+    left: 396px;
+}*/
+
+#textoBlanco{
+    color: white;    
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;   
+}
+
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size:20px;
+    }
+}
+
+@media screen and (max-width: 568px) {
+    h1 {
+        font-size:1em;
+    }
+}
+@media screen and (max-width: 368px) {
+    h1 {
+        font-size:0.5em;
+    }
+}
+h1{
+    color:white;
+}
+@media screen and (max-width: 375px) {
+    * {
+        margin-left: -10%;
+    }
+}
+@media screen and (max-width: 385px) {
+    * {
+        margin-left: -8%;
+    }
+}
+@media screen and (max-width: 213px) {
+    * {
+        margin-left: -25%;
+    }
+}

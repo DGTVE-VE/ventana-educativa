@@ -105,17 +105,17 @@ function showRecomendaciones($recomendaciones) {
                 . '         style="background-image:'
                 . ' url(\'http://concrete-envoy-87323.appspot.com/?url=' . $recomendacion->thumbnail . '\');">' . "\n";
         print '        <div class="container" id="contenidos">' . "\n";
-        print '            <div class="col-xs-6 col-md-9" id="divtitulo">' . $recomendacion->titulo
+        print '            <div class="col-xs-12 col-md-9" id="divtitulo">' . $recomendacion->titulo
                 . '            </div>' . "\n";
         print '            <div id="divvideo" class="col-xs-9 col-md-6">' . "\n";
         print '                <a href="serie?idSerie=' . $recomendacion->idSerie . '" class="thumbnail thumb-sinopsis">'
-                . '                   <img src="' . $recomendacion->thumbnail . '" alt="Imagen serie">'
+                . '                   <img class="img-responsive" src="' . $recomendacion->thumbnail . '" alt="Imagen serie">'
                 . '            </a>' . "\n";
         print '            </div>' . "\n";
-        print '            <div id="divsinopsis" class="col-xs-6 col-md-10 content mCustomScrollbar">' . $recomendacion->descripcion . '</div>' . "\n";
-        print '            <div class="col-md-5 col-xs-12">' . "\n";
+        print '            <div id="divsinopsis" class="col-md-10 content mCustomScrollbar  hidden-xs">' . $recomendacion->descripcion . '</div>' . "\n";
+        print '            <div class="col-md-12 col-xs-12">' . "\n";
         print '                <div class="col-md-12">' . "\n";
-        print '                    <a href="#" class="agregar"><span class="glyphicon glyphicon-thumbs-up"> </span> Agregar a mi lista</a>' . "\n";
+        print '                    <a href="#" class="agregar"><span class="glyphicon glyphicon-thumbs-up"> </span><span class="hidden-xs"> Agregar a mi lista</span></a>' . "\n";
         print '                </div>' . "\n";
         print '                <div class="col-md-12 col-xs-12" id="rating">' . "\n";
         print '                   <form>' . "\n";
@@ -123,12 +123,12 @@ function showRecomendaciones($recomendaciones) {
         print '                    </form>' . "\n";
         print '                </div>' . "\n";
         print '            </div>' . "\n";
-        print '            <div class="col-md-7 col-xs-12 social">' . "\n";
+        print '            <div class="col-md-12 col-xs-12 social">' . "\n";
         print '                <ul>' . "\n";
-        print '                    <li><a href="#"><i class="fa fa-lg fa-facebook"></i></a></li>' . "\n";
-        print '                    <li><a href="#"><i class="fa fa-lg fa-twitter"></i></a></li>' . "\n";
-        print '                    <li><a href="#"><i class="fa fa-lg fa-google-plus"></i></a></li>' . "\n";
-        print '                    <li><a href="#"><i class="fa fa-lg fa-envelope"></i></a></li>' . "\n";
+        print '                    <li class="col-xs-5"><a href="#"><i class="fa fa-lg fa-facebook"></i></a></li>' . "\n";
+        print '                    <li class="col-xs-5"><a href="#"><i class="fa fa-lg fa-twitter"></i></a></li>' . "\n";
+        print '                    <li class="col-xs-5"><a href="#"><i class="fa fa-lg fa-google-plus"></i></a></li>' . "\n";
+        print '                    <li class="col-xs-5"><a href="#"><i class="fa fa-lg fa-envelope"></i></a></li>' . "\n";
         print '                </ul>' . "\n";
         print '            </div>' . "\n";
         print '        </div>' . "\n";
@@ -208,19 +208,22 @@ function showRecomendaciones($recomendaciones) {
                                  Page Content -->
 
                     <div class="row navbar-fixed-top navbar-inverse">                       
-                        <div class="col-md-4 col-xs-2">
+                        <div class="col-md-2 col-xs-2">
                             <a href="#"><img class="hamburger" data-toggle="offcanvas" src="../imagenes/logove.png" alt=""></a>
                         </div>
-                        <div class="col-md-2 col-xs-5 text-right">
-                            <a href="#"><img src="../imagenes/logosolo.png" alt=""></a>
+                        <div class="col-md-2 visible-lg text-right">
+                            <a href="#"><img src="../imagenes/logoDGTVEsolo.png" alt=""></a>
                         </div>
-                        <div class="col-md-2 visible-md visible-lg text-left" id="texto">
+                        <div class="col-md-2 visible-lg text-left" id="textoLogo">
                             Televisión <br> Educativa
                         </div>
-                        <div class="col-md-2"> 
-                            <a href="<?php print $_SESSION['logoutUrl']; ?>" > Cerrar sesión </a>
+                        <div class="col-md-2 visible-lg">
+                            <img src="../imagenes/logoVE1.png" width="55" height="55" alt="">
                         </div>
-                        <div class="col-md-2 pull-right col-xs-4">
+                        <div class="col-md-2 col-sm-1 col-xs-4 text-right" id="btnSesion"> 
+                            <a href="<?php print $_SESSION['logoutUrl']; ?>" ><img src="../imagenes/CCR.png" width="25" height="25" title="Cerrar Sesión"></a>
+                        </div>
+                        <div class="col-md-2 pull-right col-xs-6 col-sm-5">
                             <form role="search">
                                 <div class="input-group">
                                     <input type="text" class="form-control"  placeholder="Buscar">
