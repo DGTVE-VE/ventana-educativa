@@ -1,21 +1,5 @@
 <?php
-session_start ();
-if (! isset ($_SESSION['usuario'])){
-    header ('Location: ../index');
-}
-//set_include_path('dao' . PATH_SEPARATOR . get_include_path());
-require_once '../autoload.php';
 
-/* @var $daoSerieCategoria SerieDAO */
-$daoSerieCategoria = DAOFactory::getSerieDAO();
-
-/* @var $recomendacion Serie[] */
-$recomendaciones = $daoSerieCategoria->querySeriesInCategoria("Recomendaciones");
-
-/* @var $daoVod VodDAO */
-$daoVod = DAOFactory::getVodDAO();
-
-$vods = $daoVod->queryAll();
 
 function getNRandomVods($vods, $n) {
     $array = [];
@@ -28,7 +12,7 @@ function getNRandomVods($vods, $n) {
 
 function addItem($randVods1, $isActive) {
     print '<div class="item' . $isActive . '">' . "\n";
-    print '<div class="row video" class="video">' . "\n";
+    print '<div class="row video">' . "\n";
     /* @var $vod Vod */
     foreach ($randVods1 as $vod) {
         print '<div class="col-md-3" data-src="' . trim($vod->url) . '" data-sub-html=".subhtml">' . "\n";

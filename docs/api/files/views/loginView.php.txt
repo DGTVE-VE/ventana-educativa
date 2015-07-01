@@ -1,0 +1,13 @@
+
+<!DOCTYPE html>
+<html>
+    <head>        
+        <base href="http://<?php print $_SERVER['HTTP_HOST']; ?>" />
+        <title> Log in </title>
+    </head>
+    <body>
+        <a href="<?php print $_SESSION['loginUrl']?>"> Ingresa con Google </a>
+        <br>            
+        <a href=""> Ingresa con Facebook </a>
+    </body>
+</html>

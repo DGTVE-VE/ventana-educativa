@@ -1,0 +1,121 @@
+<?php
+/**
+ * Intreface DAO
+ *
+ * @author: http://phpdao.com
+ * @date: 2015-02-17 19:47
+ */
+interface UsuarioDAO{
+
+	/**
+	 * Get Domain object by primry key
+	 *
+	 * @param String $id primary key
+	 * @Return Usuario 
+	 */
+	public function load($id);
+
+	/**
+	 * Get all records from table
+	 */
+	public function queryAll();
+	
+	/**
+	 * Get all records from table ordered by field
+	 * @Param $orderColumn column name
+	 */
+	public function queryAllOrderBy($orderColumn);
+	
+	/**
+ 	 * Delete record from table
+ 	 * @param usuario primary key
+ 	 */
+	public function delete($id_usuario);
+	
+	/**
+ 	 * Insert record to table
+ 	 *
+ 	 * @param Usuario usuario
+ 	 */
+	public function insert($usuario);
+	
+	/**
+ 	 * Update record in table
+ 	 *
+ 	 * @param Usuario usuario
+ 	 */
+	public function update($usuario);	
+
+	/**
+	 * Delete all rows
+	 */
+	public function clean();
+
+	public function queryByNombre($value);
+
+	public function queryBySexo($value);
+
+	public function queryByNacimiento($value);
+
+	public function queryByNacionalidad($value);
+
+	public function queryByPais($value);
+
+	public function queryByRegion($value);
+
+	public function queryByCiudad($value);
+
+	public function queryByCorreo($value);
+
+	public function queryByFacebook($value);
+
+	public function queryByGoogle($value);
+
+	public function queryByLive($value);
+
+	public function queryByTwitter($value);
+
+	public function queryByAvatar($value);
+
+	public function queryByBackground($value);
+
+	public function queryByFechaCreacion($value);
+
+	public function queryByFechaModificacion($value);
+
+
+	public function deleteByNombre($value);
+
+	public function deleteBySexo($value);
+
+	public function deleteByNacimiento($value);
+
+	public function deleteByNacionalidad($value);
+
+	public function deleteByPais($value);
+
+	public function deleteByRegion($value);
+
+	public function deleteByCiudad($value);
+
+	public function deleteByCorreo($value);
+
+	public function deleteByFacebook($value);
+
+	public function deleteByGoogle($value);
+
+	public function deleteByLive($value);
+
+	public function deleteByTwitter($value);
+
+	public function deleteByAvatar($value);
+
+	public function deleteByBackground($value);
+
+	public function deleteByFechaCreacion($value);
+
+	public function deleteByFechaModificacion($value);
+
+
+}
+?>

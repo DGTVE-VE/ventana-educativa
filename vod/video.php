@@ -1,14 +1,3 @@
-<?php
-session_start ();
-if (! isset ($_SESSION['usuario'])){
-    header ('Location: ../index');
-}
-require_once '../autoload.php';
-
-$idYoutube = $_GET['youtube'];
-
-?>
-
 <!DOCTYPE html>
 <html>
   <body>
@@ -25,11 +14,13 @@ $idYoutube = $_GET['youtube'];
             return 'Texto de aviso';
         }
         
-        function onYouTubePlayerAPIReady() {
+        function onYouTubePlayerAPIReady() {          
+          pos = window.location.href.toString().lastIndexOf ("/");
+          id = window.location.href.toString().substring (pos+1);          
             player = new YT.Player('player', {
               height: '390',
               width: '640',              
-              videoId: '<?php print $idYoutube;?>',
+              videoId: id,
               playerVars:{
                 controls:0,
                 playsinline:0,

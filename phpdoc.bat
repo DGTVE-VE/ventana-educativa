@@ -1,0 +1,1 @@
+"C:\xampp\php\php" "C:\xampp\php\phpDocumentor.phar" -d . -t docs/api

@@ -1,0 +1,330 @@
+<?php
+/**
+ * Class that operate on table 'administrador'. Database Mysql.
+ *
+ * @author: http://phpdao.com
+ * @date: 2015-02-17 19:47
+ */
+class AdministradorMySqlDAO implements AdministradorDAO{
+
+	/**
+	 * Get Domain object by primry key
+	 *
+	 * @param String $id primary key
+	 * @return AdministradorMySql 
+	 */
+	public function load($id){
+		$sql = 'SELECT * FROM administrador WHERE id_administrador = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->setNumber($id);
+		return $this->getRow($sqlQuery);
+	}
+
+	/**
+	 * Get all records from table
+	 */
+	public function queryAll(){
+		$sql = 'SELECT * FROM administrador';
+		$sqlQuery = new SqlQuery($sql);
+		return $this->getList($sqlQuery);
+	}
+	
+	/**
+	 * Get all records from table ordered by field
+	 *
+	 * @param $orderColumn column name
+	 */
+	public function queryAllOrderBy($orderColumn){
+		$sql = 'SELECT * FROM administrador ORDER BY '.$orderColumn;
+		$sqlQuery = new SqlQuery($sql);
+		return $this->getList($sqlQuery);
+	}
+	
+	/**
+ 	 * Delete record from table
+ 	 * @param administrador primary key
+ 	 */
+	public function delete($id_administrador){
+		$sql = 'DELETE FROM administrador WHERE id_administrador = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->setNumber($id_administrador);
+		return $this->executeUpdate($sqlQuery);
+	}
+	
+	/**
+ 	 * Insert record to table
+ 	 *
+ 	 * @param AdministradorMySql administrador
+ 	 */
+	public function insert($administrador){
+		$sql = 'INSERT INTO administrador (nombre, correo, telefono, cargo, dependencia, password, id_institucion, superadministrador, fecha_creacion, fecha_modificacion) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+		$sqlQuery = new SqlQuery($sql);
+		
+		$sqlQuery->set($administrador->nombre);
+		$sqlQuery->set($administrador->correo);
+		$sqlQuery->set($administrador->telefono);
+		$sqlQuery->set($administrador->cargo);
+		$sqlQuery->set($administrador->dependencia);
+		$sqlQuery->set($administrador->password);
+		$sqlQuery->setNumber($administrador->idInstitucion);
+		$sqlQuery->setNumber($administrador->superadministrador);
+		$sqlQuery->set($administrador->fechaCreacion);
+		$sqlQuery->set($administrador->fechaModificacion);
+
+		$id = $this->executeInsert($sqlQuery);	
+		$administrador->idAdministrador = $id;
+		return $id;
+	}
+	
+	/**
+ 	 * Update record in table
+ 	 *
+ 	 * @param AdministradorMySql administrador
+ 	 */
+	public function update($administrador){
+		$sql = 'UPDATE administrador SET nombre = ?, correo = ?, telefono = ?, cargo = ?, dependencia = ?, password = ?, id_institucion = ?, superadministrador = ?, fecha_creacion = ?, fecha_modificacion = ? WHERE id_administrador = ?';
+		$sqlQuery = new SqlQuery($sql);
+		
+		$sqlQuery->set($administrador->nombre);
+		$sqlQuery->set($administrador->correo);
+		$sqlQuery->set($administrador->telefono);
+		$sqlQuery->set($administrador->cargo);
+		$sqlQuery->set($administrador->dependencia);
+		$sqlQuery->set($administrador->password);
+		$sqlQuery->setNumber($administrador->idInstitucion);
+		$sqlQuery->setNumber($administrador->superadministrador);
+		$sqlQuery->set($administrador->fechaCreacion);
+//		$sqlQuery->set($administrador->fechaModificacion);
+                $sqlQuery->set(date("Y-m-d H:i:s"));
+
+		$sqlQuery->setNumber($administrador->idAdministrador);
+		return $this->executeUpdate($sqlQuery);
+	}
+
+	/**
+ 	 * Delete all rows
+ 	 */
+	public function clean(){
+		$sql = 'DELETE FROM administrador';
+		$sqlQuery = new SqlQuery($sql);
+		return $this->executeUpdate($sqlQuery);
+	}
+
+	public function queryByNombre($value){
+		$sql = 'SELECT * FROM administrador WHERE nombre = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->getList($sqlQuery);
+	}
+
+	public function queryByCorreo($value){
+		$sql = 'SELECT * FROM administrador WHERE correo = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->getList($sqlQuery);
+	}
+
+	public function queryByTelefono($value){
+		$sql = 'SELECT * FROM administrador WHERE telefono = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->getList($sqlQuery);
+	}
+
+	public function queryByCargo($value){
+		$sql = 'SELECT * FROM administrador WHERE cargo = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->getList($sqlQuery);
+	}
+
+	public function queryByDependencia($value){
+		$sql = 'SELECT * FROM administrador WHERE dependencia = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->getList($sqlQuery);
+	}
+
+	public function queryByPassword($value){
+		$sql = 'SELECT * FROM administrador WHERE password = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->getList($sqlQuery);
+	}
+
+	public function queryByIdInstitucion($value){
+		$sql = 'SELECT * FROM administrador WHERE id_institucion = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->setNumber($value);
+		return $this->getList($sqlQuery);
+	}
+
+	public function queryBySuperadministrador($value){
+		$sql = 'SELECT * FROM administrador WHERE superadministrador = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->setNumber($value);
+		return $this->getList($sqlQuery);
+	}
+
+	public function queryByFechaCreacion($value){
+		$sql = 'SELECT * FROM administrador WHERE fecha_creacion = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->getList($sqlQuery);
+	}
+
+	public function queryByFechaModificacion($value){
+		$sql = 'SELECT * FROM administrador WHERE fecha_modificacion = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->getList($sqlQuery);
+	}
+
+
+	public function deleteByNombre($value){
+		$sql = 'DELETE FROM administrador WHERE nombre = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->executeUpdate($sqlQuery);
+	}
+
+	public function deleteByCorreo($value){
+		$sql = 'DELETE FROM administrador WHERE correo = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->executeUpdate($sqlQuery);
+	}
+
+	public function deleteByTelefono($value){
+		$sql = 'DELETE FROM administrador WHERE telefono = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->executeUpdate($sqlQuery);
+	}
+
+	public function deleteByCargo($value){
+		$sql = 'DELETE FROM administrador WHERE cargo = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->executeUpdate($sqlQuery);
+	}
+
+	public function deleteByDependencia($value){
+		$sql = 'DELETE FROM administrador WHERE dependencia = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->executeUpdate($sqlQuery);
+	}
+
+	public function deleteByPassword($value){
+		$sql = 'DELETE FROM administrador WHERE password = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->executeUpdate($sqlQuery);
+	}
+
+	public function deleteByIdInstitucion($value){
+		$sql = 'DELETE FROM administrador WHERE id_institucion = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->setNumber($value);
+		return $this->executeUpdate($sqlQuery);
+	}
+
+	public function deleteBySuperadministrador($value){
+		$sql = 'DELETE FROM administrador WHERE superadministrador = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->setNumber($value);
+		return $this->executeUpdate($sqlQuery);
+	}
+
+	public function deleteByFechaCreacion($value){
+		$sql = 'DELETE FROM administrador WHERE fecha_creacion = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->executeUpdate($sqlQuery);
+	}
+
+	public function deleteByFechaModificacion($value){
+		$sql = 'DELETE FROM administrador WHERE fecha_modificacion = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->executeUpdate($sqlQuery);
+	}
+
+
+	
+	/**
+	 * Read row
+	 *
+	 * @return AdministradorMySql 
+	 */
+	protected function readRow($row){
+		$administrador = new Administrador();
+		
+		$administrador->idAdministrador = $row['id_administrador'];
+		$administrador->nombre = $row['nombre'];
+		$administrador->correo = $row['correo'];
+		$administrador->telefono = $row['telefono'];
+		$administrador->cargo = $row['cargo'];
+		$administrador->dependencia = $row['dependencia'];
+		$administrador->password = $row['password'];
+		$administrador->idInstitucion = $row['id_institucion'];
+		$administrador->superadministrador = $row['superadministrador'];
+		$administrador->fechaCreacion = $row['fecha_creacion'];
+		$administrador->fechaModificacion = $row['fecha_modificacion'];
+
+		return $administrador;
+	}
+	
+	protected function getList($sqlQuery){
+		$tab = QueryExecutor::execute($sqlQuery);
+		$ret = array();
+		for($i=0;$i<count($tab);$i++){
+			$ret[$i] = $this->readRow($tab[$i]);
+		}
+		return $ret;
+	}
+	
+	/**
+	 * Get row
+	 *
+	 * @return AdministradorMySql 
+	 */
+	protected function getRow($sqlQuery){
+		$tab = QueryExecutor::execute($sqlQuery);
+		if(count($tab)==0){
+			return null;
+		}
+		return $this->readRow($tab[0]);		
+	}
+	
+	/**
+	 * Execute sql query
+	 */
+	protected function execute($sqlQuery){
+		return QueryExecutor::execute($sqlQuery);
+	}
+	
+		
+	/**
+	 * Execute sql query
+	 */
+	protected function executeUpdate($sqlQuery){
+		return QueryExecutor::executeUpdate($sqlQuery);
+	}
+
+	/**
+	 * Query for one row and one column
+	 */
+	protected function querySingleResult($sqlQuery){
+		return QueryExecutor::queryForString($sqlQuery);
+	}
+
+	/**
+	 * Insert row to table
+	 */
+	protected function executeInsert($sqlQuery){
+		return QueryExecutor::executeInsert($sqlQuery);
+	}
+}
+?>

@@ -1,22 +1,4 @@
 <?php
-session_start ();
-if (! isset ($_SESSION['usuario'])){
-    header ('Location: ../index');
-}
-require_once '../autoload.php';
-
-/* @var $daoSerie SerieDAO */
-$daoSerie= DAOFactory::getSerieDAO();
-
-/* @var $daoVod SerieDAO */
-$daoVod = DAOFactory::getVodDAO();
-
-/* @var $recomendacion Serie[] */
-$serie = $daoSerie->load($_GET['idSerie']);
-
-$capitulos = $daoVod->queryByIdSerie($serie->idSerie);
-
-$maxTemporada = $daoVod->getLastTemporadaOfSerie($serie->idSerie);
 
 function showTemporadas ($max){
     for ($i = 1; $i <= $max; $i++){
@@ -40,6 +22,7 @@ $backgroundImage .= $serie->thumbnail;
 <!DOCTYPE html>
 <html>
     <head>
+      <base href="http://<?php print $_SERVER['HTTP_HOST'];?>" />
         <meta charset="utf8" />
         <!-- Latest compiled and minified CSS -->
 <!--        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -57,25 +40,25 @@ $backgroundImage .= $serie->thumbnail;
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
         <link href="../css/estilo.css" rel="stylesheet">
         <!--        link para slider pantalla completa-->
-        <link href="../css/full-slider.css" rel="stylesheet">
-        <script src="../js/jscript.js" type="text/javascript"></script>
+        <link href="./css/full-slider.css" rel="stylesheet">
+        <script src="./js/jscript.js" type="text/javascript"></script>
         <!--        lin para rating-->
-        <script src="../js/star-rating.js" type="text/javascript"></script>
-        <link href="../css/star-rating.css" media="all" rel="stylesheet" type="text/css" />
+        <script src="js/star-rating.js" type="text/javascript"></script>
+        <link href="css/star-rating.css" media="all" rel="stylesheet" type="text/css" />
         <!--        link para reconocimiento de imagenes en iconos-->
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
         <!--        link para efectos reproducción de video-->
-        <link rel="stylesheet"  href="../css/lightGallery.css"/>        
-        <script src="../js/lightGallery.js"></script>
-        <script src="../js/lightGallery.min.js"></script>
+        <link rel="stylesheet"  href="css/lightGallery.css"/>        
+        <script src="js/lightGallery.js"></script>
+        <script src="js/lightGallery.min.js"></script>
 
         <!--        link para efectos de thumbnails-->
-        <link href="../css/adipoli.css" rel="stylesheet" type="text/css"/>        
-        <script src="../js/jquery.adipoli.min.js" type="text/javascript"></script>
+        <link href="css/adipoli.css" rel="stylesheet" type="text/css"/>        
+        <script src="js/jquery.adipoli.min.js" type="text/javascript"></script>
 
-        <link href="../css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css" />
-        <script src="../js/jquery.mCustomScrollbar.concat.min.js"></script>
-        <link rel="stylesheet" href="../css/vod.css">
+        <link href="css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css" />
+        <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+        <link rel="stylesheet" href="css/vod.css">
     </head>
     <body style="background: url(<?php print $backgroundImage; ?>) no-repeat center center fixed">      
             <header>
@@ -106,11 +89,27 @@ $backgroundImage .= $serie->thumbnail;
                                  Page Content -->
 
                     <div class="row navbar-fixed-top navbar-inverse">                       
+<<<<<<< HEAD
                         <div class="col-md-2 col-xs-2">
                             <a href="#"><img class="hamburger" data-toggle="offcanvas" src="../imagenes/logove.png" alt=""></a>
+||||||| merged common ancestors
+                        <div class="col-md-4 col-xs-2">
+                            <a href="#"><img class="hamburger" data-toggle="offcanvas" src="../imagenes/logove.png" alt=""></a>
+=======
+                        <div class="col-md-4 col-xs-2">
+                            <a href="#"><img class="hamburger" data-toggle="offcanvas" src="/imagenes/logove.png" alt=""></a>
+>>>>>>> 3d15cb3731c39c785223ea22270ad52ecfdb89a2
                         </div>
+<<<<<<< HEAD
                         <div class="col-md-2 visible-lg text-right">
                             <a href="#"><img src="../imagenes/logoDGTVEsolo.png" alt=""></a>
+||||||| merged common ancestors
+                        <div class="col-md-2 col-xs-5 text-right">
+                            <a href="#"><img src="../imagenes/logosolo.png" alt=""></a>
+=======
+                        <div class="col-md-2 col-xs-5 text-right">
+                            <a href="#"><img src="/imagenes/logosolo.png" alt=""></a>
+>>>>>>> 3d15cb3731c39c785223ea22270ad52ecfdb89a2
                         </div>
                         <div class="col-md-2 visible-lg text-left" id="textoLogo">
                             Televisión <br> Educativa
@@ -171,6 +170,7 @@ $backgroundImage .= $serie->thumbnail;
                         alert ("salio");
                 } });
             });
+            
         </script>
     </body>
 </html>
