@@ -1,10 +1,4 @@
-<<<<<<< HEAD:login.php
 <?php session_start(); ?>
-||||||| merged common ancestors
-<?php session_start();?>
-=======
-
->>>>>>> 3d15cb3731c39c785223ea22270ad52ecfdb89a2:views/loginView.php
 <!DOCTYPE html>
 <html>
     <head>        
