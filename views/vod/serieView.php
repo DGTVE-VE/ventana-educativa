@@ -67,7 +67,7 @@
                                              src="/imagenes/logove.png" alt=""></a>
                         </div>
                         <div class="col-md-2 col-xs-5 text-right">
-                            <a href="#"><img src="/imagenes/logosolo.png" alt=""></a>
+                            <a href="#"><img src="/imagenes/logoDGTVEsolo.png" alt=""></a>
                         </div>
                         <div class="col-md-2 visible-md visible-lg text-left" id="texto">
                             Televisión <br> Educativa
