@@ -19,7 +19,7 @@ class Vod {
     print json_encode($serie);    
   }
   
-  public function capitulos ($id){
+  public function capitulosXserie ($id){
     /* @var $daoVod SerieDAO */
     $daoVod = DAOFactory::getVodDAO();
     /* @var $daoSerie SerieDAO */
@@ -30,15 +30,34 @@ class Vod {
     print json_encode($capitulos);
   }
   
-  public function categoria ($categoria){
+  public function seriesXcategoria ($categoria){
     $dao = DAOFactory::getSerieCategoriasDAO();
     $daoSerie = DAOFactory::getSerieDAO();
-    $recomendaciones = $dao->queryByCategoria($categoria);
-    $series = array();
-    foreach ($recomendaciones as $recomendacion){
-      $serie = $daoSerie->load($recomendacion->idSerie);
-      $series[] = $serie;
-    }
+    $series = $daoSerie->querySeriesInCategoria($categoria);
+    
     print json_encode($series);
+  }
+  /**
+   * Obtiene las categorías que pertenecen a una categoría padre.
+   * 
+   * @param Integer $idPadre Llave primaria de la categoría padre
+   */
+  public function categoriasFromPadre ($idPadre){
+    $dao = DAOFactory::getCategoriasDAO();
+    $categorias = $dao->queryByCategoriaPadre($idPadre);
+    print json_encode($categorias);
+  }
+  
+  public function seriesXcategoriasXpadre ($idPadre){
+    $dao = DAOFactory::getCategoriasDAO();
+    $categorias = $dao->queryByCategoriaPadre($idPadre);
+    
+    foreach ($categorias as $categoria){
+      $daoSerie = DAOFactory::getSerieDAO();
+      $series = $daoSerie->querySeriesInCategoria($categoria->categoria);      
+      $categoria->series = $series;
+    }
+    
+    print json_encode($categorias);
   }
 }

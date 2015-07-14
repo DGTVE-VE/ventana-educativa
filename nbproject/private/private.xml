@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <coverage xmlns="http://www.netbeans.org/ns/code-coverage/1" enabled="false"/>
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
         <group>
-            <file>file:/C:/Users/SMARTINEZ/Documents/ventana-educativa/vod/index.php</file>
-            <file>file:/C:/Users/SMARTINEZ/Documents/ventana-educativa/vod/video.php</file>
-            <file>file:/C:/Users/SMARTINEZ/Documents/ventana-educativa/vod/serie.php</file>
-            <file>file:/C:/Users/SMARTINEZ/Documents/ventana-educativa/vod/usurio.php</file>
-            <file>file:/C:/Users/SMARTINEZ/Documents/ventana-educativa/vod/test.php</file>
-        </group>
-||||||| merged common ancestors
-        <group/>
-=======
-        <group>
+            <file>file:/C:/Users/Israel/Google%20Drive/Trabajos/DGTVE/Codigo/Vema/app.yaml</file>
+            <file>file:/C:/Users/Israel/Google%20Drive/Trabajos/DGTVE/Codigo/Vema/css/slick.scss</file>
+            <file>file:/C:/Users/Israel/Google%20Drive/Trabajos/DGTVE/Codigo/Vema/views/vod/indexView.php</file>
+            <file>file:/C:/Users/Israel/Google%20Drive/Trabajos/DGTVE/Codigo/Vema/views/vod/testView.php</file>
+            <file>file:/C:/Users/Israel/Google%20Drive/Trabajos/DGTVE/Codigo/Vema/api/v1/Vod.class.php</file>
+            <file>file:/C:/Users/Israel/Google%20Drive/Trabajos/DGTVE/Codigo/Vema/js/vod/serie.js</file>
+            <file>file:/C:/Users/Israel/Google%20Drive/Trabajos/DGTVE/Codigo/Vema/model/mysql/ext/SerieMySqlExtDAO.class.php</file>
+            <file>file:/C:/Users/Israel/Google%20Drive/Trabajos/DGTVE/Codigo/Vema/controllers/VodController.class.php</file>
+            <file>file:/C:/Users/Israel/Google%20Drive/Trabajos/DGTVE/Codigo/Vema/views/vod/serieView.php</file>
             <file>file:/C:/Users/Israel/Google%20Drive/Trabajos/DGTVE/Codigo/Vema/autoload.php</file>
+            <file>file:/C:/Users/Israel/Google%20Drive/Trabajos/DGTVE/Codigo/Vema/css/slick/slick-theme.scss</file>
+            <file>file:/C:/Users/Israel/Google%20Drive/Trabajos/DGTVE/Codigo/Vema/js/vod/index.js</file>
         </group>
->>>>>>> 3d15cb3731c39c785223ea22270ad52ecfdb89a2
     </open-files>
 </project-private>
