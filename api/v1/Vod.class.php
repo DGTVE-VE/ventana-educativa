@@ -42,7 +42,7 @@ class Vod {
    * 
    * @param Integer $idPadre Llave primaria de la categoría padre
    */
-  public function categoriasFromPadre ($idPadre){
+  public function categoriasXpadre ($idPadre){
     $dao = DAOFactory::getCategoriasDAO();
     $categorias = $dao->queryByCategoriaPadre($idPadre);
     print json_encode($categorias);
