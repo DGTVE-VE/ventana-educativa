@@ -31,7 +31,7 @@ class IndexController extends _BaseController{
       }
       $_SESSION['logoutUrl'] = UserService::createLogoutUrl('/index/closeSession');
       $_SESSION['usuario'] = $usuario;
-      include 'vod/index.php';      
+      include 'views/vod/indexView.php';      
     } else {
       $this->login ();      
     }
