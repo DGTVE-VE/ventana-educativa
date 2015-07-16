@@ -158,14 +158,16 @@
 
         <div class="container-fluid" data-bind="foreach: { data: categorias}">
             <div class="row">
-                <div class="titserie" data-bind="text: categoria"></div>
-                <div class="serie-slider" data-bind="foreach: { data: series}">   
-                    <div data-bind="if: $root.initSlick($index(), $parent.series().length)">
+                <div id="titserie" data-bind="text: categoria"></div>
+                <div class="col-lg-1 col-md-1 col-sm-3 col-xs-4"></div>
+                <div class="serie-slider col-md-10 col-lg-10 col-sm-6 col-xs-4" data-bind="foreach: { data: series}">   
+                    <div id="img-contenedor" data-bind="if: $root.initSlick($index(), $parent.series().length)">
                       <a data-bind="attr:{href:'vod/serie/'+idSerie()} ">
-                          <img data-bind="attr:{src:thumbnail}" height="250px" alt="Thumbnail">
+                          <img class="seriethum" data-bind="attr:{src:thumbnail}" alt="Thumbnail">
                       </a>
                     </div>                    
-                </div>  
+                </div> 
+                <div class="col-lg-1 col-md-1  col-sm-3 col-xs-4"></div>
             </div>
         </div>
         <hr>

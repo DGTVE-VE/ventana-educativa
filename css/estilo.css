@@ -45,13 +45,7 @@ color: white;
     margin-top: 1%;
 }
 
-@media screen and (max-width: 768px) {
-   #divtitulo{
-    	font-size: 10px !important;
-        letter-spacing: 2px !important;
-    }
-    
-}
+
 /*-------------------------------*/
 /*           Wrappers            */
 /*-------------------------------*/
@@ -362,22 +356,7 @@ color: white;
 .input-group{
     margin-top: 12px;
 }
-.container-fluid{
-/*    margin-top: 50px;*/
-}
-#divtitulo{
-    font-family: 'Open Sans', sans-serif;
-	color: #FFF;
-	margin: 0;
-	padding: 0px 0px 6px 0px;
-	font-size: 20px;
-	line-height: 44px;
-	letter-spacing: -2px;
-	font-weight: bold;
-}
-#image1{
-   
-}
+
 #divsinopsis{
 /*    color: #ead24c;*/
     color: white;
@@ -398,18 +377,46 @@ color: white;
     margin-top: 4px;
 }
 #titserie{
-    border: 1px solid #FFF;
-    background: #FFF;
-     font-family: 'Open Sans', sans-serif;
-     font-weight: bold;
-    font-size: 16px;
-    color: #000;
-    margin-top: 20px;
-    margin-bottom: 0px;
-    border-radius: 30px;
-    padding-left: 20px;
-    width: 300px;
+    margin-bottom: 2%;
+    padding-left: 10%;
+    color: #FFF;
 }
+@media screen and (min-width: 768px) {
+    #titserie{
+        font-size: 12px !important;
+    }
+    #divtitulo{
+    	font-size: 10px !important;
+        letter-spacing: 2px !important;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    #titserie{
+        font-size: 16px !important;
+    }
+    #divtitulo{
+    	font-size: 14px !important;
+        letter-spacing: 2px !important;
+    }
+}
+@media screen and (min-width: 1200px) {
+    #titserie{
+        font-size: 20px !important;
+    }
+}
+
+#divtitulo{
+    font-family: 'Open Sans', sans-serif;
+    color: #FFF;
+    margin: 0;
+    padding: 0px 0px 6px 0px;
+    font-size: 20px !important;
+    line-height: 44px;
+    letter-spacing: -2px;
+    font-weight: bold;
+}
+
 .back{
     background: black;
 }
@@ -586,3 +593,27 @@ Additional Styles (required)
     border: #000;
     margin-top: 10px;
 }
+
+
+.seriethum {
+    /*border: 1px solid #CC2EFA;*/
+    width: 95%;
+    height: 90%;
+    
+}
+
+/*#img-contenedor img {
+-webkit-transition:all .9s ease;  Safari y Chrome 
+-moz-transition:all .9s ease;  Firefox 
+-o-transition:all .9s ease;  IE 9 
+-ms-transition:all .9s ease;  Opera 
+width:95%;
+height: 90%;
+}
+#img-contenedor:hover img {
+-webkit-transform:scale(1.25);
+-moz-transform:scale(1.25);
+-ms-transform:scale(1.25);
+-o-transform:scale(1.25);
+transform:scale(1.25);
+}*/
