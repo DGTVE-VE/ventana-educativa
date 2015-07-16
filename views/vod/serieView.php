@@ -118,7 +118,7 @@
                 <div class="col-md-5 series table-responsive content mCustomScrollbar">                    
                     <table class="table borderless " data-bind="foreach: capitulos">
                         <tr><td class="video" >
-                                <a data-bind="attr:{'href':'/vod/youtube/'+youtubeId()}"> 
+                                <a data-bind="attr:{'href':'/vod/youtube/'+idVod()}"> 
                                     <img width="200" data-bind="attr:{src: thumbnail}"/>
                                 </a> 
                             </td>

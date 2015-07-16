@@ -8,8 +8,10 @@
         <div id="player" align="center">    
         </div>
         <div id="progress"></div>
-
-        <script src="http://www.youtube.com/player_api"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src='http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.1.0.js'></script>
+        <script src='js/knockout.mapping-latest.js'></script>
+        <script src="https://www.youtube.com/player_api"></script>
         <script src='js/vod/youtube.js'></script>
     </body>
 </html>

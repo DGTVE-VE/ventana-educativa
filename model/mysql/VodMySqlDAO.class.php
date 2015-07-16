@@ -449,6 +449,20 @@ class VodMySqlDAO implements VodDAO{
 		$sqlQuery->setNumber($value);
 		return $this->getList($sqlQuery);
 	}
+    
+    public function queryByYoutubeId($value) {
+        $sql = 'SELECT * FROM vod WHERE youtube_id = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);		
+        return $this->getRow($sqlQuery);
+    }
+
+    public function queryByYoutubeListId($value) {
+        $sql = 'SELECT * FROM vod WHERE youtube_list_id = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->getList($sqlQuery);
+    }
 
 	public function queryByFechaCreacion($value){
 		$sql = 'SELECT * FROM vod WHERE fecha_creacion = ?';
@@ -837,5 +851,8 @@ class VodMySqlDAO implements VodDAO{
 	protected function executeInsert($sqlQuery){
 		return QueryExecutor::executeInsert($sqlQuery);
 	}
+
+  
+
 }
 ?>

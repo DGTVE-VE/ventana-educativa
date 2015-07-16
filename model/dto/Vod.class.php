@@ -81,9 +81,9 @@
 
 		var $visible;
                 
-                var $youtubeListId;
-                
-                var $youtubeId;
+        var $youtubeListId;
+
+        var $youtubeId;
 
 		var $fechaCreacion;
 

@@ -30,7 +30,7 @@ class IndexController extends _BaseController{
         $usuario = $usuarioBD;
       }
       $_SESSION['logoutUrl'] = UserService::createLogoutUrl('/index/closeSession');
-      $_SESSION['usuario'] = $usuario;
+      $_SESSION['usuario'] = serialize ($usuario);
       include 'views/vod/indexView.php';      
     } else {
       $this->login ();      

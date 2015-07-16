@@ -18,7 +18,17 @@ class Vod {
     $serie = $daoSerie->load($id);
     print json_encode($serie);    
   }
-  
+  /**
+   * Se consulta la BD por los capítulos de una serie.
+   * Posteriormente se almacenan en un arreglo, donde la posición del arreglo es
+   * igual al id del capítulo. Este arreglo se sube a la sesión, para que pueda
+   * ser consultado posteriormente en la aplicación.
+   * 
+   * El primer uso de esta variable de sesión es a la hora de guardar el progreso
+   * del video en la base de datos VodConsumido.
+   * 
+   * @param type $id El id de la serie de la cual se quieren los capítulos
+   */
   public function capitulosXserie ($id){
     /* @var $daoVod SerieDAO */
     $daoVod = DAOFactory::getVodDAO();
@@ -27,11 +37,17 @@ class Vod {
     /* @var $recomendacion Serie[] */
     $serie = $daoSerie->load($id);
     $capitulos = $daoVod->queryByIdSerie($serie->idSerie);
+    $arrayCapitulos = array ();
+    
+    foreach ($capitulos as $capitulo){
+      $arrayCapitulos[$capitulo->idVod] = $capitulo;
+    }
+    $_SESSION['capitulos'] = serialize($arrayCapitulos);
     print json_encode($capitulos);
   }
   
   public function seriesXcategoria ($categoria){
-    $dao = DAOFactory::getSerieCategoriasDAO();
+    
     $daoSerie = DAOFactory::getSerieDAO();
     $series = $daoSerie->querySeriesInCategoria($categoria);
     
@@ -59,5 +75,10 @@ class Vod {
     }
     
     print json_encode($categorias);
+  }
+  
+  public function capitulo ($id){
+    $dao = DAOFactory::getVodDAO();
+    print json_encode($dao->load($id));
   }
 }

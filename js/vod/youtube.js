@@ -1,19 +1,57 @@
 
 var timeElapsed;
 var player;
+var id;
+var capitulos;
 window.onbeforeunload = function (e) {
-    return 'Texto de aviso';
+
+    var datos = {'timeElapsed': timeElapsed, 'idVideo': id};
+    $.ajax({
+        url: 'api/v1/vodConsumidoApi/update',
+        type: 'POST',
+        data: datos,
+        ContentType: 'application/json; charset=utf-8',
+        async: false,
+        success: function (msg) {
+            console.log(msg);
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.error(textStatus);
+        }
+    });
+    return null;
 }
+
+//function getCapitulos() {
+//    var capitulos;
+//    $.ajax({
+//        url: '/session/get/capitulos',
+//        type: 'GET',
+//        async: false,
+//        success: function (msg) {
+//            capitulos = msg;
+//        },
+//        error: function (jqXHR, textStatus, errorThrown) {
+//            console.error(textStatus);
+//        }
+//    });
+//    return $.parseJSON(capitulos);
+//}
 
 function onYouTubePlayerAPIReady() {
     pos = window.location.href.toString().lastIndexOf("/");
     id = window.location.href.toString().substring(pos + 1);
+    $.getJSON("/api/v1/vod/capitulo/" + id, function (data) {
+        capitulo = data;
+        initializeYoutube(capitulo.youtubeId);
+    });
+}
+
+function initializeYoutube(youtubeId) {    
     player = new YT.Player('player', {
-//        height: '390',
-//        width: '640',
-        width:window.innerWidth-50,
-        height:window.innerHeight-50,
-        videoId: id,
+        width: window.innerWidth - 50,
+        height: window.innerHeight - 50,
+        videoId: youtubeId,
         playerVars: {
             controls: 0,
             playsinline: 0,
@@ -30,6 +68,8 @@ function onYouTubePlayerAPIReady() {
         }
     });
 }
+
+
 
 function showProgress() {
     timeElapsed = player.getCurrentTime();

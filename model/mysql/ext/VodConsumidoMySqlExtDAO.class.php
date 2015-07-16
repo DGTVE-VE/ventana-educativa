@@ -1,12 +1,20 @@
 <?php
+
 /**
  * Class that operate on table 'vod_consumido'. Database Mysql.
  *
  * @author: http://phpdao.com
  * @date: 2015-02-17 19:47
  */
-class VodConsumidoMySqlExtDAO extends VodConsumidoMySqlDAO{
+class VodConsumidoMySqlExtDAO extends VodConsumidoMySqlDAO {
 
-	
+  public function queryByIdVodAndIdUsuario($idVod, $idUsuario) {
+    $sql = 'SELECT * FROM vod_consumido WHERE id_vod = ? AND id_usuario = ?';
+    $sqlQuery = new SqlQuery($sql);
+    $sqlQuery->setNumber($idVod);
+    $sqlQuery->setNumber($idUsuario);
+    return $this->getRow($sqlQuery);
+  }
 }
+
 ?>
