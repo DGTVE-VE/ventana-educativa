@@ -5,8 +5,8 @@
     </head>
     <body style='background: #000000'>
 
-        <div id="player" align="center">    
-        </div>
+        <!--En este div se empotra el reproductor de youtube-->
+        <div id="player" align="center">    </div>
         <div id="progress"></div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script src='http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.1.0.js'></script>

@@ -19,6 +19,7 @@ class ApiController extends _BaseController{
     $path = trim(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), "/");    
     list($api, $version, $class, $method, $params) = explode("/", $path, 5);     
     $_SESSION['autoload_dir'] = "api/$version/";
+    $class = $class . '_api';
     $api = new $class;
     call_user_func_array(array($api, $method), explode ("/",$params));    
   }

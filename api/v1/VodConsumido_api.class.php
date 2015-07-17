@@ -1,7 +1,22 @@
 <?php
 
-class VodConsumidoApi {
+/**
+ * API de la tabla VOD_CONSUMIDO, es la tabla que almacena el tiempo de 
+ * reproducción del video por usuario.
+ */
+
+class VodConsumido_api {
   
+  /**
+   * Revisa que las variables que necesita para guardar un progreso se encuentren 
+   * en memoria.
+   * - El usuario en sesión
+   * - El id del video en POST 
+   * - El tiempo transcurrido en POST
+   * 
+   * @return  boolean true si las 3 variables se encuentran disponibles, false
+   *          en caso contrario.
+   */
   private function validaVariables (){
     if (!isset ($_SESSION['usuario']) 
             || !isset($_POST['idVideo']) 
@@ -15,6 +30,15 @@ class VodConsumidoApi {
     return true;
   }
   
+  /**
+   * Actualiza la tabla VOD_CONSUMIDO con el progreso de un video por parte de un 
+   * usuario.
+   * Revisa si una entrada con el ID del usuario y el ID del video ya se encuentra
+   * en la base de datos, si es así, actualiza ese registro, si no inserta uno nuevo, 
+   * con el tiempo actualizado.
+   * 
+   * @return type
+   */
   public function update (){
     if (!$this->validaVariables()) {
       return;
