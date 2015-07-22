@@ -1,18 +1,21 @@
 
+api = "http://localhost/ventana-educativa/api/v1/";
 
 function VodIndexViewModel() {
+//    console.log (api);
     // Data              
     var self = this;
     self.recomendaciones = ko.observableArray([]);
     self.categorias = ko.observableArray([]);
 
+    console.log (api+"vod/seriesXcategoria/recomendaciones");
     // Obtiene las recomendaciones
-    $.getJSON("/api/v1/vod/seriesXcategoria/recomendaciones", function (allData) {
+    $.getJSON(api+"vod/seriesXcategoria/recomendaciones", function (allData) {
         ko.mapping.fromJS(allData, {}, self.recomendaciones);
     });
 
     // Obtiene las categorías de padre 0.
-    $.getJSON("/api/v1/vod/seriesXcategoriasXpadre/0", function (allData) {
+    $.getJSON(api+"vod/seriesXcategoriasXpadre/0", function (allData) {
         ko.mapping.fromJS(allData, {}, self.categorias);
     });
 

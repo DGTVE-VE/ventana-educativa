@@ -1,4 +1,5 @@
 
+var api = "http://localhost/ventana-educativa/api/v1/";
 /** Tiempo transcurrido del video */
 var timeElapsed;
 /** Objeto de youtube reproductor de video */
@@ -24,7 +25,7 @@ window.onbeforeunload = function (e) {
 
     var datos = {'timeElapsed': timeElapsed, 'idVideo': id};
     $.ajax({
-        url: 'api/v1/vodConsumido/update',
+        url: api+'vodConsumido/update',
         type: 'POST',
         data: datos,
         ContentType: 'application/json; charset=utf-8',
@@ -72,7 +73,7 @@ window.onbeforeunload = function (e) {
 function onYouTubePlayerAPIReady() {
     pos = window.location.href.toString().lastIndexOf("/");
     id = window.location.href.toString().substring(pos + 1);
-    $.getJSON("/api/v1/vod/capitulo/" + id, function (data) {
+    $.getJSON(api+"vod/capitulo/" + id, function (data) {
         capitulo = data;
         initializeYoutube(capitulo.youtubeId);
     });

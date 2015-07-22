@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <base href="http://<?php print $_SERVER['HTTP_HOST']; ?>" />
+      <base href="http://<?php print SERVER_URL; ?>" />
     </head>
     <body style='background: #000000'>
 

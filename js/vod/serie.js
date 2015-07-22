@@ -1,3 +1,4 @@
+api = "http://localhost/ventana-educativa/api/v1/";
 function SeriesViewModel() {
     // Data              
     var self = this;
@@ -7,7 +8,7 @@ function SeriesViewModel() {
     // El ID de la serie viene como último parámetro en la URL
     var pos = window.location.href.toString().lastIndexOf("/");
     var id = window.location.href.toString().substring(pos + 1);
-    $.getJSON("/api/v1/vod/serie/"+id, function (data) {
+    $.getJSON(api+"vod/serie/"+id, function (data) {
         self.serie(data);
         // Después de obtener los datos de la serie obtiene el background
         // en blur en ese servicio. El servicio hay que mejorarlo para optimizar
@@ -17,7 +18,7 @@ function SeriesViewModel() {
                 + self.serie().thumbnail + ") no-repeat center center fixed";
     });
 
-    $.getJSON("/api/v1/vod/capitulosXserie/"+id, function (allData) {
+    $.getJSON(api+"vod/capitulosXserie/"+id, function (allData) {
         ko.mapping.fromJS(allData, {}, self.capitulos);
     });
 

@@ -1,8 +1,8 @@
-<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html>
     <head>        
-        <base href="http://<?php print $_SERVER['HTTP_HOST']; ?>" />
+        <base href="http://<?php print SERVER_URL; ?>" />
         <title> Log in </title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,7 +19,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-        <link href="../css/estilo.css" rel="stylesheet">
+        <link href="css/estilo.css" rel="stylesheet">
         <!--<link href="css/docs.css" rel="stylesheet" type="text/css">-->
         <link href="css/login.css" rel="stylesheet" type="text/css">
 
@@ -30,12 +30,12 @@
                 <div id="wrapper">
                     <div class="row navbar-fixed-top navbar-inverse">                       
                         <div class="col-md-4 col-xs-8 text-right ">
-                            <a href="#"><img class="text-center" src="../imagenes/logoDGTVEsolo.png" alt=""></a>
+                            <a href="#"><img class="text-center" src="imagenes/logoDGTVEsolo.png" alt=""></a>
                         </div>
                         <div class="col-md-4 hidden-xs text-left" id="textoBlanco">
                             Televisión <br> Educativa
                         </div>
-                        <div class="col-md-4 col-xs-4"><img class="text-center" src="../imagenes/logoVE1.png" width="55" height="60" alt=""></div>
+                        <div class="col-md-4 col-xs-4"><img class="text-center" src="imagenes/logoVE1.png" width="55" height="60" alt=""></div>
                     </div>
                 </div>  
             </div>
@@ -49,7 +49,7 @@
                     <div class="col-md-2"></div>    
                     <div class="col-md-2 text-center"><a href="#" class="btn btn-social-icon btn-lg btn-twitter"><i class="fa fa-twitter"></i></a></div>
                     <div class="col-md-2 text-center"><a href="#" class="btn btn-social-icon btn-lg btn-facebook"><i class="fa fa-facebook"></i></a></div>
-                    <div class="col-md-2 text-center"><a href="<?php print $_SESSION['loginUrl']  ?>" class="btn btn-social-icon btn-lg btn-google"><i class="fa fa-google"></i></a></div>
+                    <div class="col-md-2 text-center"><a href="vod/" class="btn btn-social-icon btn-lg btn-google"><i class="fa fa-google"></i></a></div>
                     <div class="col-md-2 text-center"><a href="#" class="btn btn-social-icon btn-lg btn-dropbox"><i class="glyphicon glyphicon-envelope"></i></a></div>
                     <div class="col-md-2"></div>
                 </div>

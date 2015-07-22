@@ -3,7 +3,7 @@
 <html lang="en">
 
     <head>
-        <base href="http://<?php print $_SERVER['HTTP_HOST']; ?>" />
+        <base href="http://<?php print SERVER_URL; ?>" />
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -75,7 +75,7 @@
                             Televisión <br> Educativa
                         </div>
                         <div class="col-md-2"> 
-                            <a href="<?php print $_SESSION['logoutUrl']; ?>" > Cerrar sesión </a>
+                            <a href="index/cerrarSesion" > Cerrar sesión </a>
                         </div>
                         <div class="col-md-2 pull-right col-xs-4">
                             <form role="search">

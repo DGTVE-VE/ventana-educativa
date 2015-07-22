@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <base href="http://<?php print $_SERVER['HTTP_HOST']; ?>" />
+        <base href="http://<?php print SERVER_URL; ?>" />
         <meta charset="utf8" />        
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
         <!-- Optional theme -->
@@ -64,10 +64,10 @@
                     <div class="row navbar-fixed-top navbar-inverse">                       
                         <div class="col-md-4 col-xs-2">
                             <a href="#"><img class="hamburger" data-toggle="offcanvas" 
-                                             src="/imagenes/logove.png" alt=""></a>
+                                             src="imagenes/logove.png" alt=""></a>
                         </div>
                         <div class="col-md-2 col-xs-5 text-right">
-                            <a href="#"><img src="/imagenes/logoDGTVEsolo.png" alt=""></a>
+                            <a href="#"><img src="imagenes/logoDGTVEsolo.png" alt=""></a>
                         </div>
                         <div class="col-md-2 visible-md visible-lg text-left" id="texto">
                             Televisión <br> Educativa
@@ -118,7 +118,7 @@
                 <div class="col-md-5 series table-responsive content mCustomScrollbar">                    
                     <table class="table borderless " data-bind="foreach: capitulos">
                         <tr><td class="video" >
-                                <a data-bind="attr:{'href':'/vod/youtube/'+idVod()}"> 
+                                <a data-bind="attr:{'href':'vod/youtube/'+idVod()}"> 
                                     <img width="200" data-bind="attr:{src: thumbnail}"/>
                                 </a> 
                             </td>
