@@ -23,7 +23,24 @@ class ApiController extends _BaseController{
       $path = substr($path, strlen(SimpleFrontController::$basePath));
     }
     
-    list($api, $version, $class, $method, $params) = explode("/", $path, 5);     
+//    list($api, $version, $class, $method, $params) = explode("/", $path, 5);     
+    $arr = explode("/", $path);
+//    print_r ($arr);
+    if (count($arr) > 0) {
+      $api = $arr[0];
+    }
+    if (count($arr) > 1) {
+      $version = $arr[1];
+    }
+    if (count($arr) > 2) {
+      $class = $arr[2];
+    }
+    if (count($arr) > 3) {
+      $method = $arr[3];
+    }
+    if (count($arr) > 4) {
+      $params = $arr[4];
+    }
 //    print $api.'<br>';
 //    print $version.'<br>';
 //    print $class.'<br>';

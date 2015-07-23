@@ -60,4 +60,23 @@ class VodConsumido_api {
       print $dao->update($vodConsumido);
     }    
   }
+  
+  /**
+   * Obtiene el tiempo en el que un usuario se quedó en cierto video para que
+   * la reproducción del video inicie en ese tiempo. Si el registro no existe, 
+   * entonces el usuario no ha visto nada del video, y debe iniciar en 0.
+   * 
+   * @param Integer $idVod ID del video que el usuario está por ver.
+   */
+  public function initialTime ($idVod){      
+      $dao = DAOFactory::getVodConsumidoDAO();
+      $usuario = unserialize ($_SESSION[USUARIO]);
+      
+      $vodConsumido = $dao->queryByIdVodAndIdUsuario($idVod, $usuario->idUsuario);
+
+      if ($vodConsumido != null){
+          print $vodConsumido->tiempo;
+      }
+      print 0;
+  }
 }
