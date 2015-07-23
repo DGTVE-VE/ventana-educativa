@@ -2,20 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/xampp/htdocs/ventana-educativa/.htaccess</file>
-            <file>file:/C:/xampp/htdocs/ventana-educativa/js/vod/index.js</file>
-            <file>file:/C:/xampp/htdocs/ventana-educativa/controllers/ApiController.class.php</file>
-            <file>file:/C:/xampp/htdocs/ventana-educativa/views/vod/youtubeView.php</file>
-            <file>file:/C:/xampp/htdocs/ventana-educativa/vod/index.php</file>
-            <file>file:/C:/xampp/htdocs/ventana-educativa/views/loginView.php</file>
-            <file>file:/C:/xampp/htdocs/ventana-educativa/class/SimpleFrontController.class.php</file>
-            <file>file:/C:/xampp/htdocs/ventana-educativa/controllers/IndexController.class.php</file>
-            <file>file:/C:/xampp/htdocs/ventana-educativa/index.php</file>
-            <file>file:/C:/xampp/htdocs/ventana-educativa/js/vod/serie.js</file>
-            <file>file:/C:/xampp/htdocs/ventana-educativa/views/vod/indexView.php</file>
-            <file>file:/C:/xampp/htdocs/ventana-educativa/js/vod/youtube.js</file>
-            <file>file:/C:/xampp/htdocs/ventana-educativa/views/vod/serieView.php</file>
-        </group>
+
     </open-files>
 </project-private>
