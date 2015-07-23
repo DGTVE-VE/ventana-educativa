@@ -10,7 +10,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <meta name="google-signin-client_id" content="328365712357-vrrv7hpojcb6mtfji2goubuqc4rooma8.apps.googleusercontent.com">
-        
+
         <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/4.9.0/bootstrap-social.css" rel="stylesheet" type="text/css"> 
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -57,19 +57,37 @@
             </div>
         </div>
         <script>
-
+            var api = "http://localhost/ventana-educativa/api/v1/";
             function onSuccess(googleUser) {
                 //Funcion para obtener los datos del usuario
                 /*console.log('Logged in as: ' + googleUser.getBasicProfile().getName());*/
                 //console.log('ID: ' + googleUser.getBasicProfile().getId());
-		//console.log('Name: ' + googleUser.getBasicProfile().getName());
-		//console.log('Image URL: ' + googleUser.getBasicProfile().getImageUrl());
-		//console.log('Email: ' + googleUser.getBasicProfile().getEmail());
+                //console.log('Name: ' + googleUser.getBasicProfile().getName());
+                //console.log('Image URL: ' + googleUser.getBasicProfile().getImageUrl());
+                //console.log('Email: ' + googleUser.getBasicProfile().getEmail());
                 GoogleID = googleUser.getBasicProfile().getId();
                 GoogleName = googleUser.getBasicProfile().getName();
                 GoogleImageURL = googleUser.getBasicProfile().getImageUrl();
                 GoogleEmail = googleUser.getBasicProfile().getEmail();
 
+                var datos = {   'GoogleID': GoogleID, 
+                                'GoogleName': GoogleName,
+                                'GoogleImageURL': GoogleImageURL,
+                                'GoogleEmail': GoogleEmail
+                            };
+                $.ajax({
+                    url: api + 'usuario/login',
+                    type: 'POST',
+                    data: datos,
+                    ContentType: 'application/json; charset=utf-8',
+                    async: true,
+                    success: function (msg) {
+                        console.log(msg);
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.error(textStatus);
+                    }
+                });
             }
             function onFailure(error) {
                 console.log(error);
@@ -88,7 +106,7 @@
 
         </script>
         <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
-        
+
     </body>
 </html>
 
