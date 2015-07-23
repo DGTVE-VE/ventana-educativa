@@ -57,14 +57,14 @@ class VodConsumidoMySqlDAO implements VodConsumidoDAO{
  	 * @param VodConsumidoMySql vodConsumido
  	 */
 	public function insert($vodConsumido){
-		$sql = 'INSERT INTO vod_consumido (id_vod, id_usuario, tiempo, ip, fecha_creacion, fecha_modificacion) VALUES (?, ?, ?, ?, ?, ?)';
+		$sql = 'INSERT INTO vod_consumido (id_vod, id_usuario, tiempo, ip, fecha_modificacion) VALUES (?, ?, ?, ?, ?)';
 		$sqlQuery = new SqlQuery($sql);
 		
 		$sqlQuery->setNumber($vodConsumido->idVod);
 		$sqlQuery->setNumber($vodConsumido->idUsuario);
 		$sqlQuery->set($vodConsumido->tiempo);
 		$sqlQuery->set($vodConsumido->ip);
-		$sqlQuery->set($vodConsumido->fechaCreacion);
+//		$sqlQuery->set($vodConsumido->fechaCreacion);
 		$sqlQuery->set($vodConsumido->fechaModificacion);
 
 		$id = $this->executeInsert($sqlQuery);	

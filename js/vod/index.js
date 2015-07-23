@@ -1,23 +1,81 @@
+
+api = "http://localhost/ventana-educativa/api/v1/";
+
 function VodIndexViewModel() {
+//    console.log (api);
     // Data              
     var self = this;
     self.recomendaciones = ko.observableArray([]);
-    self.lomasvisto = ko.observableArray([]);
-    self.estrenos = ko.observableArray([]);    
+    self.categorias = ko.observableArray([]);
 
-    $.getJSON("/api/v1/vod/categoria/recomendaciones", function (allData) {
+    console.log (api+"vod/seriesXcategoria/recomendaciones");
+    // Obtiene las recomendaciones
+    $.getJSON(api+"vod/seriesXcategoria/recomendaciones", function (allData) {
         ko.mapping.fromJS(allData, {}, self.recomendaciones);
-        console.log (self.recomendaciones);
     });
-    
-    $.getJSON("/api/v1/vod/categoria/lo+mas+visto", function (allData) {
-        ko.mapping.fromJS(allData, {}, self.lomasvisto);
+
+    // Obtiene las categorías de padre 0.
+    $.getJSON(api+"vod/seriesXcategoriasXpadre/0", function (allData) {
+        ko.mapping.fromJS(allData, {}, self.categorias);
     });
-    $.getJSON("/api/v1/vod/categoria/estrenos", function (allData) {
-        ko.mapping.fromJS(allData, {}, self.estrenos);
-    });
+
+    /*
+     * Inicializa el Slider http://kenwheeler.github.io/slick/
+     * 
+     * Este slider es para las series dentro de cada categoría. La inicialización
+     * del slider se realizó de acuerdo al ejemplo del slider responsivo.
+     * 
+     * @param {int} index indice de la iteración del foreach. La inicialización
+     *              debe realizarse únicamente cuando todos los elementos fueron
+     *              renderizados. El índice es base 0.
+     * @param {int} numElements número de elementos que se rendizarán dentro del 
+     *              foreach.
+     * @returns {Boolean}
+     */
+    self.initSlick = function (index, numElements) {
+        
+        if (index + 1 == numElements) { // Es el último elemento en ser renderizado.
+            $(".serie-slider").slick({
+                arrows: true,
+                dots: true,
+                infinite: false,
+                speed: 300,
+                slidesToShow: 5,
+                slidesToScroll: 1,
+                responsive: [
+                    {
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 5,
+                            slidesToScroll: 5,
+                            infinite: true,
+                            dots: true
+                        }
+                    },
+                    {
+                        breakpoint: 792,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1
+                        }
+                    },                   
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                    // You can unslick at a given breakpoint now by adding:
+                    // settings: "unslick"
+                    // instead of a settings object
+                ]
+            });
+        }
+        return true;
+    }
+
 }
 
-// Activates knockout.js
 ko.applyBindings(new VodIndexViewModel());
 

@@ -50,14 +50,14 @@ class QueryExecutor {
     public static function execute($sqlQuery, $buscaEnCache=true) {
         /**************************************/
         /** Se busca en cache el resultado **/
-        $memcache = new Memcache;
-        if ($buscaEnCache){            
-            $key = md5($sqlQuery->getQuery ());
-            $data = $memcache->get($key);        
-            if ($data !== false){
-                return $data; 
-            }
-        }
+//        $memcache = new Memcache;
+//        if ($buscaEnCache){            
+//            $key = md5($sqlQuery->getQuery ());
+//            $data = $memcache->get($key);        
+//            if ($data !== false){
+//                return $data; 
+//            }
+//        }
         /***************************************/
         $result = self::executeQuery($sqlQuery);
         $i = 0;
@@ -67,7 +67,7 @@ class QueryExecutor {
         }
         self::freeMemory($result);
         // Se guarda el resultado en cache
-        $memcache->set($key, $tab);
+//        $memcache->set($key, $tab);
         return $tab;
     }
 
