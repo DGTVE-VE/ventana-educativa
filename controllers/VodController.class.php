@@ -7,12 +7,15 @@
  */
 class VodController extends _BaseController{
       
-  
+  public function test (){
+    include ('views/vod/testView.php');
+  }
+
   public function serie ($id){    
     include ('views/vod/serieView.php');
   }
   
-  public function youtube ($id){
+  public function youtube ($id){     
     include ('views/vod/youtubeView.php');
   }
   
