@@ -7,6 +7,7 @@
  */
 class VodController extends _BaseController{
       
+  
   public function serie ($id){    
     include ('views/vod/serieView.php');
   }
