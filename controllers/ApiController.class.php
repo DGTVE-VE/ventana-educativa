@@ -22,6 +22,7 @@ class ApiController extends _BaseController{
     if (strpos($path, SimpleFrontController::$basePath) === 0) {
       $path = substr($path, strlen(SimpleFrontController::$basePath));
     }
+    $params = "";
     
 //    list($api, $version, $class, $method, $params) = explode("/", $path, 5);     
     $arr = explode("/", $path);
