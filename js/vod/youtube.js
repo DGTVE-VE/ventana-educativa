@@ -77,7 +77,7 @@ function onYouTubePlayerAPIReady() {
     $.getJSON(api + "vod/capitulo/" + id, function (data) {
         capitulo = data;
         var seconds;
-        $.ajax({
+        $.ajax({//se obtiene el tiempo en el que se quedó el usuario.
             url: api + 'vodConsumido/initialTime/' + id,
             type: 'GET',
             async: false,
@@ -99,10 +99,11 @@ function onYouTubePlayerAPIReady() {
  * 
  * @see {@link https://developers.google.com/youtube/player_parameters?hl=es | 
  * Youtube API}
- * @param {String} youtubeId
+ * @param {String} youtubeId ID de youtube del video.
+ * @param {Seconds} time Tiempo en el que se quedó el video la última vez.
  * @returns {undefined}
  */
-// TODO: Iniciar el video en el tiempo que se quedó anteriormente el usuario
+
 function initializeYoutube(youtubeId, time) {
     console.log(time);
     player = new YT.Player('player', {
