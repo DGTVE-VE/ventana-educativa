@@ -25,6 +25,7 @@ class html_element
 	{
 		$this->type = strtolower($type);
 		$this->self_closers = $self_closers;
+                $this->attributes['text'] = '';
 	}
 	
 	/* get */
@@ -88,11 +89,11 @@ class html_element
 		//closing
 		if(!in_array($this->type,$this->self_closers))
 		{
-			$build.= '>'.$this->attributes['text'].'</'.$this->type.'>';
+			$build.= '>'.$this->attributes['text'].'</'.$this->type.'>'."\n";
 		}
 		else
 		{
-			$build.= ' />';
+			$build.= ' />'."\n";
 		}
 		
 		//return it
