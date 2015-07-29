@@ -25,8 +25,12 @@ class _BaseController {
   }
 
   public function closeSession() {
+    session_start();
     session_destroy();
-    header('Location: /');
+    unset($_SESSION);
+    session_regenerate_id(true);
+    header('Location: /ventana-educativa/');
+//    print 'Sesion destruida';
   }
 
   public function validateUser() {
