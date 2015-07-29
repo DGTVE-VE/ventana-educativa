@@ -27,6 +27,7 @@ class SimpleFrontController {
     }
   }
 
+
   protected function parseUri() {
     
     $path = trim(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), "/");
@@ -34,6 +35,7 @@ class SimpleFrontController {
    
     if (strpos($path, SimpleFrontController::$basePath) === 0) {
       $path = substr($path, strlen(SimpleFrontController::$basePath));
+
     }
 //    print $path;
     $arr = explode("/", $path);

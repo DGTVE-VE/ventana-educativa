@@ -1,4 +1,4 @@
-
+/** URL del api de ventana educativa*/
 var api = "http://localhost/ventana-educativa/api/v1/";
 /** Tiempo transcurrido del video */
 var timeElapsed;
@@ -25,11 +25,11 @@ window.onbeforeunload = function (e) {
 
     var datos = {'timeElapsed': timeElapsed, 'idVideo': id};
     $.ajax({
-        url: api+'vodConsumido/update',
+        url: api + 'vodConsumido/update',
         type: 'POST',
         data: datos,
         ContentType: 'application/json; charset=utf-8',
-        async: false,
+        async: true,
         success: function (msg) {
             console.log(msg);
         },
@@ -67,15 +67,29 @@ window.onbeforeunload = function (e) {
  * Posteriormente consulta el API para obtener la información del capítulo.
  * Al final inicializa el API de youtube con el ID del video a reproducir.
  * 
- * @see {@link https://developers.google.com/youtube/iframe_api_reference?hl=es|Youtube Player API}
+ * @see {@link https://developers.google.com/youtube/iframe_api_reference?hl=es|
+ *      Youtube Player API}
  */
 
 function onYouTubePlayerAPIReady() {
     pos = window.location.href.toString().lastIndexOf("/");
     id = window.location.href.toString().substring(pos + 1);
-    $.getJSON(api+"vod/capitulo/" + id, function (data) {
+    $.getJSON(api + "vod/capitulo/" + id, function (data) {
         capitulo = data;
-        initializeYoutube(capitulo.youtubeId);
+        var seconds;
+        $.ajax({//se obtiene el tiempo en el que se quedó el usuario.
+            url: api + 'vodConsumido/initialTime/' + id,
+            type: 'GET',
+            async: false,
+            success: function (msg) {
+                var a = msg.split(':'); // split it at the colons
+                seconds = (+a[0]) * 60 * 60 + (+a[1]) * 60 + (+a[2]);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.error(textStatus);
+            }
+        });
+        initializeYoutube(capitulo.youtubeId, seconds);
     });
 }
 
@@ -83,25 +97,29 @@ function onYouTubePlayerAPIReady() {
  * Inicializa el reproductor de Youtube a través del api. Establece el tamaño del 
  * reproductor a pantalla completa. 
  * 
- * @see {@link https://developers.google.com/youtube/player_parameters?hl=es | Youtube API}
- * @param {String} youtubeId
+ * @see {@link https://developers.google.com/youtube/player_parameters?hl=es | 
+ * Youtube API}
+ * @param {String} youtubeId ID de youtube del video.
+ * @param {Seconds} time Tiempo en el que se quedó el video la última vez.
  * @returns {undefined}
  */
-// TODO: Iniciar el video en el tiempo que se quedó anteriormente el usuario
-function initializeYoutube(youtubeId) {    
+
+function initializeYoutube(youtubeId, time) {
+    console.log(time);
     player = new YT.Player('player', {
         width: window.innerWidth - 50,
         height: window.innerHeight - 50,
         videoId: youtubeId,
         playerVars: {
-            controls:       0, // Los controles no se muestran
-            playsinline:    0, // Reproducción a pantalla completa
+            controls: 0, // Los controles no se muestran
+            playsinline: 0, // Reproducción a pantalla completa
             iv_load_policy: 3, // Las anotaciones del video no se muestran 
             modestbranding: 1, // Evita que el logo de youtube se muestre en la barra de control
-            showinfo:       0, // Evita que se muestre información del video antes de su reproducción
-            enablejsapi:    1, // Permite que el reproductor sea controlado por el API de Javascript
-            autoplay:       1, // Autoinicio habilitado
-            rel:            0  // Evita que muestre videos relacionados al finalizar.
+            showinfo: 0, // Evita que se muestre información del video antes de su reproducción
+            enablejsapi: 1, // Permite que el reproductor sea controlado por el API de Javascript
+            autoplay: 1, // Autoinicio habilitado
+            rel: 0, // Evita que muestre videos relacionados al finalizar.
+            start: time // Tiempo en el que debe iniciar el video
         },
         events: {
             'onReady': onPlayerReady,

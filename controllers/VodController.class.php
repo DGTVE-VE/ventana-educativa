@@ -10,6 +10,7 @@ class VodController extends _BaseController{
   public function test (){
     include ('views/vod/testView.php');
   }
+
   public function serie ($id){    
     include ('views/vod/serieView.php');
   }
@@ -19,17 +20,10 @@ class VodController extends _BaseController{
   }
   
   public function defaultAction (){
-//    parent::validateUser ();    
-    /* @var $daoSerieCategoria SerieDAO */
-    $daoSerieCategoria = DAOFactory::getSerieDAO();
-
-    /* @var $recomendacion Serie[] */
-    $recomendaciones = $daoSerieCategoria->querySeriesInCategoria("Recomendaciones");
-
-    /* @var $daoVod VodDAO */
-    $daoVod = DAOFactory::getVodDAO();
-
-    $vods = $daoVod->queryAll();
     include 'views/vod/indexView.php';
+  }
+  
+  public function search (){
+      include 'views/searchView.php';
   }
 }

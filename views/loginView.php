@@ -9,6 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
+        <meta name="google-signin-client_id" content="328365712357-vrrv7hpojcb6mtfji2goubuqc4rooma8.apps.googleusercontent.com">
         
         <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/4.9.0/bootstrap-social.css" rel="stylesheet" type="text/css"> 
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" type="text/css">
@@ -63,13 +64,46 @@
                     <div class="col-md-2"></div>    
                     <div class="col-md-2 text-center"><a href="#" class="btn btn-social-icon btn-lg btn-twitter"><i class="fa fa-twitter"></i></a></div>
                     <div class="col-md-2 text-center"><a id="login" href="#" class="btn btn-social-icon btn-lg btn-facebook"><i class="fa fa-facebook"></i></a></div>
-                    <div class="col-md-2 text-center"><a href="vod/" class="btn btn-social-icon btn-lg btn-google"><i class="fa fa-google"></i></a></div>
+                    <div id="my-signin2"></div>
                     <div class="col-md-2 text-center"><a href="#" class="btn btn-social-icon btn-lg btn-dropbox"><i class="glyphicon glyphicon-envelope"></i></a></div>
                     <div class="col-md-2"></div>
                     <div id="status"></div>
                 </div>
             </div>
         </div>
+        <script>
+
+            function onSuccess(googleUser) {
+                //Funcion para obtener los datos del usuario
+                /*console.log('Logged in as: ' + googleUser.getBasicProfile().getName());*/
+                //console.log('ID: ' + googleUser.getBasicProfile().getId());
+		//console.log('Name: ' + googleUser.getBasicProfile().getName());
+		//console.log('Image URL: ' + googleUser.getBasicProfile().getImageUrl());
+		//console.log('Email: ' + googleUser.getBasicProfile().getEmail());
+                GoogleID = googleUser.getBasicProfile().getId();
+                GoogleName = googleUser.getBasicProfile().getName();
+                GoogleImageURL = googleUser.getBasicProfile().getImageUrl();
+                GoogleEmail = googleUser.getBasicProfile().getEmail();
+
+            }
+            function onFailure(error) {
+                console.log(error);
+            }
+            function renderButton() {
+                gapi.signin2.render('my-signin2', {
+                    'scope': 'https://www.googleapis.com/auth/plus.login',
+                    'width': 45,
+                    'height': 50,
+                    'longtitle': true,
+                    'theme': 'dark',
+                    'onsuccess': onSuccess,
+                    'onfailure': onFailure
+                });
+            }
+
+        </script>
+        <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+        
     </body>
 </html>
 
