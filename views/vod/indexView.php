@@ -75,7 +75,7 @@
                             Televisión <br> Educativa
                         </div>
                         <div class="col-md-2"> 
-                            <a href="index/cerrarSesion" > Cerrar sesión </a>
+                            <a href="session/close" > Cerrar sesión </a>
                         </div>
                         <div class="col-md-2 pull-right col-xs-4">
                             <form role="search">
