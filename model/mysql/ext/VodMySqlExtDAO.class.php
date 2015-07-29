@@ -18,6 +18,15 @@ class VodMySqlExtDAO extends VodMySqlDAO{
 	}
         return $tab[0]['temporada'];
     }
+    
+    public function fullTextSearch ($searchText){
+        $sql =    "SELECT * FROM vod "
+                . "WHERE MATCH (titulo, subtitulo, tags, serie, titulo_traducido) "
+                . "AGAINST (?)";
+        $sqlQuery = new SqlQuery($sql);
+        $sqlQuery->set($searchText);
+        return $this->getList($sqlQuery);
+    }
 	
 }
 ?>
