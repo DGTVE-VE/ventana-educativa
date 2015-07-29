@@ -2,6 +2,7 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group>
             <file>file:/C:/Users/Israel/Google%20Drive/Trabajos/DGTVE/Codigo/Vema/views/vod/youtubeView.php</file>
             <file>file:/C:/Users/Israel/Google%20Drive/Trabajos/DGTVE/Codigo/Vema/views/vod/serieView.php</file>
@@ -9,5 +10,13 @@
             <file>file:/C:/Users/Israel/Google%20Drive/Trabajos/DGTVE/Codigo/Vema/controllers/SessionController.class.php</file>
             <file>file:/C:/Users/Israel/Google%20Drive/Trabajos/DGTVE/Codigo/Vema/controllers/IndexController.class.php</file>
         </group>
+||||||| merged common ancestors
+        <group>
+            <file>file:/C:/Users/Israel/Google%20Drive/Trabajos/DGTVE/Codigo/Vema/class/SimpleFrontController.class.php</file>
+            <file>file:/C:/Users/Israel/Google%20Drive/Trabajos/DGTVE/Codigo/Vema/index.php</file>
+        </group>
+=======
+
+>>>>>>> ea41a567f06159bc83d4f4be694c43ee504b0df7
     </open-files>
 </project-private>

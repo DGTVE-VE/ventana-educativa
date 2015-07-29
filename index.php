@@ -10,6 +10,18 @@ session_start();
 require_once 'autoload.php';
 
 /**
+ * Carga el archivo de constantes. Las constantes de sesión deben estar definidas
+ * en este archivo.
+ */
+require_once 'constantes.php';
+
+/** USUARIO DE PRUEBA, ELIMINAR EN PRODUCCIÓN*/
+/**/$usuario = new Usuario ();
+/**/$usuario->idUsuario = 1;
+/**/$_SESSION[USUARIO] = serialize ($usuario);
+        
+
+/**
  * Se ejecuta el Controlador Frontal
  * http://www.sitepoint.com/front-controller-pattern-1/
  */
