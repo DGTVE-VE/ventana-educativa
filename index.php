@@ -16,11 +16,12 @@ require_once 'autoload.php';
 require_once 'constantes.php';
 
 /** USUARIO DE PRUEBA, ELIMINAR EN PRODUCCIÓN*/
+
 /*$usuario = new Usuario ();
 /*$usuario->idUsuario = 1;
 /*$_SESSION[USUARIO] = serialize ($usuario);
+        
 
-         
 
 /**
  * Se ejecuta el Controlador Frontal

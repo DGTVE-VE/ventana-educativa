@@ -94,4 +94,6 @@ class Vod_api {
     $dao = DAOFactory::getVodDAO();
     print json_encode($dao->load($id));
   }
+  
+
 }

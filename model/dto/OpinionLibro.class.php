@@ -5,14 +5,20 @@
      	 * @author: http://phpdao.com
      	 * @date: 2015-02-17 19:47	 
 	 */
-	class OpinionLibro{
+	class OpinionLibro implements _DTO{
 		
 		var $idLibro;
-		var $idUsuario;
-		var $opinion;
-		var $calificacion;
-		var $fechaCreacion;
-		var $fechaModificacion;
-		
+
+		var $idUsuario;
+
+		var $opinion;
+
+		var $calificacion;
+
+		var $fechaCreacion;
+
+		var $fechaModificacion;
+
+		
 	}
 ?>
