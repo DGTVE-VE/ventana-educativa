@@ -73,13 +73,16 @@ class QueryExecutor {
 
     public static function executeUpdate($sqlQuery) {
         self::executeQuery($sqlQuery);
+        $affectedRows = mysql_affected_rows();
         self::freeMemory();
-        return mysql_affected_rows();
+        return $affectedRows;
     }
 
     public static function executeInsert($sqlQuery) {
-        QueryExecutor::executeUpdate($sqlQuery);        
-        return mysql_insert_id();
+        self::executeQuery($sqlQuery);
+        $id = mysql_insert_id();
+        self::freeMemory();   
+        return $id;
     }
 
     /**

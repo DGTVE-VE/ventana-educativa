@@ -2,5 +2,14 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/xampp/htdocs/ventana-educativa/views/header.php</file>
+            <file>file:/C:/xampp/htdocs/ventana-educativa/css/vod.css</file>
+            <file>file:/C:/xampp/htdocs/ventana-educativa/api/v1/Vod_api.class.php</file>
+            <file>file:/C:/xampp/htdocs/ventana-educativa/js/vod/serie.js</file>
+            <file>file:/C:/xampp/htdocs/ventana-educativa/js/vod/youtube.js</file>
+            <file>file:/C:/xampp/htdocs/ventana-educativa/api/v1/Serie_api.class.php</file>
+            <file>file:/C:/xampp/htdocs/ventana-educativa/views/vod/serieView.php</file>
+        </group>
     </open-files>
 </project-private>
