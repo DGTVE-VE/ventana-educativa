@@ -9,6 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
+        <!--Google Client ID de la aplicacion-->
         <meta name="google-signin-client_id" content="328365712357-vrrv7hpojcb6mtfji2goubuqc4rooma8.apps.googleusercontent.com">
 
         <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/4.9.0/bootstrap-social.css" rel="stylesheet" type="text/css"> 
@@ -50,39 +51,39 @@
                     <div class="col-md-2"></div>    
                     <div class="col-md-2 text-center"><a href="#" class="btn btn-social-icon btn-lg btn-twitter"><i class="fa fa-twitter"></i></a></div>
                     <div class="col-md-2 text-center"><a href="#" class="btn btn-social-icon btn-lg btn-facebook"><i class="fa fa-facebook"></i></a></div>
+                    <!--Boton para "logeo" con Google-->
                     <div id="my-signin2"></div>
                     <div class="col-md-2 text-center"><a href="#" class="btn btn-social-icon btn-lg btn-dropbox"><i class="glyphicon glyphicon-envelope"></i></a></div>
                     <div class="col-md-2"></div>
                 </div>
             </div>
         </div>
+        <!--Script para "renderizar" el boton (de Google), obtener los datos del usuario (en Google), 
+        "postearlos" al servidor y redireccionar al index del VOD-->
         <script>
             var api = "http://localhost/ventana-educativa/api/v1/";
             function onSuccess(googleUser) {
-                //Funcion para obtener los datos del usuario
+                //Para obtener los datos del usuario
                 /*console.log('Logged in as: ' + googleUser.getBasicProfile().getName());*/
-                //console.log('ID: ' + googleUser.getBasicProfile().getId());
-                //console.log('Name: ' + googleUser.getBasicProfile().getName());
-                //console.log('Image URL: ' + googleUser.getBasicProfile().getImageUrl());
-                //console.log('Email: ' + googleUser.getBasicProfile().getEmail());
                 GoogleID = googleUser.getBasicProfile().getId();
                 GoogleName = googleUser.getBasicProfile().getName();
                 GoogleImageURL = googleUser.getBasicProfile().getImageUrl();
                 GoogleEmail = googleUser.getBasicProfile().getEmail();
 
-                var datos = {   'GoogleID': GoogleID, 
+                var datos = {   'GoogleID': GoogleID,
                                 'GoogleName': GoogleName,
                                 'GoogleImageURL': GoogleImageURL,
                                 'GoogleEmail': GoogleEmail
                             };
                 $.ajax({
-                    url: api + 'usuario/login',
+                    url: api + 'usuario/loginGoogle',
                     type: 'POST',
                     data: datos,
                     ContentType: 'application/json; charset=utf-8',
                     async: true,
                     success: function (msg) {
                         console.log(msg);
+                        window.location.assign("vod/")                        
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
                         console.error(textStatus);
@@ -105,8 +106,8 @@
             }
 
         </script>
+        <!--Incluyendo la libreria para integrar el "logeo" con Google-->
         <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
 
     </body>
 </html>
-
