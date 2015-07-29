@@ -5,12 +5,16 @@
      	 * @author: http://phpdao.com
      	 * @date: 2015-02-17 19:47	 
 	 */
-	class TipoPantalla{
+	class TipoPantalla implements _DTO{
 		
 		var $tipoPantalla;
-		var $descripcion;
-		var $fechaCreacion;
-		var $fechaModificacion;
-		
+
+		var $descripcion;
+
+		var $fechaCreacion;
+
+		var $fechaModificacion;
+
+		
 	}
 ?>

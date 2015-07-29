@@ -5,15 +5,22 @@
      	 * @author: http://phpdao.com
      	 * @date: 2015-02-17 19:47	 
 	 */
-	class LogEventosUsuario{
+	class LogEventosUsuario implements _DTO{
 		
 		var $idLogEventosUsuario;
-		var $idUsuario;
-		var $log;
-		var $tipoEvento;
-		var $direccionIp;
-		var $fechaCreacion;
-		var $fechaModificacion;
-		
+
+		var $idUsuario;
+
+		var $log;
+
+		var $tipoEvento;
+
+		var $direccionIp;
+
+		var $fechaCreacion;
+
+		var $fechaModificacion;
+
+		
 	}
 ?>

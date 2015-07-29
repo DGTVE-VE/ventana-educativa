@@ -5,14 +5,20 @@
      	 * @author: http://phpdao.com
      	 * @date: 2015-02-17 19:47	 
 	 */
-	class Pagina{
+	class Pagina implements _DTO{
 		
 		var $idPag;
-		var $idLibro;
-		var $url;
-		var $numeroInterno;
-		var $fechaCreacion;
-		var $fechaModificacion;
-		
+
+		var $idLibro;
+
+		var $url;
+
+		var $numeroInterno;
+
+		var $fechaCreacion;
+
+		var $fechaModificacion;
+
+		
 	}
 ?>
