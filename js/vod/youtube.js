@@ -76,20 +76,20 @@ function onYouTubePlayerAPIReady() {
     id = window.location.href.toString().substring(pos + 1);
     $.getJSON(api + "vod/capitulo/" + id, function (data) {
         capitulo = data;
-        var time;
-        $.ajax({
-            url: api + 'vodConsumido/initialTime/'+id,
-            type: 'GET',            
+        var seconds;
+        $.ajax({//se obtiene el tiempo en el que se quedó el usuario.
+            url: api + 'vodConsumido/initialTime/' + id,
+            type: 'GET',
             async: false,
             success: function (msg) {
-                time = msg;
-                console.error(time);
+                var a = msg.split(':'); // split it at the colons
+                seconds = (+a[0]) * 60 * 60 + (+a[1]) * 60 + (+a[2]);
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 console.error(textStatus);
             }
         });
-        initializeYoutube(capitulo.youtubeId, time);
+        initializeYoutube(capitulo.youtubeId, seconds);
     });
 }
 
@@ -99,12 +99,13 @@ function onYouTubePlayerAPIReady() {
  * 
  * @see {@link https://developers.google.com/youtube/player_parameters?hl=es | 
  * Youtube API}
- * @param {String} youtubeId
+ * @param {String} youtubeId ID de youtube del video.
+ * @param {Seconds} time Tiempo en el que se quedó el video la última vez.
  * @returns {undefined}
  */
-// TODO: Iniciar el video en el tiempo que se quedó anteriormente el usuario
+
 function initializeYoutube(youtubeId, time) {
-    console.log (time);
+    console.log(time);
     player = new YT.Player('player', {
         width: window.innerWidth - 50,
         height: window.innerHeight - 50,
@@ -117,7 +118,7 @@ function initializeYoutube(youtubeId, time) {
             showinfo: 0, // Evita que se muestre información del video antes de su reproducción
             enablejsapi: 1, // Permite que el reproductor sea controlado por el API de Javascript
             autoplay: 1, // Autoinicio habilitado
-            rel: 0,  // Evita que muestre videos relacionados al finalizar.
+            rel: 0, // Evita que muestre videos relacionados al finalizar.
             start: time // Tiempo en el que debe iniciar el video
         },
         events: {

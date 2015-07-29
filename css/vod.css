@@ -420,8 +420,8 @@ html { height: 100%;}
 #divsinopsis{
 /*    color: #ead24c;*/
     color: white;
-    width: 90%;
-    height: 300px;
+    width: 100%;
+    height: 200px;
     overflow: auto;
     text-align: justify;
 }
@@ -458,6 +458,11 @@ html { height: 100%;}
     border-radius: 30px;
     padding-left: 20px;
     width: 300px;
+}
+#textoBlanco{
+    color: #FFF;    
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;   
 }
 .back{
     background: black;
@@ -502,7 +507,6 @@ html { height: 100%;}
 }
 
 .social ul li {
-    margin: 5px;
     list-style: none outside none;
     display: inline-block;
 }
@@ -512,7 +516,7 @@ html { height: 100%;}
     color: #FFF;
     font-size: 15px;
     text-align:center;
-    padding-top: 7px;
+    padding-top: 26%;
     border-radius: 50%;
     -moz-border-radius: 50%;
     -webkit-border-radius: 50%;
@@ -525,13 +529,15 @@ html { height: 100%;}
 }
 
 .social i:hover {
-    color: #FFF;
+    color: #848484;
     text-decoration: none;
     transition: all ease 0.3s;
     -moz-transition: all ease 0.3s;
     -webkit-transition: all ease 0.3s;
     -o-transition: all ease 0.3s;
     -ms-transition: all ease 0.3s;
+    background-color: #FFF;
+    
 }
 .social .fa-facebook { /* round facebook icon*/
     background: #4060A5;
@@ -665,10 +671,58 @@ span.num-temporada{
     /*background-color: rgba(0, 0, 0, 0.5);*/
 }
 .series {
-    height: 22em;
+    height: 35em;
     overflow: auto;        
 }
 
 .opaco{
     background-color: rgba(0, 0, 0, 0.5);
+    
+    color: #FFF;
+}
+
+#buscar{
+    border-radius: 10px;
+    background-color: #FFF;
+}
+
+input.search-query {
+    padding-left:26px;
+}
+form.form-search {
+    position: relative;
+}
+form.form-search:before {
+    display: block;
+    width: 14px;
+    height: 14px;
+    content: "\e003";
+    font-family: 'Glyphicons Halflings';
+    background-position: -48px 0;
+    position: absolute;
+    top:8px;
+    left:8px;
+    opacity: .5;
+    z-index: 1000;
+}
+
+.imgplay{
+    font-size: 70px;
+    position: absolute;
+    margin-top: 10%;
+    margin-left: 40%;
+    border: medium double #000;
+    border-radius: 80px;
+    height: 20%;
+    width: 18%;
+    padding: 3%;
+    color: #000;
+}
+
+.imgplay2{
+    font-size: 40px;
+    position: absolute;
+    margin-top: 15%;
+    margin-left: 45%;
+    
 }

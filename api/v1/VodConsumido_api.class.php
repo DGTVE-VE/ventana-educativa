@@ -76,6 +76,7 @@ class VodConsumido_api {
 
       if ($vodConsumido != null){
           print $vodConsumido->tiempo;
+          return;
       }
       print 0;
   }

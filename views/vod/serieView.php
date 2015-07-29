@@ -33,103 +33,94 @@
         <script src='js/knockout.mapping-latest.js'></script>
     </head>
     <body>      
-        <header>
-            <div class="row">
-                <div id="wrapper">
-                    <!--             Sidebar -->
-                    <nav class="navbar navbar-inverse navbar-fixed-top" 
-                         id="sidebar-wrapper" role="navigation">
-                        <ul class="nav sidebar-nav">
-                            <li class="sidebar-brand">
-                            <li> <a href="#">Lo Más Visto</a> </li>
-                            <li> <a href="#">Nuevos Lanzamientos</a> </li>
-                            <li> <a href="#">Acción</a> </li>
-                            <li> <a href="#">Aventura</a> </li>
-                            <li> <a href="#">Animación</a> </li>
-                            <li> <a href="#">Comedia</a> </li>
-                            <li> <a href="#">Cultura</a> </li>
-                            <li> <a href="#">Documentales</a> </li> 
-                            <li> <a href="#">Familia</a> </li> 
-                            <li> <a href="#">Ficción</a> </li> 
-                            <li> <a href="#">Niños</a> </li>
-                            <li> <a href="#">Películas</a> </li>
-                            <li> <a href="#">Terror</a> </li>
-                        </ul>
-                    </nav>
-
-                    <!--             /#sidebar-wrapper 
-                    
-                                 Page Content -->
-
-                    <div class="row navbar-fixed-top navbar-inverse">                       
-                        <div class="col-md-4 col-xs-2">
-                            <a href="#"><img class="hamburger" data-toggle="offcanvas" 
-                                             src="imagenes/logove.png" alt=""></a>
-                        </div>
-                        <div class="col-md-2 col-xs-5 text-right">
-                            <a href="#"><img src="imagenes/logoDGTVEsolo.png" alt=""></a>
-                        </div>
-                        <div class="col-md-2 visible-md visible-lg text-left" id="texto">
-                            Televisión <br> Educativa
-                        </div>
-                        <div class="col-md-2"></div>
-                        <div class="col-md-2 pull-right col-xs-4">
-                            <form role="search">
-                                <div class="input-group">
-                                    <input type="text" class="form-control"  placeholder="Buscar">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-default" type="submit">
-                                            <i class="glyphicon glyphicon-search"></i></button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-
-                    </div>
-                </div>
-                <!--/#page-content-wrapper--> 
-
-            </div>
-
-        </header>  
+        <?php include 'views/header.php'; ?>
         <div class="container-fluid">           
             <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-4">
                     <div id="divtitulo" data-bind="with: serie" >
+                        <input type="hidden" data-bind="attr:{'id':'idSerie'}, value:idSerie">
                         <p data-bind="text: titulo"></p>
                     </div>
                 </div>
-                <div class="temporadas-text col-md-6">
-                    <div id="texto" > 
-                        Temporadas...........................
-                        <div data-bind="foreach: temporadas">
-                            <span class="num-temporada" data-bind="text: $data">  
-                            </span>
-                        </div>
-                    </div>
-                </div>
+                <!--                <div class="temporadas-text col-md-6">
+                                    <div id="texto" > 
+                                        Temporadas...........................
+                                        <div data-bind="foreach: temporadas">
+                                            <span class="num-temporada" data-bind="text: $data">  
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>-->
             </div>
             <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-md-4" data-bind="with: serie">
-                    <img width="100%" data-bind="attr:{src: thumbnail}"/>
+                <div class="col-md-2">
+
                 </div>
+                <div class="col-md-4" data-bind="with: serie">
+                    <a href=""><img width="100%" data-bind="attr:{src: thumbnail}"/></a>
+                    <span class="glyphicon glyphicon-play visible-lg imgplay"></span>
+                    <span class="glyphicon glyphicon-play hidden-lg imgplay2"></span>
+                    <div id="divsinopsis" class="col-xs-6 col-md-10 opaco content mCustomScrollbar" data-bind="text: descripcion"></div>
+                </div>
+
                 <div class="col-md-5 series table-responsive content mCustomScrollbar">                    
                     <table class="table borderless " data-bind="foreach: capitulos">
-                        <tr><td class="video" >
+                        <tr><td class="video text-center" >
                                 <a data-bind="attr:{'href':'vod/youtube/'+idVod()}"> 
                                     <img width="200" data-bind="attr:{src: thumbnail}"/>
                                 </a> 
                             </td>
-                            <td class="opaco"data-bind="text: sinopsis">
-                              
+                            <td class="opaco hidden-xs" data-bind="text: sinopsis">
                             </td>
                         </tr>
                     </table>
-                </div>         
+                </div>                
+                <div class="col-md-12 ">
+                    <div class="col-md-2 visible-lg"></div>
+                    <div class="col-md-2 col-xs-12">
+                        <a href="#"><span class="glyphicon glyphicon-play"></span><span id="textoBlanco">Agregar a mi lista</span></a>                                               
+                        <input id="input-1" class="rating" data-show-clear="false" data-show-caption="false" data-size="xs" data-min="0" data-max="5" data-step="1">
+                    </div>    
+                    <div class="col-md-2 col-xs-12 social">
+                        <span class="glyphicon glyphicon-share"></span><span id="textoBlanco">   Compartir</span>
+                        <ul>
+                            <li><a href="#"><i class="fa fa-lg fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-lg fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-lg fa-google-plus"></i></a></li>
+                            <li><a href="#"><i class="fa fa-lg fa-envelope"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 col-xs-12"></div>
+                </div>
+                    <!--<div class="col-md-12"><input id="input-1" class="rating" data-show-clear="false" data-show-caption="false" data-size="xs" data-min="0" data-max="5" data-step="1"></div>-->
             </div>
         </div>
+
         <script type="text/javascript" src="js/vod/serie.js"></script>        
     </body>
 </html>
+<script>
+    var api = "http://localhost/ventana-educativa/api/v1/";
+    $("#input-1").rating({
+        starCaptions: {1: "Malo", 2: "Regular", 3: "Bueno", 4: "Muy Bueno", 5: "Excelente"}
+    });
+    $("#input-1").on("rating.change", function (event, value, caption) {
+        id = document.getElementById('idSerie');
+        console.log (id.value);
+        var datos = {'calificacion': value, 'idVideo': id.value};
+        $.ajax({
+            url: api + 'serie/calificar',
+            type: 'POST',
+            data: datos,
+            ContentType: 'application/json; charset=utf-8',
+            async: true,
+            success: function (msg) {
+                console.log(msg);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.error(textStatus);
+            }
+        });
+    });
+</script>
