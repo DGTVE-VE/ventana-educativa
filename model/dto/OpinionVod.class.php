@@ -5,14 +5,20 @@
      	 * @author: http://phpdao.com
      	 * @date: 2015-02-17 19:47	 
 	 */
-	class OpinionVod{
+	class OpinionVod implements _DTO{
 		
 		var $usuarioIdUsuario;
-		var $vodIdVod;
-		var $opinion;
-		var $calificacion;
-		var $fechaCreacion;
-		var $fechaModificacion;
-		
+
+		var $vodIdVod;
+
+		var $opinion;
+
+		var $calificacion;
+
+		var $fechaCreacion;
+
+		var $fechaModificacion;
+
+		
 	}
 ?>

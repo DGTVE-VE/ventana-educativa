@@ -58,10 +58,10 @@
 
                 </div>
                 <div class="col-md-4" data-bind="with: serie">
-                    <a href=""><img width="100%" data-bind="attr:{src: thumbnail}"/></a>
-                    <span class="glyphicon glyphicon-play visible-lg imgplay"></span>
-                    <span class="glyphicon glyphicon-play hidden-lg imgplay2"></span>
-                    <div id="divsinopsis" class="col-xs-6 col-md-10 opaco content mCustomScrollbar" data-bind="text: descripcion"></div>
+                    <a href="">
+                        <img width="100%" data-bind="attr:{src: thumbnail}"/>
+                    </a>                    
+                    <div id="divsinopsis" class="col-xs-6 col-md-10 opaco content mCustomScrollbar mCS-autoHide" data-bind="text: descripcion"></div>
                 </div>
 
                 <div class="col-md-5 series table-responsive content mCustomScrollbar">                    
@@ -71,15 +71,15 @@
                                     <img width="200" data-bind="attr:{src: thumbnail}"/>
                                 </a> 
                             </td>
-                            <td class="opaco hidden-xs" data-bind="text: sinopsis">
-                            </td>
+                            <td class="opaco hidden-xs text-justify" data-bind="text: sinopsis">
+                            </td>                            
                         </tr>
                     </table>
                 </div>                
                 <div class="col-md-12 ">
                     <div class="col-md-2 visible-lg"></div>
                     <div class="col-md-2 col-xs-12">
-                        <a href="#"><span class="glyphicon glyphicon-play"></span><span id="textoBlanco">Agregar a mi lista</span></a>                                               
+                        <a href="#"><span class="glyphicon glyphicon-play"></span></a><span id="textoBlanco">Agregar a mi lista</span>                                               
                         <input id="input-1" class="rating" data-show-clear="false" data-show-caption="false" data-size="xs" data-min="0" data-max="5" data-step="1">
                     </div>    
                     <div class="col-md-2 col-xs-12 social">
@@ -100,27 +100,3 @@
         <script type="text/javascript" src="js/vod/serie.js"></script>        
     </body>
 </html>
-<script>
-    var api = "http://localhost/ventana-educativa/api/v1/";
-    $("#input-1").rating({
-        starCaptions: {1: "Malo", 2: "Regular", 3: "Bueno", 4: "Muy Bueno", 5: "Excelente"}
-    });
-    $("#input-1").on("rating.change", function (event, value, caption) {
-        id = document.getElementById('idSerie');
-        console.log (id.value);
-        var datos = {'calificacion': value, 'idVideo': id.value};
-        $.ajax({
-            url: api + 'serie/calificar',
-            type: 'POST',
-            data: datos,
-            ContentType: 'application/json; charset=utf-8',
-            async: true,
-            success: function (msg) {
-                console.log(msg);
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                console.error(textStatus);
-            }
-        });
-    });
-</script>

@@ -5,7 +5,7 @@
      	 * @author: http://phpdao.com
      	 * @date: 2015-02-17 19:47	 
 	 */
-	class Vod{
+	class Vod implements _DTO{
 		
 		var $idVod;
 
