@@ -2,5 +2,5 @@
 
 class FormGenerator {
     
-    public function __construct(D) {
+//    public function __construct(D) {
 }

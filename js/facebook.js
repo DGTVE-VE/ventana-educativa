@@ -92,13 +92,9 @@ $(function () {
                         alert('error');
                     }
                 });
-                //intoIndex(datos);
         });
     };
-    var intoIndex = function (datos) {
-        var nombre = datos.nameUser;
-        alert('tu nombre es: ' + nombre);
-    };
+   
     var facebookLogin = function () {
         checkLoginState(function (response) {
             if (!response) {
