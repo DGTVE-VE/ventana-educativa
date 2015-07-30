@@ -182,7 +182,7 @@ class UsuarioMySqlDAO implements UsuarioDAO{
 		$sql = 'SELECT * FROM usuario WHERE facebook = ?';
 		$sqlQuery = new SqlQuery($sql);
 		$sqlQuery->set($value);
-		return $this->getList($sqlQuery);
+		return $this->getRow($sqlQuery);
 	}
 
 	public function queryByGoogle($value){
