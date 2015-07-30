@@ -4,21 +4,21 @@ function SeriesViewModel() {
     var self = this;
     self.capitulos = ko.observableArray([]);
     self.serie = ko.observable();
-    
+
     // El ID de la serie viene como último parámetro en la URL
     var pos = window.location.href.toString().lastIndexOf("/");
     var id = window.location.href.toString().substring(pos + 1);
-    $.getJSON(api+"vod/serie/"+id, function (data) {
+    $.getJSON(api + "vod/serie/" + id, function (data) {
         self.serie(data);
         // Después de obtener los datos de la serie obtiene el background
         // en blur en ese servicio. El servicio hay que mejorarlo para optimizar
         // la entrega de imagenes en blur.
-        document.body.style.background = 
-                "#000000 url(http://concrete-envoy-87323.appspot.com/?url=" 
+        document.body.style.background =
+                "#000000 url(http://concrete-envoy-87323.appspot.com/?url="
                 + self.serie().thumbnail + ") no-repeat center center fixed";
     });
 
-    $.getJSON(api+"vod/capitulosXserie/"+id, function (allData) {
+    $.getJSON(api + "vod/capitulosXserie/" + id, function (allData) {
         ko.mapping.fromJS(allData, {}, self.capitulos);
     });
 
@@ -39,3 +39,28 @@ function SeriesViewModel() {
 
 // Activates knockout.js
 ko.applyBindings(new SeriesViewModel());
+
+/*Etiqueta que se incluira en el rating al ser seleccionada una estrella por el usuario*/
+$("#input-1").rating({
+    starCaptions: {1: "Malo", 2: "Regular", 3: "Bueno", 4: "Muy Bueno", 5: "Excelente"}
+});
+
+/*Función que */
+$("#input-1").on("rating.change", function (event, value, caption) {
+    id = document.getElementById('idSerie');
+    console.log(id.value);
+    var datos = {'calificacion': value, 'idVideo': id.value};
+    $.ajax({
+        url: api + 'serie/calificarSerie',
+        type: 'POST',
+        data: datos,
+        ContentType: 'application/json; charset=utf-8',
+        async: true,
+        success: function (msg) {
+            console.log(msg);
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.error(textStatus);
+        }
+    });
+});
