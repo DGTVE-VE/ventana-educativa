@@ -19,6 +19,7 @@ class Serie_api {
         return true;
     }
 
+    /*Función para calificar la Serie en base a las estrellas del rating */
     public function calificarSerie() {
 
         if (!$this->validaVariables()) {
@@ -29,8 +30,9 @@ class Serie_api {
         $calificacion = $_POST['calificacion'];
         $usuario = unserialize($_SESSION['usuario']);
         $califica = $dao->load($idSerie, $usuario->idUsuario);        
-        
+        $daop = DAOFactory::getSerieDAO();
         if ($califica == null) {            
+            /*Crea el registro en la tabla OpinionSerie y asigna la calificación por usuario y serie*/
             $califica = new OpinionSerie();
             $califica->fechaModificacion = date('Y-m-d H:i:s');
             $califica->idUsuario = $usuario->idUsuario;
@@ -38,9 +40,11 @@ class Serie_api {
             $califica->calificacion = $calificacion;
             print $dao->insert($califica);
         } else {
+            /*Actualiza la tabla de OpinionSerie con respeto al usuario y número de serie*/
             $califica->calificacion = $calificacion;
-            print $dao->update($califica);
+            print $dao->update($califica);            
         }
+        $promedio = $daop->queryCalificaSerie($idSerie);                  
     }
 
 }
