@@ -44,14 +44,11 @@ class Usuario_api {
         $facebookUser = $_POST['nameUser'];
         $facebookUserImage = $_POST['imageUser'];
         $facebookUserEmail = $_POST['emailUser'];
+        
         $usuario = $dao->queryByFacebook($facebookId);
-
-       if ($usuario == null) {
+        if ($usuario == null) {
             $usuario = $dao->queryByCorreo($facebookUserEmail);
-            if ($usuario != null) {
-                $usuario->facebook = $facebookId;
-                print $dao->update($usuario);
-            } else {
+            if ($usuario == null) {
                 $usuario = new Usuario();
                 $usuario->facebook = $facebookId;
                 $usuario->nombre = $facebookUser;
@@ -59,12 +56,13 @@ class Usuario_api {
                 $usuario->correo = $facebookUserEmail;
                 print $dao->insert($usuario);
                 $_SESSION[USUARIO] = serialize($usuario);
+            } else {
+                $usuario->facebook = $facebookId;
+                print $dao->update($usuario);
+                $_SESSION[USUARIO] = serialize($usuario);
             }
-
         } else {
             $_SESSION[USUARIO] = serialize($usuario);
         }
-        $_SESSION[USUARIO] = serialize($usuario);
     }
-
 }
