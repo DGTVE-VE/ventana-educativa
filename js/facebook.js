@@ -25,7 +25,7 @@ $(function () {
             status: true,
             cookie: true,
             xfbml: true,
-            version: 'v2.4'
+            version: 'v2.2'
         });
 
 

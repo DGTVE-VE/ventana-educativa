@@ -66,7 +66,7 @@
                     <div class="col-md-2 text-center"><a href="#" class="btn btn-social-icon btn-lg btn-twitter"><i class="fa fa-twitter"></i></a></div>
 
                     <div class="col-md-2 text-center"><a id="login" href="#" class="btn btn-social-icon btn-lg btn-facebook"><i class="fa fa-facebook"></i></a></div>
-
+                    <!--Boton para "logeo" con Google-->
                     <div id="my-signin2"></div>
                     <div class="col-md-2 text-center"><a href="#" class="btn btn-social-icon btn-lg btn-dropbox"><i class="glyphicon glyphicon-envelope"></i></a></div>
                     <div class="col-md-2"></div>
@@ -74,56 +74,10 @@
                 </div>
             </div>
         </div>
-        <!--Script para "renderizar" el boton (de Google), obtener los datos del usuario (en Google), 
+        <!--Script para "renderizar" el boton (de Google), obtener los datos del usuario (en Google),
         "postearlos" al servidor y redireccionar al index del VOD-->
-        <script>
-            var api = "http://localhost/ventana-educativa/api/v1/";
-            function onSuccess(googleUser) {
-                //Para obtener los datos del usuario
-                /*console.log('Logged in as: ' + googleUser.getBasicProfile().getName());*/
-                GoogleID = googleUser.getBasicProfile().getId();
-                GoogleName = googleUser.getBasicProfile().getName();
-                GoogleImageURL = googleUser.getBasicProfile().getImageUrl();
-                GoogleEmail = googleUser.getBasicProfile().getEmail();
-
-                var datos = {   'GoogleID': GoogleID,
-                                'GoogleName': GoogleName,
-                                'GoogleImageURL': GoogleImageURL,
-                                'GoogleEmail': GoogleEmail
-                            };
-                $.ajax({
-                    url: api + 'usuario/loginGoogle',
-                    type: 'POST',
-                    data: datos,
-                    ContentType: 'application/json; charset=utf-8',
-                    async: true,
-                    success: function (msg) {
-                        console.log(msg);
-                        window.location.assign("vod/")                        
-                    },
-                    error: function (jqXHR, textStatus, errorThrown) {
-                        console.error(textStatus);
-                    }
-                });
-            }
-            function onFailure(error) {
-                console.log(error);
-            }
-            function renderButton() {
-                gapi.signin2.render('my-signin2', {
-                    'scope': 'https://www.googleapis.com/auth/plus.login',
-                    'width': 45,
-                    'height': 50,
-                    'longtitle': true,
-                    'theme': 'dark',
-                    'onsuccess': onSuccess,
-                    'onfailure': onFailure
-                });
-            }
-
-        </script>
+        <script src="js/googleLogin.js"></script>
         <!--Incluyendo la libreria para integrar el "logeo" con Google-->
         <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
-
     </body>
 </html>
