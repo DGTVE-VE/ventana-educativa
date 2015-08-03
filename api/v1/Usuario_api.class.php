@@ -7,17 +7,23 @@ class Usuario_api {
   public function loginGoogle() {
 
         $dao = DAOFactory::getUsuarioDAO();
+        
         $GoogleID = $_POST['GoogleID'];
         $GoogleName = $_POST['GoogleName'];
         $GoogleImageURL = $_POST['GoogleImageURL'];
         $GoogleEmail = $_POST['GoogleEmail'];
         $usuario = $dao->queryByGoogle($GoogleID);
+    
         
         if ($usuario == null) {
             $usuario = $dao->queryByCorreo($GoogleEmail);
-            if ($usuario != null) {
+            echo 'Logingoogle';
+            print_r($usuario);
+//            if ($usuario != null) {
+            if ($usuario) {
+                echo 'ENTRO AL IF '.$GoogleID;
                 $usuario->google = $GoogleID;
-                print $dao->update($usuario); 
+                print $dao->updateGoogle($usuario->idUsuario, $GoogleID); 
             } else {
                 $usuario = new Usuario();
                 $usuario->google = $GoogleID;
@@ -32,33 +38,30 @@ class Usuario_api {
 
     //Método para iniciar sesión con facebook
     public function loginFacebook() {
-        print 'entro';
         $dao = DAOFactory::getUsuarioDAO();
         $facebookId = $_POST['idUser'];
-        //print 'fb→'.$facebookId.'<br>';
         $facebookUser = $_POST['nameUser'];
-        //print 'fb user→'.$facebookUser.'<br>';
-        $facebokUserImage = $_POST['imageUser'];
+        $facebookUserImage = $_POST['imageUser'];
         $facebookUserEmail = $_POST['emailUser'];
-        //print 'fb user email→'.$facebookUserEmail.'<br>';
-        $usuario = unserialize($_SESSION['usuario']);
         $usuario = $dao->queryByFacebook($facebookId);
+        var_dump($usuario);
 
-        if ($usuario == null) {
+       if ($usuario == null) {
             $usuario = $dao->queryByCorreo($facebookUserEmail);
             if ($usuario != null) {
                 $usuario->facebook = $facebookId;
-//                print 'aqui: ';
-//                var_dump ($usuario);
                 print $dao->update($usuario);
             } else {
                 $usuario = new Usuario();
                 $usuario->facebook = $facebookId;
                 $usuario->nombre = $facebookUser;
-                $usuario->avatar = $facebokUserImage;
+                $usuario->avatar = $facebookUserImage;
                 $usuario->correo = $facebookUserEmail;
                 print $dao->insert($usuario);
+                $_SESSION[USUARIO] = serialize($usuario);
             }
+        } else {
+            $_SESSION[USUARIO] = serialize($usuario);
         }
         $_SESSION[USUARIO] = serialize($usuario);
     }

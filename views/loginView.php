@@ -99,7 +99,9 @@
                     async: true,
                     success: function (msg) {
                         console.log(msg);
-                        window.location.assign("vod/")                        
+                        alert(msg);
+                        console.log(msg);
+                        //window.location.assign("vod/")                        
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
                         console.error(textStatus);

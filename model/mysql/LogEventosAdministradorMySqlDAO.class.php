@@ -86,7 +86,7 @@ class LogEventosAdministradorMySqlDAO implements LogEventosAdministradorDAO{
 		$sqlQuery->set($logEventosAdministrador->tipoEvento);
 		$sqlQuery->set($logEventosAdministrador->direccionIp);
 		$sqlQuery->set($logEventosAdministrador->fechaCreacion);
-//		$sqlQuery->set($logEventosAdministrador->fechaModificacion);
+		$sqlQuery->set($logEventosAdministrador->fechaModificacion);
                 $sqlQuery->set(date("Y-m-d H:i:s"));
 
 		$sqlQuery->setNumber($logEventosAdministrador->idLogEventosAdministrador);

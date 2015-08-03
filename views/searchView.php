@@ -10,7 +10,9 @@
         <meta name="author" content="DGTVE">        
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" type='text/css'>        
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css" type='text/css'>
-        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:600' type='text/css'>        
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:600' type='text/css'> 
+        <!-- Script for the login with Facebook -->
+        <script src="js/facebook.js"></script>
     </head>
     <body class="back full-page">
         <header class="page-header">
@@ -51,7 +53,8 @@
                             Televisión <br> Educativa
                         </div>
                         <div class="col-md-2"> 
-                            <a href="index/cerrarSesion" > Cerrar sesión </a>
+                            <a id="logout" href="index/cerrarSesion" > Cerrar sesión </a>
+                            <button id="logout">Cerrar</button>
                         </div>
                         <div class="col-md-2 pull-right col-xs-4">
                             

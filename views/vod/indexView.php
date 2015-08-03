@@ -29,6 +29,8 @@
         <link href="css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" type="text/css" href="css/slick/slick.css"/>
         <link rel="stylesheet" type="text/css" href="css/slick/slick-theme.css"/>
+        <!-- Script for the login with Facebook -->
+        <script src="js/facebook.js"></script>
 
     </head>
 
@@ -75,7 +77,8 @@
                             Televisión <br> Educativa
                         </div>
                         <div class="col-md-2"> 
-                            <a href="session/close" > Cerrar sesión </a>
+                            <a id="logout" href="session/close" > Cerrar sesión </a>
+                            <button id="logout">Cerrar</button>
                         </div>
                         <div class="col-md-2 pull-right col-xs-4">
                             <form role="search">
