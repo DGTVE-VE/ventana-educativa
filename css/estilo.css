@@ -73,6 +73,7 @@ color: white;
     width: 0;
     height: 100%;
     margin-left: -220px;
+    
     overflow-y: auto;
     overflow-x: hidden;
     background: #1a1a1a;
