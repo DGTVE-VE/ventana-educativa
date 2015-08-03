@@ -23,6 +23,9 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
         <!-- Script for the login with Facebook -->
         <script src="js/facebook.js"></script>
+        <!--Script para "renderizar" el boton (de Google), obtener los datos del usuario (en Google),
+        "postearlos" al servidor y redireccionar al index del VOD-->
+        <script src="js/googleLogin.js"></script>
         <link href="css/estilo.css" rel="stylesheet">
         <!--<link href="css/docs.css" rel="stylesheet" type="text/css">-->
         <link href="css/login.css" rel="stylesheet" type="text/css">
@@ -74,9 +77,7 @@
                 </div>
             </div>
         </div>
-        <!--Script para "renderizar" el boton (de Google), obtener los datos del usuario (en Google),
-        "postearlos" al servidor y redireccionar al index del VOD-->
-        <script src="js/googleLogin.js"></script>
+
         <!--Incluyendo la libreria para integrar el "logeo" con Google-->
         <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
     </body>

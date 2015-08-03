@@ -4,7 +4,7 @@ class Usuario_api {
 
   //Funcion que verifica si el usuario ya esta registrado en la BD y actualiza o inserta sus datos.
   //Se crea la sesion del usuario.
-  public function loginGoogle (){
+  public function loginGoogle() {
 
     $dao = DAOFactory::getUsuarioDAO();    
     $GoogleID = $_POST['GoogleID'];    
@@ -35,29 +35,36 @@ class Usuario_api {
 
   }
   
-  public function loginFacebook() {
+
+    //Método para iniciar sesión con facebook
+    public function loginFacebook() {
+
         $dao = DAOFactory::getUsuarioDAO();
         $facebookId = $_POST['idUser'];
         $facebookUser = $_POST['nameUser'];
         $facebookUserImage = $_POST['imageUser'];
         $facebookUserEmail = $_POST['emailUser'];
-        $usuario = unserialize ($_SESSION['usuario']);        
         $usuario = $dao->queryByFacebook($facebookId);
-        if ($usuario == null) {
-            $usuario = new Usuario();
-            $usuario->facebook = $facebookId;
-            $usuario->nombre = $facebookUser;
-            $usuario->avatar = $facebookUserImage;
-            $usuario->correo = $facebookUserEmail;
-            print $dao->insert($usuario);
-            $_SESSION[USUARIO] = serialize($usuario);
-//            print "usuario nuevo logeado";
+
+       if ($usuario == null) {
+            $usuario = $dao->queryByCorreo($facebookUserEmail);
+            if ($usuario != null) {
+                $usuario->facebook = $facebookId;
+                print $dao->update($usuario);
+            } else {
+                $usuario = new Usuario();
+                $usuario->facebook = $facebookId;
+                $usuario->nombre = $facebookUser;
+                $usuario->avatar = $facebookUserImage;
+                $usuario->correo = $facebookUserEmail;
+                print $dao->insert($usuario);
+                $_SESSION[USUARIO] = serialize($usuario);
+            }
+
         } else {
             $_SESSION[USUARIO] = serialize($usuario);
-//            print "usuario logeado";
-//            include 'views/vod/indexView.php';
         }
+        $_SESSION[USUARIO] = serialize($usuario);
     }
-
 
 }

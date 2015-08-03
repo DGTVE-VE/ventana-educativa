@@ -6,7 +6,7 @@
  * @author: http://phpdao.com
  * @date: 2015-02-17 19:47
  */
-class SerieMySqlExtDAO extends SerieMySqlDAO{
+class SerieMySqlExtDAO extends SerieMySqlDAO {
 
     /**
      * Get Domain object by primry key
@@ -14,8 +14,8 @@ class SerieMySqlExtDAO extends SerieMySqlDAO{
      * @param String $categoria Categoria
      * @return SerieCategoriasMySql 
      */
-    public function querySeriesInCategoria ($categoria){
-            $sql = 'SELECT  s.id_serie, s.id_institucion, s.titulo, 
+    public function querySeriesInCategoria($categoria) {
+        $sql = 'SELECT  s.id_serie, s.id_institucion, s.titulo, 
                             s.descripcion, s.thumbnail, s.tags, s.temporadas, 
                             s.calificacion, s.visible, s.fecha_creacion, 
                             s.fecha_modificacion
@@ -23,10 +23,30 @@ class SerieMySqlExtDAO extends SerieMySqlDAO{
                             serie s, serie_categorias sc
                     WHERE   s.id_serie = sc.id_serie 
                     AND     sc.categoria = ?';
-            $sqlQuery = new SqlQuery($sql);		
-            $sqlQuery->setString($categoria);
+        $sqlQuery = new SqlQuery($sql);
+        $sqlQuery->setString($categoria);
 
-            return $this->getList($sqlQuery);
+        return $this->getList($sqlQuery);
     }
+
+    /*Actualiza el valor de la calificación en la tabla Serie con respecto al promedio de calificación en la tabla OpinionSerie */
+    public function queryCalificaSerie($idSerie) {
+        $sql = 'UPDATE  serie a
+                CROSS JOIN
+                (
+                    SELECT  AVG(calificacion) calificacion 
+                    FROM    opinion_serie 
+                    WHERE   id_serie = ?
+                ) b
+                SET     a.calificacion = b.calificacion
+                WHERE   a.id_serie = ?';
+        $sqlQuery = new SqlQuery($sql);
+        $sqlQuery->setNumber($idSerie);
+        $sqlQuery->setNumber($idSerie);
+        return $this->executeUpdate($sqlQuery);
+ 
+    }
+
 }
+
 ?>

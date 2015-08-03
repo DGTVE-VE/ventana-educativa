@@ -106,7 +106,8 @@ class UsuarioMySqlDAO implements UsuarioDAO{
 		$sqlQuery->set($usuario->avatar);
 		$sqlQuery->set($usuario->background);
 		$sqlQuery->set($usuario->fechaCreacion);
-		$sqlQuery->set($usuario->fechaModificacion);
+//		$sqlQuery->set($usuario->fechaModificacion);
+                $sqlQuery->set(date("Y-m-d H:i:s")); 
 
 		$sqlQuery->setNumber($usuario->idUsuario);
 		return $this->executeUpdate($sqlQuery);

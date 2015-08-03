@@ -41,8 +41,8 @@ $(function () {
 // This is called with the results from from FB.getLoginStatus(). Esta funcion es llamada para saber que hacer dependiendo del status del usuario.
 
     var statusChangeCallback = function (response, callback) {
-        console.log('statusChangeCallback');
-        console.log(response);
+//        console.log('statusChangeCallback');
+//        console.log(response);
 
         if (response.status === 'connected') {
             //testAPI(); este metodo no lo necesitaremos
@@ -64,19 +64,26 @@ $(function () {
     };
 //con este metodo se tiene acceso a los datos del usuario despues de hacer Login    
     var getFacebookData = function () {
-        FB.api('/me', function (response) {
+//        FB.api('/me', function (response) {
+            FB.api('/me?fields=email,about,name',function(response){
             //$('#login').after(div_session);
             //$('#login').remove();
             idUser = response.id;
             nameUser = response.name;
             emailUser = response.email;
             imageUser = 'http://graph.facebook.com/' + response.id + '/picture?type=large';
+            
+           alert('tu nombre es: ' + nameUser + 'y tu correo es: ' + response.email );
            
             var datos = {'nameUser': nameUser,
                          'emailUser': emailUser,
                          'idUser':idUser,
                          'imageUser':imageUser
                         };
+                        
+            //alert('tu nombre es: ' + datos.nameUser + 'y tu correo es: ' + datos.emailUser );
+            //console.log(datos.emailUser);
+            
             $.ajax({
                     url: api + 'usuario/loginFacebook',
                     type: 'POST',
@@ -84,26 +91,22 @@ $(function () {
                     ContentType: 'application/json; charset=utf-8',
                     async: true,
                     success: function (msg) {
-                        console.log(msg);
-                        window.location.assign('vod/');                        
+//                        console.log(msg);
+                       // window.location.assign('vod/');                        
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
                         console.error(textStatus);
                         alert('error');
                     }
                 });
-                //intoIndex(datos);
         });
     };
-    var intoIndex = function (datos) {
-        var nombre = datos.nameUser;
-        alert('tu nombre es: ' + nombre);
-    };
+   
     var facebookLogin = function () {
         checkLoginState(function (response) {
             if (!response) {
                 FB.login(function (response) {
-                    if (response.status == 'connected') {
+                    if (response.status == 'connected' && response.authResponse) {
                         getFacebookData();
                     }
                 }, {scope: scopes});
@@ -111,16 +114,45 @@ $(function () {
         });
     };
 
+//      var facebookLogin = function () {
+//          checkLoginState(function (response){
+//              if(!response){
+//                  FB.login(function(response){
+//                      if(response.authResponse && response.status == 'connected'){
+//                          FB.api('/me?fields=email,about',function(response){
+//                              console.log(response.email);
+//                              console.log(response.about);
+//                          });
+//                      }
+//                  });
+//              }
+//          });
+//      }  
+    
+//    FB.login(function(response) {
+//               if(response.authResponse) { //If the user grants permission
+//                         FB.api('/me?fields=email,about', function(response) {
+//                           console.log(response.email);
+//                           console.log(reponse.about);
+//                         });
+//               } else {
+//                                // User cancelled login or did not fully authorize.
+//               }
+//    }, {
+//        scope: 'email,user_about_me'
+//    );
+
     var facebookLogout = function () {
         FB.getLoginStatus(function (response) {
             if (response.status == 'connected') {
                 FB.logout(function (response) {
-                    $('#facebook-session').before(btn_login);
-                    $('#facebook-session').remove();
+
                 });
             }
         });
     };
+
+     
 
 //evento click en el boton de login
     $(document).on('click', '#login', function (e) {
@@ -130,11 +162,13 @@ $(function () {
 
     $(document).on('click', '#logout', function (e) {
         e.preventDefault();
-        if (confirm("¿Estás seguro?")) {
+//        if (confirm("¿Estás seguro?")) {
+            alert('vas a salir');
             facebookLogout();
-        }
-        else {
-            return false;
-        }
+            
+//        }
+//        else {
+//            return false;
+//        }
     });
 });
