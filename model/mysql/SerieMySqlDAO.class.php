@@ -18,6 +18,7 @@ class SerieMySqlDAO implements SerieDAO{
 		$sqlQuery = new SqlQuery($sql);
 		$sqlQuery->setNumber($id);
 		return $this->getRow($sqlQuery);
+                
 	}
 
 	/**

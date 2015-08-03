@@ -8,6 +8,7 @@
 
 class Serie_api {
 
+    /*Valida si las variables de usuario, serie y calificaión no vengan vacias para poder calificar la serie*/
     private function validaVariables() {
         if (!isset($_SESSION['usuario']) || !isset($_POST['idVideo']) || !isset($_POST['calificacion']) ) {
             print 'Error en las variables';
@@ -44,6 +45,7 @@ class Serie_api {
             $califica->calificacion = $calificacion;
             print $dao->update($califica);            
         }
+        /*Actualiza la calificación (Tabla Serie) de la serie en base al promedio de calificalificacion de usuario (Tabla OpinionSerie)*/
         $promedio = $daop->queryCalificaSerie($idSerie);                  
     }
 

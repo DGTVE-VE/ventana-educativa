@@ -29,6 +29,7 @@ class SerieMySqlExtDAO extends SerieMySqlDAO {
         return $this->getList($sqlQuery);
     }
 
+    /*Actualiza el valor de la calificación en la tabla Serie con respecto al promedio de calificación en la tabla OpinionSerie */
     public function queryCalificaSerie($idSerie) {
         $sql = 'UPDATE  serie a
                 CROSS JOIN
@@ -43,6 +44,7 @@ class SerieMySqlExtDAO extends SerieMySqlDAO {
         $sqlQuery->setNumber($idSerie);
         $sqlQuery->setNumber($idSerie);
         return $this->executeUpdate($sqlQuery);
+ 
     }
 
 }
