@@ -18,7 +18,7 @@ class IndexController extends _BaseController{
   
   public function closeSession() {
     session_destroy();
-    header('Location: /');
+    header('Location: /ventana-educativa/');
   }
 
 }
