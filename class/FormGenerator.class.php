@@ -1,110 +1,107 @@
 <?php
 
+/**
+ * Generador de formularios. 
+ * 
+ * Crea un formulario a partir de un objeto DTO del modelo.
+ * 
+ * @version 1.0
+ * @copyright (c) 2015, DGTVE
+ * @author Israel Toledo <j.israel.toledo@gmail.com>
+ */
 class FormGenerator {
 
+    /**
+     * Objeto html que representa el formulario que se está generando.
+     *
+     * @var \html_form  
+     */
     private $form;
-    private $props;
-    private $opciones = array ();
-    private $tipos = array();
     
-    public function __construct(_DTO $dto, $action ) {
-        
-        $reflect = new ReflectionClass ($dto);
-        $this->props = $reflect->getProperties();
-        
-        foreach ($this->props as $prop){
-            $this->tipos[$prop->getName()] = 'input';
+    /**
+     * Arreglo de elementos HTML que forman parte del formulario.
+     * @var array 
+     */
+    public  $elements = array();
+    
+    /**
+     * Constructor de la clase
+     * Recibe el objeto DTO de la tabla de la cual se quiere crear el formulario,
+     * así como la acción en forma de cadena a dónde se dirigirá el formulario
+     * para guardar los datos. Obtiene los campos del DTO para generar los inputs. 
+     * Posteriormente debe ser configurado.
+     * 
+     * @param _DTO $dto Objeto que tomará como referencia para crear el formulario.
+     * @param string $action Acción que se pondrá en el formulario
+     */
+    public function __construct(_DTO $dto, $action) {
+
+        $reflect = new ReflectionClass($dto);
+        $props = $reflect->getProperties();
+
+        foreach ($props as $prop) {
+            $this->elements[$prop->getName()] = new FormElement ($prop->getName ());
         }
-        
-        $this->form = new html_element ('form');
+
+        $this->form = new html_element('form');
         $this->form->set('action', $action);
         $this->form->set('method', 'POST');
-        $this->form->set('enctype', 'multipart/form-data');                
-        $this->form->set('class', 'form-horizontal');                
+        $this->form->set('enctype', 'multipart/form-data');
+        $this->form->set('class', 'form-horizontal');
     }
     
-    public function generate (){
-        
-        foreach ($this->props as $prop){
-            $name = $prop->getName();            
-            switch ($this->tipos[$name]){
-                case "select":
-                    $this->form->inject( $this->select ($name) );
-                    break;
-                case "input":
-                    $this->form->inject( $this->input ($name) );
-                    break;
-            }
-        }
-        $this->form->inject ($this->submit ());
-        return $this->form->build();
+    /**
+     * Obtiene el elemento HTML perteneciente al nombre $name
+     * 
+     * @param string $name Nombre del elemento que se requiere
+     * @return FormElement el elemento solicitado.
+     */
+    public function get($name){
+        return $this->elements[$name];
     }
     
-    public function setTipo ($name, $tipo){
-        $this->tipos[$name] = $tipo;                
-    }
-    
-    public function setOptions ($prop, array $ops){
-        $this->opciones[$prop] = $ops;
-    }
-    
-    private function select ($name){
+    /**
+     * Genera el botón que guarda el formulario
+     * 
+     * @return \html_element Botón para guardar el formulario
+     */
+    private function submit() {
+
         $div = new html_element('div');
-        $div->set('class', 'form-group');
-        
-        $label = new html_element('label');
-        $label->set('for', $name);
-        $label->set('text', ucfirst($name));
-        
-        $select = new html_element('select');
-        $select->set('name', $name);
-        $select->set('id', $name);
-        $select->set('class', 'form-control');
-        $ops = $this->opciones[$name];
-        foreach ($ops as $op){
-            $option = new html_element('option');
-            $option->set('text', $op);
-            $option->set('value', $op);
-            $select->inject($option);                    
-        }
-        $div->inject($label);
-        $div->inject($select);
-        return $div;
-    }
-    
-    private function submit (){
+        $div->set('class', 'col-sm-offset-2 col-sm-10');
+
         $button = new html_element('button');
         $button->set('type', 'submit');
-        $button->set('class','btn btn-primary');
-        $button->set('text', 'Guardar');        
-        return $button;
-    }
-    
-    private function input ($name){
-        $div = new html_element('div');
-        $div->set('class', 'form-group');
-        
-//        $label = new html_element('label');
-//        $label->set('for', $name);
-//        $label->set('text', ucfirst($name));
-        $innerdiv = new html_element('div');
-        $innerdiv->set('class', 'input-group');
-        
-        $divlabel = new html_element('div');
-        $divlabel->set('class', 'input-group-addon');
-        $divlabel->set('text', ucfirst($name));
-        
-        $input = new html_element('input');
-        $input->set('name', $name);
-        $input->set('id', $name);
-        $input->set('placeholder', ucfirst($name));
-        $input->set('class', 'form-control');
-        
-        $innerdiv->inject($divlabel);
-        $innerdiv->inject($input);
-//        $div->inject($label);
-        $div->inject($innerdiv);
-        
+        $button->set('class', 'btn btn-primary btn-block');
+        $button->set('text', 'Guardar');
+
+        $div->inject($button);
         return $div;
+    }
+
+    /**
+     * Si se requiere un elemento que no pertenece al DTO se puede usar este
+     * método para insertarlo en el formulario. 
+     * 
+     * @param FormElement $element Elemento que será introducido al formulario
+     * @param int $pos Posición en la que se insertará.
+     */
+    public function addInnerElement(FormElement $element, $pos) {
+        array_splice ($this->elements, $pos, 0, $element);
+    }
+
+
+    /**
+     * Construye el formulario a partir de la creación de todos los elementos
+     * internos del mismo.
+     * 
+     * @return \html_form el formulario creado.
+     */
+    public function build() {        
+        foreach ($this->elements as $element) {            
+            $this->form->inject($element->build());            
+        }
+        $this->form->inject($this->submit());
+        return $this->form->build();
     }
 }
