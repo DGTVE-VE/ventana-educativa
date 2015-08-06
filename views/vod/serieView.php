@@ -28,7 +28,7 @@
 
         <link href="css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css" />
         <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-        <link rel="stylesheet" href="css/vod.css">
+        <link rel="stylesheet" href="css/estilo.css">
         <script src='http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.1.0.js'></script>
         <script src='js/knockout.mapping-latest.js'></script>
     </head>

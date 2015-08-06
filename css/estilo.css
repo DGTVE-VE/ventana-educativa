@@ -8,6 +8,12 @@ and open the template in the editor.
     Author     : SMARTINEZ
 */
 /**{border: 2px dashed #279636;}*/
+/*body {    
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover !important;
+}*/
 body {
     position: relative;
     overflow-x: hidden;
@@ -23,6 +29,8 @@ html { height: 100%;}
     font-size: 16px;
     color: #fff;
 }
+
+
 .navbar-fixed-top{
     background: black;
 }
@@ -51,7 +59,7 @@ color: white;
 /*-------------------------------*/
 /*
 * {
-    border: 1px dashed #ec1b5a;
+    border: 1px dashed #ec1b5a;.ham
     
 }*/
 
@@ -361,7 +369,9 @@ color: white;
 #divsinopsis{
 /*    color: #ead24c;*/
     color: white;
+    // width: 100%;
     width: 90%;
+    //height: 200px;
     height: 300px;
     overflow: auto;
     text-align: justify;
@@ -373,14 +383,43 @@ color: white;
 #texto{
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
+    /*color: #FFF;*/
     color: #000;
     margin-left: -22px;
     margin-top: 4px;
 }
+#texto1{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    color: #FFF;
+    margin-left: -22px;
+    margin-top: 4px;
+/*    overflow: auto;*/
+    text-align: justify;
+    text-overflow: ellipsis; overflow: hidden; white-space: wrap;
+}
+/*#titserie{
+    border: 1px solid #FFF;
+    background: #FFF;
+     font-family: 'Open Sans', sans-serif;
+     font-weight: bold;
+    font-size: 16px;
+    color: #000;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    border-radius: 30px;
+    padding-left: 20px;
+    width: 300px;
+}*/
 #titserie{
     margin-bottom: 2%;
     padding-left: 10%;
     color: #FFF;
+}
+#textoBlanco{
+    color: #FFF;    
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;   
 }
 @media screen and (min-width: 768px) {
     #titserie{
@@ -459,7 +498,10 @@ color: white;
     margin: 0;
     padding: 5px;
 }
-
+/*.social ul li {
+    list-style: none outside none;
+    display: inline-block;
+}*/
 .social ul li {
     margin: 5px;
     list-style: none outside none;
@@ -471,6 +513,7 @@ color: white;
     color: #FFF;
     font-size: 15px;
     text-align:center;
+     /*padding-top: 26%;*/
     padding-top: 7px;
     border-radius: 50%;
     -moz-border-radius: 50%;
@@ -484,6 +527,7 @@ color: white;
 }
 
 .social i:hover {
+    /*color: #848484;*/
     color: #FFF;
     text-decoration: none;
     transition: all ease 0.3s;
@@ -491,6 +535,7 @@ color: white;
     -webkit-transition: all ease 0.3s;
     -o-transition: all ease 0.3s;
     -ms-transition: all ease 0.3s;
+    /*background-color: #FFF;*/
 }
 .social .fa-facebook { /* round facebook icon*/
     background: #4060A5;
@@ -602,6 +647,9 @@ Additional Styles (required)
     height: 90%;
     
 }
+#carousel3{
+/*    margin-top:50px;*/
+}
 
 /*#img-contenedor img {
 -webkit-transition:all .9s ease;  Safari y Chrome 
@@ -618,3 +666,75 @@ height: 90%;
 -o-transform:scale(1.25);
 transform:scale(1.25);
 }*/
+
+/* VOD */
+/* http://kaliko.com/blog/circled-number-with-pure-css/ */
+span.num-temporada{
+    background: #cccccc;
+    border-radius: 0.8em;
+    -moz-border-radius: 0.8em;
+    -webkit-border-radius: 0.8em;
+    color: #ffffff;
+    display: inline-block;
+    font-weight: bold;
+    line-height: 1.6em;
+    margin-right: 5px;
+    text-align: center;
+    width: 1.6em;     
+}
+
+
+.row {
+    position: relative;
+}
+
+.temporadas-text{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.series {
+    /*height: 35em;*/
+    height: 22em;
+    overflow: auto;
+}
+
+.encabezado{
+    background-color: black;
+    height: 5em;
+}
+.opaco{
+    background-color: rgba(0, 0, 0, 0.5);
+    
+    color: #FFF;
+}
+
+#buscar{
+    border-radius: 10px;
+    background-color: #FFF;
+}
+
+input.search-query {
+    padding-left:26px;
+}
+form.form-search {
+    position: relative;
+}
+form.form-search:before {
+    display: block;
+    width: 14px;
+    height: 14px;
+    content: "\e003";
+    font-family: 'Glyphicons Halflings';
+    background-position: -48px 0;
+    position: absolute;
+    top:8px;
+    left:8px;
+    opacity: .5;
+    z-index: 1000;
+}
+.noborder{
+    border: none !important;
+    
+}
