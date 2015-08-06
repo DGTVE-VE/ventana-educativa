@@ -15,4 +15,14 @@ class TestController {
         $f = new FormGenerator(new Vod, 'vod/guardar');
         print $f->generate();
     }
+    
+    /*Ejemplo para crear un controlador para ver la vista de Login*/
+    public function testLogin (){
+        include 'views/loginView.php';
+    }
+    
+    public function testIndex (){
+        $_SESSION[CONTENIDO_INCLUIDO] = file_get_contents('views/vod/indexView.php');
+        include 'tpl/index.tpl.php';
+    }
 }

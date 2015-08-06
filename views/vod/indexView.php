@@ -21,7 +21,7 @@
         <link href="css/star-rating.css" media="all" rel="stylesheet" type="text/css" />
         <!--        link para reconocimiento de imagenes en iconos-->
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-        <!--        link para efectos reproducción de video-->
+        <!--        link para efectos reproducciÃ³n de video-->
         <link rel="stylesheet"  href="css/lightGallery.css"/>        
         <!--<script src="../js/lightGallery.js"></script>-->
         <!--        link para efectos de thumbnails-->
@@ -113,7 +113,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <p>Copyright &copy; Ventana Educativa 2015.</p>
-                    <p>Dirección General de Televisión Educativa.</p>
+                    <p>DirecciÃ³n General de TelevisiÃ³n Educativa.</p>
                 </div>
             </div>
             <!--             /.row -->
