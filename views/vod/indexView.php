@@ -140,7 +140,7 @@
         $(document).ready(function () {
           $(".video").lightGallery();
       });
-
+      var api = <?php print json_encode($_SESSION[CONFIG]['api']['url']);?>;
     </script>
     <script type="text/javascript" src="js/vod/index.js"></script>
 </body>

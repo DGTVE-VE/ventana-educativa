@@ -14,4 +14,10 @@ class TestController {
 //        $f = new FormGenerator(new Vod, 'vod/guardar');
 //        print $f->generate();
     }
+    
+    public function testConfig (){
+        $array_ini = parse_ini_file("config.ini", true);
+        print_r ($array_ini);
+        print $array_ini['database']['host'];
+    }
 }

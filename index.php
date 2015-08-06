@@ -15,6 +15,8 @@ require_once 'autoload.php';
  */
 require_once 'constantes.php';
 
+$_SESSION[CONFIG] = parse_ini_file("config.ini", true);
+
 /** USUARIO DE PRUEBA, ELIMINAR EN PRODUCCIÓN*/
 
 /*$usuario = new Usuario ();

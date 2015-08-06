@@ -16,14 +16,15 @@ class ConnectionFactory {
             // Connect from App Engine.            
             $db = mysql_connect(':/cloudsql/vod-ventana-educativa:vod', 'root', '');
         } else {
-            // Connect from a development environment.            
+            // Connect from a development environment.      
+            $properties = new ConnectionProperty();
             $db = mysql_connect(
-                    ConnectionProperty::getHost(), 
-                    ConnectionProperty::getUser(), 
-                    ConnectionProperty::getPassword());
+                    $properties->getHost(), 
+                    $properties->getUser(), 
+                    $properties->getPassword());
         }
         mysql_set_charset('utf8', $db);
-        mysql_select_db(ConnectionProperty::getDatabase());
+        mysql_select_db($properties->getDatabase());
         if (!$db) {
             die(json_encode(
                             array('outcome' => false, 'message' => 'Unable to connect')
