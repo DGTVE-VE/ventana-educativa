@@ -19,6 +19,9 @@ class html_element
 	var $type;
 	var $attributes;
 	var $self_closers;
+        var $required = false;
+        
+        
 	
 	/* constructor */
 	function html_element($type,$self_closers = array('input','img','hr','br','meta','link'))
@@ -33,6 +36,10 @@ class html_element
 	{
 		return $this->attributes[$attribute];
 	}
+        
+        function setRequired ($required){
+            $this->required = $required;
+        }
 	
 	/* set -- array or key,value */
 	function set($attribute,$value = '')
@@ -85,7 +92,9 @@ class html_element
 				if($key != 'text') { $build.= ' '.$key.'="'.$value.'"'; }
 			}
 		}
-		
+		if ($this->required){
+                    $build.= ' required';
+                }
 		//closing
 		if(!in_array($this->type,$this->self_closers))
 		{

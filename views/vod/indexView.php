@@ -29,11 +29,14 @@
         <link href="css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" type="text/css" href="css/slick/slick.css"/>
         <link rel="stylesheet" type="text/css" href="css/slick/slick-theme.css"/>
+        <!-- Script for the login with Facebook -->
+        <script src="js/facebook.js"></script>
 
     </head>
 
     <body class="back full-page">
         <?php include 'views/header.php'; ?>
+
         <!--         Full Page Image Background Carousel Header -->
         <div id="myCarousel1" class="carousel slide">
             <!--             Indicators -->
@@ -137,7 +140,7 @@
         $(document).ready(function () {
           $(".video").lightGallery();
       });
-
+      var api = <?php print json_encode($_SESSION[CONFIG]['api']['url']);?>;
     </script>
     <script type="text/javascript" src="js/vod/index.js"></script>
 </body>

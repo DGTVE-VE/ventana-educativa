@@ -12,7 +12,6 @@
                 </a>                    
                 <div id="divsinopsis" class="col-xs-5 col-md-10 content mCustomScrollbar mCS-autoHide" data-bind="text: descripcion"></div>
             </div>
-
             <div class="col-md-8 series content mCustomScrollbar">                                            
                 <h3>Capítulos</h3>
                 <table class="table" data-bind="foreach: capitulos">

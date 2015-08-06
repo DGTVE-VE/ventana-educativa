@@ -6,25 +6,33 @@
  * @date: 27.11.2007
  */
 class ConnectionProperty{
-	private static $host = '172.16.107.157';
-	private static $user = 'vema';
-	private static $password = 'vema';
-	private static $database = 'vema';
+	private $host = '172.16.107.157';
+	private $user = 'vema';
+	private $password = 'vema';
+	private $database = 'vema';
+        
+        public function __construct() {
+            $config = parse_ini_file("config.ini", true);
+            $this->host       = $config['database']['host'];
+            $this->user       = $config['database']['user'];
+            $this->password   = $config['database']['pass'];
+            $this->database   = $config['database']['name'];
+        }
 
-	public static function getHost(){
-		return ConnectionProperty::$host;
+	public function getHost(){
+		return $this->host;
 	}
 
-	public static function getUser(){
-		return ConnectionProperty::$user;
+	public function getUser(){
+		return $this->user;
 	}
 
-	public static function getPassword(){
-		return ConnectionProperty::$password;
+	public function getPassword(){
+		return $this->password;
 	}
 
-	public static function getDatabase(){
-		return ConnectionProperty::$database;
+	public function getDatabase(){
+		return $this->database;
 	}
 }
 ?>

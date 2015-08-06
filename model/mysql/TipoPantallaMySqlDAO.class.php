@@ -80,7 +80,7 @@ class TipoPantallaMySqlDAO implements TipoPantallaDAO{
 		
 		$sqlQuery->set($tipoPantalla->descripcion);
 		$sqlQuery->set($tipoPantalla->fechaCreacion);
-//		$sqlQuery->set($tipoPantalla->fechaModificacion);
+		$sqlQuery->set($tipoPantalla->fechaModificacion);
                 $sqlQuery->set(date("Y-m-d H:i:s"));
 
 		$sqlQuery->set($tipoPantalla->tipoPantalla);

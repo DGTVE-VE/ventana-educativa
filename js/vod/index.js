@@ -1,5 +1,5 @@
 
-api = "http://localhost/ventana-educativa/api/v1/";
+//api = "http://localhost/ventana-educativa/api/v1/";
 
 function VodIndexViewModel() {
 //    console.log (api);
