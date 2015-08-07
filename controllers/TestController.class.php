@@ -30,4 +30,6 @@ class TestController {
         $_SESSION[CONTENIDO_INCLUIDO] = file_get_contents('views/vod/indexView.php');
         include 'tpl/index.tpl.php';
     }
+    
+    
 }
