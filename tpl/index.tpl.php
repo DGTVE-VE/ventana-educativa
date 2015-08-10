@@ -111,6 +111,5 @@ and open the template in the editor.
 
 
     </body>
-</html>
-
+<!--</html>-->
 <script type="text/javascript" src="js/vod/jsheader.js"></script>

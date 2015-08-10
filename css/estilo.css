@@ -14,7 +14,7 @@ and open the template in the editor.
   -o-background-size: cover;
   background-size: cover !important;
 }*/
-body {
+/*body {
     position: relative;
     overflow-x: hidden;
 }
@@ -22,8 +22,16 @@ body,
 html { height: 100%;}
 .nav .open > a, 
 .nav .open > a:hover, 
-.nav .open > a:focus {background-color: transparent;}
-
+.nav .open > a:focus {background-color: transparent;}*/
+body{
+     margin: 0 auto;
+     padding: 0;
+     overflow-x: hidden;
+     
+     width: 100% !important;
+     position: relative;
+     height: 100% !important;
+}
 .agregar{
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
@@ -136,6 +144,8 @@ html { height: 100%;}
     }
     #myCarousel1{    
         height: 500px;
+        width: 90%;
+        margin: 3%
     }
 }
 
@@ -152,6 +162,8 @@ html { height: 100%;}
     }
     #myCarousel1{
         height: 550px;
+        width: 90%;
+        margin: 3%
     }
     #divsinopsis{
         height: 250px;
@@ -166,6 +178,8 @@ html { height: 100%;}
     #myCarousel1{
         /*border: 2px dashed red;*/
         height: 600px;
+        width: 95%;
+        margin: 3%
 
     }
     #divtitulo{
