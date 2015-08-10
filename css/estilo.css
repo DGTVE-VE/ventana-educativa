@@ -419,15 +419,6 @@ height: 90%;
 transform:scale(1.25);
 }*/
 
-.cerrarSesion{
-    font-size: 120%;
-    color: red;
-
-}
-
-.cerrarSesion:hover{
-    color:#FFF;   
-}
 
 /* VOD */
 /* http://kaliko.com/blog/circled-number-with-pure-css/ */
@@ -516,10 +507,12 @@ form.form-search:before {
     color: red;
     padding: 0.5em 0.5em;
     margin: 0.5em 0%;
+    
 }
 
 .VHcerrarSesion:hover{
-    color:#FFF;   
+    color:#FFF; 
+    cursor: pointer;
 }
 
 .navbar-fixed-top{

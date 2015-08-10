@@ -26,7 +26,7 @@
                         Televisión <br> Educativa
                     </div>
                     <div class="col-md-1 col-xs-2"> 
-                        <label class="glyphicon glyphicon-off cerrarSesion"></label>
+                        <a><label class="glyphicon glyphicon-off VHcerrarSesion"></label></a>
                     </div>
                     <div class="col-md-3 col-xs-3 col-lg-3 pull-right">
                         <!-- add search form -->
@@ -60,7 +60,7 @@
                     </button>
                     <a href="#"><img class="col-md-3" src="imagenes/logovem.png"></a>
                     <a href="#"><img class="col-md-3" src="imagenes/logoDGTVEsolo.png" alt=""></a>
-                    <label class="glyphicon col-md-3 glyphicon-off cerrarSesion"></label>
+                    <a><label class="glyphicon col-md-3 glyphicon-off VHcerrarSesion"></label></a>
                 </div>
                 <!-- add menu -->
                 <div class="collapse navbar-collapse" id="navbar1">
