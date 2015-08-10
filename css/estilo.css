@@ -691,11 +691,13 @@ form.form-search:before {
     margin-left: 15px;
     background: transparent;
     border: none;
+    
 }
 .hamburger:hover,
 .hamburger:focus,
 .hamburger:active {
     outline: none;
+    cursor: pointer;
 }
 .hamburger.is-closed:before {
     content: '';
