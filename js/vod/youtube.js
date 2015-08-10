@@ -111,7 +111,7 @@ function initializeYoutube(youtubeId, time) {
         height: window.innerHeight - 50,
         videoId: youtubeId,
         playerVars: {
-            controls: 0, // Los controles no se muestran
+            controls: 1, // Los controles no se muestran
             playsinline: 0, // Reproducción a pantalla completa
             iv_load_policy: 3, // Las anotaciones del video no se muestran 
             modestbranding: 1, // Evita que el logo de youtube se muestre en la barra de control
@@ -159,6 +159,8 @@ function onPlayerReady(event) {
  */
 function onPlayerStateChange(event) {
     if (event.data === 0) {
-        alert('done');
+        id = window.location.href.toString().substring(pos + 1);
+         alert('done' + id);
+        window.location.assign('vod/finish/' + id);    
     }
 }

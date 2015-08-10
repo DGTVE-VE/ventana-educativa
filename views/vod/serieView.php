@@ -1,3 +1,4 @@
+
 <link type="text/css" rel="stylesheet" href="css/star-rating.css">
 <div class="container-fluid">
 <div class="row"  id="serie-view">
@@ -56,4 +57,3 @@
 </div>
 <script type="text/javascript" src="js/vod/serie.js"></script>        
 <script type="text/javascript" src="js/star-rating.js"></script>
-

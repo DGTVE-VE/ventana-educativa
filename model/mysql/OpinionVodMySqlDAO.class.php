@@ -92,7 +92,7 @@ class OpinionVodMySqlDAO implements OpinionVodDAO{
 		$sqlQuery->setNumber($opinionVod->calificacion);
 		$sqlQuery->set($opinionVod->fechaCreacion);
 		$sqlQuery->set($opinionVod->fechaModificacion);
-                $sqlQuery->set(date("Y-m-d H:i:s"));
+//                $sqlQuery->set(date("Y-m-d H:i:s"));
 
 		
 		$sqlQuery->setNumber($opinionVod->usuarioIdUsuario);
