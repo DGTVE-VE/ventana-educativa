@@ -63,11 +63,11 @@
 }
 
 .rating-container {
-    position: relative;
-    vertical-align: middle;
-    display: inline-block;
-    color: #e3e3e3;
-    overflow: hidden;
+     position: relative; 
+     vertical-align: middle; 
+     display: inline-block; 
+     color: #e3e3e3; 
+     overflow: hidden; 
 }
 
 .rating-container:before {
@@ -76,10 +76,10 @@
 
 .rating-container .rating-stars {
     position: absolute;
-    left: 0;
-    top: 0;
-    white-space: nowrap;
-    overflow: hidden;
+     left: 0; 
+     top: 0; 
+     white-space: nowrap; 
+     overflow: hidden; 
     color: #fde16d;
     transition: all 0.25s ease-out;
     -o-transition: all 0.25s ease-out;

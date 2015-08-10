@@ -14,7 +14,7 @@ class Serie_api {
             print 'Error en las variables';
             var_dump($_POST['idVideo']);
             var_dump($_SESSION['usuario']);
-            var_dump($_SESSION['calificacion']);
+            var_dump($_POST['calificacion']);
             return false;
         }
         return true;
@@ -40,13 +40,17 @@ class Serie_api {
             $califica->idSerie = $idSerie;
             $califica->calificacion = $calificacion;
             print $dao->insert($califica);
+            
         } else {
             /*Actualiza la tabla de OpinionSerie con respeto al usuario y número de serie*/
             $califica->calificacion = $calificacion;
-            print $dao->update($califica);            
+            print $dao->update($califica);
+            
         }
         /*Actualiza la calificación (Tabla Serie) de la serie en base al promedio de calificalificacion de usuario (Tabla OpinionSerie)*/
         $promedio = $daop->queryCalificaSerie($idSerie);                  
+        var_dump($_POST);
+        
     }
 
 }

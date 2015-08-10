@@ -26,4 +26,8 @@ class VodController extends _BaseController{
   public function search (){
       include 'views/searchView.php';
   }
+  
+  public function finish ($id){
+     include 'views/vod/finishView.php';
+  }
 }

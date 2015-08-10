@@ -1,5 +1,6 @@
 api = "http://localhost/ventana-educativa/api/v1/";
-function SeriesViewModel() {
+
+function SeriesViewModel() {    
     // Data              
     var self = this;
     self.capitulos = ko.observableArray([]);
@@ -36,9 +37,13 @@ function SeriesViewModel() {
     });
 
 }
+$(document).ready(function() {
+    
+    ko.applyBindings(new SeriesViewModel(), document.getElementById("serie-view"));
+});
 
 // Activates knockout.js
-ko.applyBindings(new SeriesViewModel());
+
 
 /*Etiqueta que se incluira en el rating al ser seleccionada una estrella por el usuario*/
 $("#input-1").rating({
@@ -46,6 +51,30 @@ $("#input-1").rating({
 });
 
 /*Función que */
+$("#input-1").on("rating.change", function (event, value, caption) {
+    id = document.getElementById('idSerie');
+    console.log(id.value);
+    var datos = {'calificacion': value, 'idVideo': id.value};
+    $.ajax({
+        url: api + 'serie/calificarSerie',
+        type: 'POST',
+        data: datos,
+        ContentType: 'application/json; charset=utf-8',
+        async: true,
+        success: function (msg) {
+            console.log(msg);
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.error(textStatus);
+        }
+    });
+});
+/*Etiqueta que se incluira en el rating al ser seleccionada una estrella por el usuario*/
+$("#input-1").rating({
+    starCaptions: {1: "Malo", 2: "Regular", 3: "Bueno", 4: "Muy Bueno", 5: "Excelente"}
+});
+
+
 $("#input-1").on("rating.change", function (event, value, caption) {
     id = document.getElementById('idSerie');
     console.log(id.value);

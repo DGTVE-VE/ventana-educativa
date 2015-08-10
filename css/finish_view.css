@@ -1,0 +1,40 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 7/08/2015, 11:39:51 AM
+    Author     : JITOLEDO
+*/
+
+html{
+    -webkit-text-size-adjust:100% !important;
+    -ms-text-size-adjust:100% !important;
+ }
+.fondo-video{
+     margin:0 !important;
+/*    background: url('../imagenes/paisaje_1.jpg') no-repeat  fixed !important;*/
+    -webkit-background-size: cover !important;
+    -moz-background-size: cover !important;
+    background-size: cover !important;
+    -o-background-size: cover !important;
+ }
+.fondo-video {
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size:25px !important;
+    line-height:1.42857143 !important;
+    color:#6bc0f4 !important;
+}
+.h1, h1 {
+  font-size: 36px !important;
+  margin: 5px !important;
+  color: #fff !important;
+}
+.container{
+      margin-left: 5% !important;
+      width: 85% !important;
+}
+.rating-xs {
+    font-size: 27px !important;
+}
