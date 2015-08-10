@@ -1,5 +1,5 @@
 
-api = "http://localhost/ventana-educativa/api/v1/";
+//api = "http://localhost/ventana-educativa/api/v1/";
 
 function VodIndexViewModel() {
 //    console.log (api);
@@ -77,5 +77,5 @@ function VodIndexViewModel() {
 
 }
 
-ko.applyBindings(new VodIndexViewModel());
+ko.applyBindings(new VodIndexViewModel(), document.getElementById("vista_principal"));
 
