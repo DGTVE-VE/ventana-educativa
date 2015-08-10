@@ -27,7 +27,7 @@ class TestController {
     }
     
     public function testIndex (){
-        $_SESSION[CONTENIDO_INCLUIDO] = file_get_contents('views/vod/indexView.php');
+        $_SESSION[CONTENIDO_INCLUIDO] = file_get_contents('views/vod/serieView.php');
         include 'tpl/index.tpl.php';
     }
     

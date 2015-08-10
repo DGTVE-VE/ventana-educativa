@@ -7,7 +7,7 @@ and open the template in the editor.
     Created on : 3/03/2015, 12:52:45 PM
     Author     : SMARTINEZ
 */
-/**{border: 2px dashed #279636;}*/
+
 /*body {    
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -23,15 +23,25 @@ html { height: 100%;}
 .nav .open > a, 
 .nav .open > a:hover, 
 .nav .open > a:focus {background-color: transparent;}*/
-body{
-     margin: 0 auto;
-     padding: 0;
-     overflow-x: hidden;
-     
-     width: 100% !important;
-     position: relative;
-     height: 100% !important;
+
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    /*position: relative;*/
+    /*border: 2px dashed #279636;*/
 }
+html, body {
+    width: 100%;
+    min-height: 100%;
+    height: auto !important;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover !important;
+}
+
 .agregar{
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
@@ -119,13 +129,13 @@ body{
     height: 300px;
     width: 500px;
 }
- #divtitulo{
-        font-size: 22px !important;
-        letter-spacing: 2px !important;
-        margin-top: 1% !important;
-        color: #FFF;
-        /*border: 2px dashed red;*/
-    }
+#divtitulo{
+    font-size: 22px !important;
+    letter-spacing: 2px !important;
+    margin-top: 1% !important;
+    color: #FFF;
+    /*border: 2px dashed red;*/
+}
 
 @media screen and (max-width: 768px) {
     #titserie{
@@ -139,7 +149,7 @@ body{
         /*border: 2px dashed greenyellow;*/
     }
     #divsinopsis{
-        height: 200px;
+        height: 100px;
         width: 100%;
     }
     #myCarousel1{    
@@ -166,14 +176,14 @@ body{
         margin: 3%
     }
     #divsinopsis{
-        height: 250px;
+        height: 150px;
         width: 100%;
     }
 }
 @media screen and (min-width: 1200px) {
     #titserie{
         font-size: 25px !important;
-        
+
     }
     #myCarousel1{
         /*border: 2px dashed red;*/
@@ -194,8 +204,8 @@ body{
         /*border: 2px dashed white;*/
 
     }
-       #divsinopsis{
-        height: 300px;
+    #divsinopsis{
+        height: 250px;
         width: 100%;
     }
 }
@@ -448,7 +458,7 @@ span.num-temporada{
 
 .series {
     /*height: 35em;*/
-    height: 22em;
+    height: 35em;
     overflow: auto;
 }
 

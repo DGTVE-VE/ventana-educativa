@@ -15,8 +15,11 @@ function SeriesViewModel() {
         // en blur en ese servicio. El servicio hay que mejorarlo para optimizar
         // la entrega de imagenes en blur.
         document.body.style.background =
+//    document.getElementById('back-full').style.background =
                 "#000000 url(http://concrete-envoy-87323.appspot.com/?url="
-                + self.serie().thumbnail + ") no-repeat center center fixed";
+                + self.serie().thumbnail + ")no-repeat center center fixed";
+//                + self.serie().thumbnail + ")no-repeat";
+        
     });
 
     $.getJSON(api + "vod/capitulosXserie/" + id, function (allData) {
@@ -46,9 +49,9 @@ $(document).ready(function() {
 
 
 /*Etiqueta que se incluira en el rating al ser seleccionada una estrella por el usuario*/
-$("#input-1").rating({
-    starCaptions: {1: "Malo", 2: "Regular", 3: "Bueno", 4: "Muy Bueno", 5: "Excelente"}
-});
+//$("#input-1").rating({
+//    starCaptions: {1: "Malo", 2: "Regular", 3: "Bueno", 4: "Muy Bueno", 5: "Excelente"}
+//});
 
 /*Función que */
 $("#input-1").on("rating.change", function (event, value, caption) {
