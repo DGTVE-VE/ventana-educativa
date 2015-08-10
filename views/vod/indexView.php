@@ -71,12 +71,7 @@
 <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.5.0/slick.min.js"></script><!--permite ver el slider tamaño normal-->
 <script type="text/javascript" src="js/vod/index.js"></script><!--conexión con nkockuot-->
 
-<script type="text/javascript">
-      $(document).ready(function () {
-          $(".video").lightGallery();
-      });
-    
-</script>
+
 
 
 
