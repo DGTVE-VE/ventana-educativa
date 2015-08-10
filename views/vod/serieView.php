@@ -50,7 +50,7 @@
 
                     <div class="col-md-8 series content mCustomScrollbar">                                            
                         <h3>Capítulos</h3>
-                        <table class="table" data-bind="foreach: capitulos">
+                        <table class="table" data-bind="foreach: { data: capitulos }">
                             <thead>                                
                                 <tr>
                                   <th  class="noborder" colspan="2" data-bind="text: titulo"></th>
@@ -59,7 +59,7 @@
                             <tbody>
                                 <tr class="col-lg-12 col-md-12 col-xs-12">
                                     <td class="video text-center" >
-                                        <a data-bind="attr:{'href':'vod/youtube/'+idVod()}"> 
+                                       <a data-bind="attr:{'href':'vod/youtube/'+idVod()}"> 
                                             <img width="200" data-bind="attr:{src: thumbnail}"/>
                                         </a> 
                                     </td>
