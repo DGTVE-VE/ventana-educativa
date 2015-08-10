@@ -26,35 +26,36 @@
         <!--Script para "renderizar" el boton (de Google), obtener los datos del usuario (en Google),
         "postearlos" al servidor y redireccionar al index del VOD-->
         <script src="js/googleLogin.js"></script>
-        <link href="css/estilo.css" rel="stylesheet">
+        <!--<link href="css/estilo.css" rel="stylesheet">-->
         <!--<link href="css/docs.css" rel="stylesheet" type="text/css">-->
         <link href="css/login.css" rel="stylesheet" type="text/css">
 
     </head>
     <body class="full-page" id="bodyLog">
         <div id="fb-root"></div>
-        
+
         <!-- This script load de SDK for the login in facebook -->
         <div id="fb-root"></div>
-        <script>(function(d, s, id) {
-          var js, fjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) return;
-          js = d.createElement(s); js.id = id;
-          js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.4&appId=1408909052733113";
-          fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));</script>
-        
+        <script>(function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id))
+                    return;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.4&appId=1408909052733113";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
+
         <header class="page-header">
             <div class="row">
-                <div id="wrapper">
-                    <div class="row navbar-fixed-top navbar-inverse">                       
-                        <div class="col-md-4 col-xs-8 text-right ">
-                            <a href="#"><img class="text-center" src="imagenes/logoDGTVEsolo.png" alt=""></a>
+                <div id="wrapper" class="col-md-12">
+                    <div class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper"> 
+                        <div class="col-md-6 col-xs-8 text-right">
+                            <a href="#"><img class="text-right" src="imagenes/logoDGTVEsolo.png" alt=""></a>
                         </div>
-                        <div class="col-md-4 hidden-xs text-left" id="textoBlanco">
+                        <div class="col-md-6 col-xs-4  text-left" id="textoBlanco">
                             Televisión <br> Educativa 
                         </div>
-                        <div class="col-md-4 col-xs-4"><img class="text-center" src="imagenes/logoVE1.png" width="55" height="60" alt=""></div>
                     </div>
                 </div>  
             </div>
@@ -62,18 +63,24 @@
         <div class="container-fluid">
             <div class="row-fluid">
                 <div class="center-block bubble">
-                    <div class="col-md-12"><img class="center-block img-responsive" src="imagenes/logoVentana.png"></div>
+                    <div class="col-md-12"><img class="center-block" id="VLlogove" src="imagenes/logove.png"></div>
                     <div class="col-md-12 text-center"><h1>Bienvenido</h1></div>
                     <div class="col-md-12 text-center"><h1>¡Conéctate!</h1><br></div>
-                    <div class="col-md-2"></div>    
-                    <div class="col-md-2 text-center"><a href="#" class="btn btn-social-icon btn-lg btn-twitter"><i class="fa fa-twitter"></i></a></div>
-
-                    <div class="col-md-2 text-center"><a id="login" href="#" class="btn btn-social-icon btn-lg btn-facebook"><i class="fa fa-facebook"></i></a></div>
-                    <!--Boton para "logeo" con Google-->
-                    <div id="my-signin2"></div>
-                    <div class="col-md-2 text-center"><a href="#" class="btn btn-social-icon btn-lg btn-dropbox"><i class="glyphicon glyphicon-envelope"></i></a></div>
-                    <div class="col-md-2"></div>
-                    <div id="status"></div>
+                    <div>
+                        <!--                        <div class="col-md-2 text-center">
+                                                    <a href="#" class="btn btn-social-icon btn-lg btn-twitter"><i class="fa fa-twitter"></i></a>
+                                                </div>
+                                                <div class="col-md-2 text-center">
+                                                    <a href="#" class="btn btn-social-icon btn-lg btn-dropbox"><i class="glyphicon glyphicon-envelope"></i></a>
+                                                </div>-->
+                        <div class="col-md-6 text-center">
+                            <a id="login" href="#" class="btn btn-social-icon btn-group-justified btn-facebook"><i class="fa fa-facebook"></i></a>
+                        </div>
+                        <!--Boton para "logeo" con Google-->
+                        <div class="col-md-6 text-center">
+                            <a id="my-signin2" class="btn btn-social-icon btn-group-justified btn-google"><i id="btngoogle-plus" class="fa fa-google-plus"></i></a>
+                        </div>                        
+                    </div>
                 </div>
             </div>
         </div>
