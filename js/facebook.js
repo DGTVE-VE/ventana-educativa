@@ -14,7 +14,7 @@ $(function () {
     var emailUser;
     var idUser;
     var imageUser;
-    var api = "http://localhost/ventana-educativa/api/v1/";
+//    var api = "http://localhost/ventana-educativa/api/v1/";
 
 //Aqui va parte del codigo proporcionado por facebook para inicializar el sdk y obtenemos el status actual del usuario y lo devolvemos. Para mayor explicación consultar la documentación de facebook. 
 
@@ -114,42 +114,25 @@ $(function () {
         });
     };
 
-//      var facebookLogin = function () {
-//          checkLoginState(function (response){
-//              if(!response){
-//                  FB.login(function(response){
-//                      if(response.authResponse && response.status == 'connected'){
-//                          FB.api('/me?fields=email,about',function(response){
-//                              console.log(response.email);
-//                              console.log(response.about);
-//                          });
-//                      }
-//                  });
-//              }
-//          });
-//      }  
+
+
+//    var facebookLogout = function (response) {
+//        alert('entro');
+//        FB.getLoginStatus(function (response) {
+//            if (response.status == 'connected') {
+//                FB.logout(function (response) {
+//
+//                });
+//            }
+//        });
+//    };
     
-//    FB.login(function(response) {
-//               if(response.authResponse) { //If the user grants permission
-//                         FB.api('/me?fields=email,about', function(response) {
-//                           console.log(response.email);
-//                           console.log(reponse.about);
-//                         });
-//               } else {
-//                                // User cancelled login or did not fully authorize.
-//               }
-//    }, {
-//        scope: 'email,user_about_me'
-//    );
-
     var facebookLogout = function () {
-        FB.getLoginStatus(function (response) {
-            if (response.status == 'connected') {
-                FB.logout(function (response) {
-
-                });
-            }
-        });
+        alert('entro');
+        window.location.assign('index/closeSession'); 
+        checkLoginState(function (response){
+           alert('check' + response);
+        });        
     };
 
      
@@ -160,15 +143,9 @@ $(function () {
         facebookLogin();
     });
 
-    $(document).on('click', '#logout', function (e) {
+    $(document).on('click', '.logout', function (e) {    
         e.preventDefault();
-//        if (confirm("¿Estás seguro?")) {
-            alert('vas a salir');
-            facebookLogout();
-            
-//        }
-//        else {
-//            return false;
-//        }
+        facebookLogout();            
     });
+    
 });

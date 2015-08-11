@@ -1,5 +1,5 @@
 /** URL del api de ventana educativa*/
-var api = "http://localhost/ventana-educativa/api/v1/";
+//var api = "http://localhost/ventana-educativa/api/v1/";
 /** Tiempo transcurrido del video */
 var timeElapsed;
 /** Objeto de youtube reproductor de video */

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <base href="http://<?php print SERVER_URL; ?>" />
+      <base href="http://<?php print $_SESSION[CONFIG]['host']['url']; ?>">
     </head>
     <body style='background: #000000'>
 
@@ -12,6 +12,7 @@
         <script src='http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.1.0.js'></script>
         <script src='js/knockout.mapping-latest.js'></script>
         <script src="https://www.youtube.com/player_api"></script>
+        <script> var api = <?php print json_encode($_SESSION[CONFIG]['api']['url']); ?>; </script>
         <script src='js/vod/youtube.js'></script>
     </body>
 </html>
