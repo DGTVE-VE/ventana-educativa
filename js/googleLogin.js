@@ -5,7 +5,7 @@
  */
 
 
-            var api = "http://localhost/ventana-educativa/api/v1/";
+//            var api = "http://localhost/ventana-educativa/api/v1/";
             function onSuccess(googleUser) {
                 //Para obtener los datos del usuario
                 /*console.log('Logged in as: ' + googleUser.getBasicProfile().getName());*/

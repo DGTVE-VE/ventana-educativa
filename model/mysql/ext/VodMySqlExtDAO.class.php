@@ -22,7 +22,7 @@ class VodMySqlExtDAO extends VodMySqlDAO {
 
     public function fullTextSearch($searchText) {
         $sql = "SELECT * FROM vod "
-                . "WHERE MATCH (titulo, subtitulo, tags, serie, titulo_traducido) "
+                . "WHERE MATCH (titulo, subtitulo, tags, serie, titulo_traducido, sinopsis) "
                 . "AGAINST (?)";
         $sqlQuery = new SqlQuery($sql);
         $sqlQuery->set($searchText);
