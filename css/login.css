@@ -8,28 +8,40 @@ and open the template in the editor.
     Author     : SMARTINEZ
 */
 
-  
-#bodyLog{
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    /*position: relative;*/
+    /*border: 2px dashed #279636;*/
+}
+html, body {
     background: url("../imagenes/login/backinicio.png") no-repeat center center fixed;
+    width: 100%;
+    min-height: 100%;
+    height: auto !important;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;
+    background-size: cover !important;
+    overflow: hidden;
 }
+
+
+
 
 *{
     /*border: 2px dashed yellow;*/    
 }
 
-
+#VLlogove{
+    width: 300px;
+    height: 200px;
+}
 #globologin{
     height: 600px;
 }
-#logove{
-    /*background-size: 50% 50%;*/
-    width: 40%;
-    height: 40%;
-}
+
 .bubble 
 {
     margin-top: 5%;
@@ -41,6 +53,7 @@ and open the template in the editor.
     -webkit-border-radius: 80px;
     -moz-border-radius: 80px;
     border-radius: 80px;
+
 }
 
 /*.bubble:after 
@@ -57,15 +70,35 @@ and open the template in the editor.
     left: 396px;
 }*/
 
+
+#btngoogle-plus{
+    margin-top: -10%;
+}
 #textoBlanco{
     color: #FFF;    
     font-family: 'Open Sans', sans-serif;
-    font-size: 16px;   
+    font-size: 16px;
+    margin-left: -1.8%;
+}
+
+#sidebar-wrapper {
+    z-index: 1000;
+
+    background: #000;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
 }
 
 @media screen and (max-width: 768px) {
     h1 {
         font-size:20px;
+    }
+    #VLlogove{
+        width: 250px;
+        height: 150px;
+        margin-left: -45%;
     }
 }
 
@@ -73,11 +106,20 @@ and open the template in the editor.
     h1 {
         font-size:1em;
     }
+    #VLlogove{
+        width: 100px;
+        height: 100px;
+        margin-left: -60%;
+    }
+
+
 }
 @media screen and (max-width: 368px) {
     h1 {
-        font-size:0.5em;
+        margin-left: -75%;
+        font-size:1.5em;
     }
+    
 }
 h1{
     color:white;
@@ -86,14 +128,42 @@ h1{
     * {
         margin-left: -10%;
     }
+    
+
 }
 @media screen and (max-width: 385px) {
     * {
         margin-left: -8%;
     }
+
 }
 @media screen and (max-width: 213px) {
     * {
         margin-left: -25%;
     }
+    
+
 }
+/*@media screen and (max-width: 213px) {
+     * {
+        margin-left: -1%;
+    }
+   .bubble 
+{
+    margin-top: 5%;
+    position: relative;
+    width: 55%;
+    height: 500px;
+    padding: 40px;
+    background: #000;
+    -webkit-border-radius: 80px;
+    -moz-border-radius: 80px;
+    border-radius: 80px;
+
+}
+h1{
+    margin-left: -28% !important;
+    font-size: 1em;
+}
+    
+}*/
