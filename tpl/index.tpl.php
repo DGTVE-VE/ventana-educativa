@@ -23,6 +23,8 @@ and open the template in the editor.
         <script type="text/javascript" src='http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.1.0.js'></script>
         <script type="text/javascript" src='js/knockout.mapping-latest.js'></script>    
         <script type="text/javascript" src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+        <!-- Script for the login with Facebook -->
+        <script src="js/facebook.js"></script>
 
         <script> var api = <?php print json_encode($_SESSION[CONFIG]['api']['url']); ?>; </script>
     </head>
@@ -50,8 +52,11 @@ and open the template in the editor.
                         <div class="col-md-2 visible-lg text-left" id="VHtexto">
                             Televisión <br> Educativa
                         </div>
-                        <div class="col-md-1 col-xs-2"> 
-                            <p class="glyphicon glyphicon-off VHcerrarSesion"></p>
+                        <div class="col-md-1 col-xs-2">
+                            <a class="logout">
+                                <p class="glyphicon glyphicon-off VHcerrarSesion logout"></p>
+                            </a>
+                            
                         </div>
                         <div class="col-md-3 col-xs-3 col-lg-3 pull-right">
                             <!-- add search form -->
@@ -83,7 +88,10 @@ and open the template in the editor.
                         </button>
                         <a href="#"><img class="col-md-3" src="imagenes/logovem.png"></a>
                         <a href="#"><img class="col-md-3" src="imagenes/logoDGTVEsolo.png" alt=""></a>
-                        <label class="glyphicon col-md-3 glyphicon-off VHcerrarSesion"></label>
+                        <a class="logout">
+                            <label class="glyphicon col-md-3 glyphicon-off VHcerrarSesion"></label>
+                        </a>
+                        
                     </div>
                     <!-- add menu -->
                     <div class="collapse navbar-collapse" id="navbar1">
