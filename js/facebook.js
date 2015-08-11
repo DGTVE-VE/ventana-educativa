@@ -129,8 +129,9 @@ $(function () {
     
     var facebookLogout = function () {
         alert('entro');
+        window.location.assign('index/closeSession'); 
         checkLoginState(function (response){
-           alert(response);
+           alert('check' + response);
         });        
     };
 
