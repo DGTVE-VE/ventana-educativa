@@ -28,7 +28,24 @@ and open the template in the editor.
 
         <script> var api = <?php print json_encode($_SESSION[CONFIG]['api']['url']); ?>; </script>
     </head>
-    <body class="back">        
+    <body class="back"> 
+
+        <!-- This script load de SDK for the login in facebook -->
+        <div id="fb-root"></div>
+        
+        <script>
+            
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id))
+                    return;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//connect.facebook.net/es_LA/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+                
+            }(document, 'script', 'facebook-jssdk'));</script>
+        
         <header id="menu" class="page-header fixed-top">
             <!--Menú para resolución grande-->
             <div id="wrapper" class="hidden-xs">
