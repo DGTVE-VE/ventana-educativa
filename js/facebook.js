@@ -10,8 +10,10 @@ $(function () {
     var emailUser;
     var idUser;
     var imageUser;
+
     var api = "http://localhost/ventana-educativa/api/v1/";
     
+
 
 //Aqui va parte del codigo proporcionado por facebook para inicializar el sdk y 
 //obtenemos el status actual del usuario y lo devolvemos. Para mayor explicación 

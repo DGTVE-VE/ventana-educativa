@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
     <head>        
-        <base href="http://<?php print SERVER_URL; ?>" />
+        <base href="http://<?php print $_SESSION[CONFIG]['host']['url']; ?>">
         <title> Log in </title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">

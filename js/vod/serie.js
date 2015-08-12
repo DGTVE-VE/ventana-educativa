@@ -1,4 +1,4 @@
-api = "http://localhost/ventana-educativa/api/v1/";
+//api = "http://localhost/ventana-educativa/api/v1/";
 
 function SeriesViewModel() {    
     // Data              

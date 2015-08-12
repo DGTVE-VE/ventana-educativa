@@ -7,7 +7,7 @@ and open the template in the editor.
 <html>
     <head>
         <title></title>
-        <base href="http://<?php print $_SESSION[CONFIG]['host']['url']; ?>"
+        <base href="http://<?php print $_SESSION[CONFIG]['host']['url']; ?>">
               <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -23,10 +23,10 @@ and open the template in the editor.
         <script type="text/javascript" src='http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.1.0.js'></script>
         <script type="text/javascript" src='js/knockout.mapping-latest.js'></script>    
         <script type="text/javascript" src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-        <!-- Script for the login with Facebook -->
         <script src="js/facebook.js"></script>
 
         <script> var api = <?php print json_encode($_SESSION[CONFIG]['api']['url']); ?>; </script>
+        <script src="js/vod/search.js"></script>
     </head>
     <body class="back"> 
 
@@ -79,9 +79,9 @@ and open the template in the editor.
                             <!-- add search form -->
                             <form class="navbar-form navbar-right" role="search">
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Buscar">
+                                    <input id="searchText" type="text" class="form-control" placeholder="Buscar" onkeydown="if(event.keyCode==13) goSearch()">
                                     <span class="input-group-btn">
-                                        <button type="submit" class="btn glyphicon glyphicon-search">
+                                        <button type="submit" class="btn glyphicon glyphicon-search" onclick="goSearch()">
                                             <!--<span class=""></span>-->
                                         </button>
                                     </span>
