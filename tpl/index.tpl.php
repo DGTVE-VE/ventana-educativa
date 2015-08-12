@@ -60,9 +60,9 @@ and open the template in the editor.
                         </div>
                         <div class="col-md-3 col-xs-3 col-lg-3 pull-right">
                             <!-- add search form -->
-                            <form class="navbar-form navbar-right" role="search">
+                            <form class="navbar-form navbar-right" role="search" onsubmit="return false">
                                 <div class="input-group">
-                                    <input id="searchText" type="text" class="form-control" placeholder="Buscar" onkeydown="if(event.keyCode==13) goSearch()">
+                                    <input id="searchText" type="text" class="form-control" placeholder="Buscar" onkeydown="goSearchEnter(event)">
                                     <span class="input-group-btn">
                                         <button type="submit" class="btn glyphicon glyphicon-search" onclick="goSearch()">
                                             <!--<span class=""></span>-->
