@@ -106,10 +106,10 @@ $(function () {
     var facebookLogin = function () {
         checkLoginState(function (response) {
             if (!response) {
-                alert(response);
+//                alert(response);
                 FB.login(function (response) {
                     if (response.status === 'connected' && response.authResponse) {
-                        alert('aqui estoy');
+//                        alert('aqui estoy');
                         getFacebookData();
                     }
                 }, {scope: scopes});
@@ -120,11 +120,11 @@ $(function () {
 
 
     var facebookLogout = function () {
-        alert('entro aqui');
+        alert('entro al signout Facebook');
         FB.getLoginStatus(function (response) {
             if (response.status === 'connected') {
                 FB.logout(function (response) {
-                    alert('deslogueo');
+//                    alert('deslogueo');
                 });
             }
         });
@@ -136,12 +136,12 @@ $(function () {
 
 //evento click en el boton de login
     $(document).on('click', '#login', function (e) {
-        e.preventDefault();
+//        e.preventDefault();
         facebookLogin();
     });
 
     $(document).on('click', '.logout', function (e) {
-        e.preventDefault();
+//        e.preventDefault();
         facebookLogout();
     });
 
