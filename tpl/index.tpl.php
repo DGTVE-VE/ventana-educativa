@@ -10,6 +10,8 @@ and open the template in the editor.
         <base href="http://<?php print $_SESSION[CONFIG]['host']['url']; ?>">
               <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--Google Client ID de la aplicacion-->
+        <!--<meta name="google-signin-client_id" content="429845958607-837g2j6dfn5lm42krcalg6jcrsqanrlc.apps.googleusercontent.com">-->
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">        
@@ -24,11 +26,29 @@ and open the template in the editor.
         <script type="text/javascript" src='js/knockout.mapping-latest.js'></script>    
         <script type="text/javascript" src="js/jquery.mCustomScrollbar.concat.min.js"></script>
         <script src="js/facebook.js"></script>
+        <script src="js/googleLogin.js"></script>
 
         <script> var api = <?php print json_encode($_SESSION[CONFIG]['api']['url']); ?>; </script>
         <script src="js/vod/search.js"></script>
     </head>
-    <body class="back">        
+    <body class="back"> 
+
+        <!-- This script load de SDK for the login in facebook -->
+        <div id="fb-root"></div>
+        
+        <script>
+            
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id))
+                    return;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//connect.facebook.net/es_LA/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+                
+            }(document, 'script', 'facebook-jssdk'));</script>
+        
         <header id="menu" class="page-header fixed-top">
             <!--Menú para resolución grande-->
             <div id="wrapper" class="hidden-xs">
@@ -53,7 +73,7 @@ and open the template in the editor.
                             Televisión <br> Educativa
                         </div>
                         <div class="col-md-1 col-xs-2">
-                            <a class="logout">
+                            <a class="logout" href="vod/closeSession">
                                 <p class="glyphicon glyphicon-off VHcerrarSesion logout"></p>
                             </a>
                             
@@ -88,7 +108,7 @@ and open the template in the editor.
                         </button>
                         <a href="#"><img class="col-md-3" src="imagenes/logovem.png"></a>
                         <a href="#"><img class="col-md-3" src="imagenes/logoDGTVEsolo.png" alt=""></a>
-                        <a class="logout">
+                        <a class="logout" href="vod/closeSession">
                             <label class="glyphicon col-md-3 glyphicon-off VHcerrarSesion"></label>
                         </a>
                         

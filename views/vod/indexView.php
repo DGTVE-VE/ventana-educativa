@@ -2,6 +2,7 @@
 <link rel="stylesheet" type="text/css" href="css/slick/slick-theme.css"/>        
 <link href="css/full-slider.css" rel="stylesheet">
 <link href="css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css" />
+<link href="css/ihover.css" rel="stylesheet" type="text/css">
 <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
 
 <div class="row" id="vista_principal">
@@ -9,19 +10,27 @@
         <!--Wrapper for Slides--> 
         <div class="carousel-inner col-md-12 video" id="carousel-full" data-bind="foreach: recomendaciones">     
             <!--El primer elemento debe tener la clase 'active'-->
+            
             <div class="item" data-bind="css:{'active':$index() == 0}">               
-                <div id="divvideo" class="col-xs-12 col-md-4  col-md-offset-4">
-                    <a data-bind="attr:{href: 'vod/serie/'+idSerie()}" class="thumbnail thumb-sinopsis">
-                        <img data-bind="attr:{src: thumbnail}" alt="Imagen serie">
-                    </a>
+                <div id="divvideo" class="col-xs-12 col-md-12 frame">
+                    <div class="fade1"></div>
+                    <a data-bind="attr:{href: 'vod/serie/'+idSerie()}" class=" thumb-sinopsis">
+                        <img class="img-responsive" data-bind="attr:{src: thumbnail}" alt="Imagen serie">
+                    </a>                    
                 </div>
                 <div class="container" id="contenidos">
-                    <div class="col-xs-12 col-md-12 text-center" id="divtitulo" 
-                         data-bind="text: titulo">
+                    <div class="carousel-caption">
+                        <h1 id="divtitulo" data-bind="text: titulo"></h1>
+                        <p id="divsinopsis" class="col-xs-6 col-md-1  content mCustomScrollbar" data-bind="text: descripcion"></p>
                     </div>
-
-                    <div id="divsinopsis" class="col-xs-6 col-md-1  content mCustomScrollbar" data-bind="text: descripcion"> </div>                                                             
                 </div>
+
+                <!--                <div class="container" id="contenidos">
+                                    <div class="col-xs-12 col-md-12 text-center" id="divtitulo" 
+                                         data-bind="text: titulo">
+                                    </div>
+                                    <div id="divsinopsis" class="col-xs-6 col-md-1  content mCustomScrollbar" data-bind="text: descripcion"> </div>                                                             
+                                </div>-->
             </div>
         </div>
         <!--             Controls -->
@@ -45,9 +54,13 @@
                 <div id="titserie" data-bind="text: categoria"></div>
                 <div class="col-lg-1 col-md-1 col-sm-3 col-xs-4"></div>
                 <div class="serie-slider col-md-10 col-lg-10 col-sm-6 col-xs-4" data-bind="foreach: { data: series}">   
-                    <div id="img-contenedor" data-bind="if: $root.initSlick($index(), $parent.series().length)">
+                    <div id="img-contenedor" class="ih-item square effect8 scale_down" data-bind="if: $root.initSlick($index(), $parent.series().length)">
                         <a data-bind="attr:{href:'vod/serie/'+idSerie()} ">
-                            <img class="seriethum" data-bind="attr:{src:thumbnail}" alt="Thumbnail">
+                            <img class="seriethum img" data-bind="attr:{src:thumbnail}" alt="Thumbnail">
+                            <div class="info">
+                                <h3 data-bind="text: titulo"></h3>
+                                <p id="descripIndex" class="mCustomScrollbar" data-bind="text: descripcion"></p>
+                            </div>
                         </a>
                     </div>                    
                 </div> 
@@ -62,6 +75,7 @@
         <div class="col-lg-12">
             <p>Copyright &copy; Ventana Educativa 2015.</p>
             <p>Dirección General de Televisión Educativa.</p>
+            <!-- end normal -->
         </div>
     </div>
 </footer>     

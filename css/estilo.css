@@ -125,10 +125,7 @@ html, body {
     font-size: 12px;   
 }
 
-.thumb-sinopsis img{
-    height: 300px;
-    width: 500px;
-}
+
 #divtitulo{
     font-size: 22px !important;
     letter-spacing: 2px !important;
@@ -234,6 +231,11 @@ html, body {
 #contenidos{/*div del full slider vista index*/
     width: 70%;
     background-color: rgba(0, 0, 0, 0.5);
+    margin-left: -50%; 
+}
+#descripIndex{
+  height: 130px;
+  overflow: auto;
 }
 
 
@@ -396,9 +398,13 @@ Additional Styles (required)
 
 .seriethum {
     /*border: 1px solid #CC2EFA;*/
-    width: 95%;
-    height: 90%;
+    width: 100%;
+    height: 100%;
+    
 
+}
+.seriethum:hover{
+    opacity: .8;
 }
 #carousel3{
     /*    margin-top:50px;*/
@@ -458,7 +464,7 @@ span.num-temporada{
     height: 5em;
 }
 .opaco{
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, .8);
 
     color: #FFF;
 }
@@ -804,4 +810,26 @@ form.form-search:before {
     bottom: 0;
     background-color: rgba(250,250,250,.8);
     z-index: 1;
+}
+
+
+.frame {
+    width: 100%;
+    height: 100%;
+    margin: 20px;
+    position: relative;
+}
+
+.fade1 {
+    height: 100%;
+    width: 100%;
+    position:absolute;
+    
+    background: 
+      -webkit-linear-gradient(left, 
+        rgba(0,0,0,5) 0%, 
+        rgba(0,0,0,0) 100%,
+        rgba(0,0,0,0) 100%,
+        rgba(0,0,0,5) 100%
+      );
 }
