@@ -10,7 +10,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <!--Google Client ID de la aplicacion-->
-        <meta name="google-signin-client_id" content="328365712357-vrrv7hpojcb6mtfji2goubuqc4rooma8.apps.googleusercontent.com">
+        <meta name="google-signin-client_id" content="429845958607-837g2j6dfn5lm42krcalg6jcrsqanrlc.apps.googleusercontent.com">
 
         <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/4.9.0/bootstrap-social.css" rel="stylesheet" type="text/css"> 
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" type="text/css">
