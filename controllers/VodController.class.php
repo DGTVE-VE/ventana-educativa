@@ -26,7 +26,8 @@ class VodController extends _BaseController {
     }
 
     public function search() {
-        include 'views/searchView.php';
+        $_SESSION[CONTENIDO_INCLUIDO] = file_get_contents('views/vod/searchView.php');
+        include 'tpl/index.tpl.php';        
     }
 
     public function finish($id) {

@@ -7,7 +7,7 @@ and open the template in the editor.
 <html>
     <head>
         <title></title>
-        <base href="http://<?php print $_SESSION[CONFIG]['host']['url']; ?>"
+        <base href="http://<?php print $_SESSION[CONFIG]['host']['url']; ?>">
               <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -23,10 +23,29 @@ and open the template in the editor.
         <script type="text/javascript" src='http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.1.0.js'></script>
         <script type="text/javascript" src='js/knockout.mapping-latest.js'></script>    
         <script type="text/javascript" src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+        <script src="js/facebook.js"></script>
 
         <script> var api = <?php print json_encode($_SESSION[CONFIG]['api']['url']); ?>; </script>
+        <script src="js/vod/search.js"></script>
     </head>
-    <body class="back">        
+    <body class="back"> 
+
+        <!-- This script load de SDK for the login in facebook -->
+        <div id="fb-root"></div>
+        
+        <script>
+            
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id))
+                    return;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//connect.facebook.net/es_LA/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+                
+            }(document, 'script', 'facebook-jssdk'));</script>
+        
         <header id="menu" class="page-header fixed-top">
             <!--Menú para resolución grande-->
             <div id="wrapper" class="hidden-xs">
@@ -50,16 +69,19 @@ and open the template in the editor.
                         <div class="col-md-2 visible-lg text-left" id="VHtexto">
                             Televisión <br> Educativa
                         </div>
-                        <div class="col-md-1 col-xs-2"> 
-                            <p class="glyphicon glyphicon-off VHcerrarSesion"></p>
+                        <div class="col-md-1 col-xs-2">
+                            <a class="logout">
+                                <p class="glyphicon glyphicon-off VHcerrarSesion logout"></p>
+                            </a>
+                            
                         </div>
                         <div class="col-md-3 col-xs-3 col-lg-3 pull-right">
                             <!-- add search form -->
                             <form class="navbar-form navbar-right" role="search">
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Buscar">
+                                    <input id="searchText" type="text" class="form-control" placeholder="Buscar" onkeydown="if(event.keyCode==13) goSearch()">
                                     <span class="input-group-btn">
-                                        <button type="submit" class="btn glyphicon glyphicon-search">
+                                        <button type="submit" class="btn glyphicon glyphicon-search" onclick="goSearch()">
                                             <!--<span class=""></span>-->
                                         </button>
                                     </span>
@@ -83,7 +105,10 @@ and open the template in the editor.
                         </button>
                         <a href="#"><img class="col-md-3" src="imagenes/logovem.png"></a>
                         <a href="#"><img class="col-md-3" src="imagenes/logoDGTVEsolo.png" alt=""></a>
-                        <label class="glyphicon col-md-3 glyphicon-off VHcerrarSesion"></label>
+                        <a class="logout">
+                            <label class="glyphicon col-md-3 glyphicon-off VHcerrarSesion"></label>
+                        </a>
+                        
                     </div>
                     <!-- add menu -->
                     <div class="collapse navbar-collapse" id="navbar1">

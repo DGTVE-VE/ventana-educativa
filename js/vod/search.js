@@ -1,18 +1,7 @@
-api = "http://localhost/ventana-educativa/api/v1/";
-function SearchViewModel() {
-    // Data              
-    var self = this;
-    self.capitulos = ko.observableArray([]);
-    var pos = window.location.href.toString().lastIndexOf("/");
-    var searchText = window.location.href.toString().substring(pos + 1);
-    console.log (decodeURI(searchText));
-    console.log (api+"search/vod/"+decodeURI(searchText));
-    $.getJSON(api+"search/vod/"+decodeURI(searchText), function (allData) {
-        console.log ("Data"+allData);
-        ko.mapping.fromJS(allData, {}, self.capitulos);
-    });
-//    console.log(self.capitulos());
+
+function goSearch (){    
+    alert ('searching');
+    window.location.assign("/ventana-educativa/vod/search/"+document.getElementById("searchText").value);
 }
 
-// Activates knockout.js
-ko.applyBindings(new SearchViewModel());
+

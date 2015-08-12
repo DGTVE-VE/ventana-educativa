@@ -1,5 +1,5 @@
 
-api = "http://localhost/ventana-educativa/api/v1/";
+//api = "http://localhost/ventana-educativa/api/v1/";
 
 //Función para obtener las categorias disponibles
 function HeaderViewModel() {

@@ -77,5 +77,6 @@ function VodIndexViewModel() {
 
 }
 
+
 ko.applyBindings(new VodIndexViewModel(), document.getElementById("vista_principal"));
 
