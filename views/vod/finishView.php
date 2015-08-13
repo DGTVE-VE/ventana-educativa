@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <base href="http://<?php print SERVER_URL; ?>" />
+        <base href="http://<?php print $_SESSION[CONFIG]['host']['url']; ?>">
         <title>Ventana Educativa</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,7 +24,7 @@ and open the template in the editor.
 
         <script src='http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.1.0.js'></script>
         <script src='js/knockout.mapping-latest.js'></script>
-
+        <script> var api = <?php print json_encode($_SESSION[CONFIG]['api']['url']); ?>; </script>
 
     </head>
     <body class="fondo-video">
@@ -36,8 +36,7 @@ and open the template in the editor.
                         <div class="embed-responsive embed-responsive-16by9" data-bind="with: capitulo" >     
                             <iframe id="video-finish" class="embed-responsive-item" 
                                     data-bind="attr: {src: 'https://www.youtube.com/embed/' + youtubeId}"></iframe>
-                        </div>
-                        
+                        </div>                        
                         <div class="pull-right">
                          <input id="input-2" class="rating" data-show-clear="false" data-show-caption="false" data-size="xs" data-min="0" data-max="5" data-step="1">
                         </div>
