@@ -8,7 +8,7 @@
             <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper"> 
                 <ul class="nav sidebar-nav" data-bind="foreach:categorias">                                     
                     <li data-bind="css: $index() == 0 ? ' sidebar-brand' : ''">                    
-                    <li><a href="#" data-bind="text:categoria"></a></li>                    
+                    <!--<li><a data-bind="text:categoria, attr:{'href':'#'+categoria}"></a></li>-->                                                            
                 </ul>
             </nav>
             <div class="row">            
@@ -66,8 +66,11 @@
                 <div class="collapse navbar-collapse" id="navbar1">
                     <ul class="nav navbar-nav" data-bind="foreach:categorias">
                         <li data-bind="css: $index() == 0 ? ' sidebar-brand' : ''">                    
-                        <li><a href="#" data-bind="text:categoria"></a></li> 
-
+                        <!--<li><a data-bind="text:categoria, attr:{'href':'#'+categoria}"></a></li>-->                    
+                        <li data-bind="text:categoria">
+                            <a data-bind="attr:{'href':'vod/#'+categoria}"></a>
+                            
+                        </li>                    
                     </ul>
                     <!-- add search form -->
                     <form class="navbar-form navbar-right" role="search">

@@ -53,10 +53,11 @@ and open the template in the editor.
             <!--Menú para resolución grande-->
             <div id="wrapper" class="hidden-xs">
                 <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper"> 
-                    <ul class="nav sidebar-nav"  data-bind="foreach:categorias">                                     
+                    <ol class="nav sidebar-nav"  data-bind="foreach:categorias">                                     
                         <li data-bind="css: $index() == 0 ? ' sidebar-brand' : ''">                    
-                        <li><a href="#" data-bind="text:categoria"></a></li>                    
-                    </ul>
+                        <!--<li><a href="#" data-bind="text:categoria"></a></li>-->                    
+                        <li><a data-bind="text:categoria, attr:{'href':'vod/#'+categoria}"></a></li>
+                    </ol>
                 </nav>
                 <div class="row">            
                     <div class="col-md-12 col-xs-12 col-lg-12 navbar-fixed-top navbar-inverse">                       
@@ -117,8 +118,8 @@ and open the template in the editor.
                     <div class="collapse navbar-collapse" id="navbar1">
                         <ul class="nav navbar-nav" data-bind="foreach:categorias">
                             <li data-bind="css: $index() == 0 ? ' sidebar-brand' : ''">                    
-                            <li><a href="#" data-bind="text:categoria"></a></li> 
-
+<!--                            <li><a href="#" data-bind="text:categoria"></a></li> -->
+                                <li><a data-bind="text:categoria, attr:{'href':'vod/#'+categoria}"></a></li>
                         </ul>
                         <!-- add search form -->
                         <form class="navbar-form navbar-right" role="search">
