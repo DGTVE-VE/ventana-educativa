@@ -31,6 +31,7 @@ html { height: 100%;}
     border: 0;
     /*position: relative;*/
     /*border: 2px dashed #279636;*/
+    
 }
 html, body {
     width: 100%;
@@ -40,6 +41,7 @@ html, body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover !important;
+    /*overflow-x: hidden;*/
 }
 
 .agregar{
@@ -149,10 +151,15 @@ html, body {
         height: 100px;
         width: 100%;
     }
-    #myCarousel1{    
+    #myCarousel1{
         height: 500px;
-        width: 90%;
-        margin: 3%
+        width: 100%;
+
+        margin-top: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+        margin-right: 0px;
+
     }
 }
 
@@ -169,8 +176,13 @@ html, body {
     }
     #myCarousel1{
         height: 550px;
-        width: 90%;
-        margin: 3%
+        width: 100%;
+
+        margin-top: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+        margin-right: 0px;
+
     }
     #divsinopsis{
         height: 150px;
@@ -185,8 +197,13 @@ html, body {
     #myCarousel1{
         /*border: 2px dashed red;*/
         height: 600px;
-        width: 95%;
-        margin: 3%
+        width: 100%;
+
+        margin-top: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+        margin-right: 0px;
+
 
     }
     #divtitulo{
@@ -229,13 +246,22 @@ html, body {
 
 }
 #contenidos{/*div del full slider vista index*/
-    width: 70%;
-    background-color: rgba(0, 0, 0, 0.5);
-    margin-left: -50%; 
+    /*border: 2px dashed red;*/
+    width: 40%;
+    height: 100%;
+    position: inherit;
+    margin-left: 2.5%;
+    
+    /*background-color: rgba(0, 0, 0, 0.5);*/
+}
+#tipografiaIndex{
+    margin-top: 40%;
+    width: 100%;
+    margin-left: -20%;
 }
 #descripIndex{
-  height: 130px;
-  overflow: auto;
+    height: 130px;
+    overflow: auto;
 }
 
 
@@ -400,7 +426,7 @@ Additional Styles (required)
     /*border: 1px solid #CC2EFA;*/
     width: 100%;
     height: 100%;
-    
+
 
 }
 .seriethum:hover{
@@ -513,7 +539,7 @@ form.form-search:before {
     color: red;
     padding: 0.5em 0.5em;
     margin: 0.5em 0%;
-    
+
 }
 
 .VHcerrarSesion:hover{
@@ -530,6 +556,7 @@ form.form-search:before {
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
+    
 }
 
 #wrapper.toggled {
@@ -549,6 +576,7 @@ form.form-search:before {
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
+    
 }
 
 #sidebar-wrapper::-webkit-scrollbar {
@@ -697,7 +725,7 @@ form.form-search:before {
     margin-left: 15px;
     background: transparent;
     border: none;
-    
+
 }
 .hamburger:hover,
 .hamburger:focus,
@@ -812,24 +840,31 @@ form.form-search:before {
     z-index: 1;
 }
 
-
-.frame {
+#imgFullIndex{
     width: 100%;
-    height: 100%;
-    margin: 20px;
-    position: relative;
+    min-height: 100%;
+    /*margin-left: 30%;*/
+    height: auto !important;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover !important;
 }
 
-.fade1 {
-    height: 100%;
-    width: 100%;
-    position:absolute;
-    
-    background: 
-      -webkit-linear-gradient(left, 
-        rgba(0,0,0,5) 0%, 
-        rgba(0,0,0,0) 100%,
-        rgba(0,0,0,0) 100%,
-        rgba(0,0,0,5) 100%
-      );
+.left{
+    left: 2% !important;
+}
+
+.right{
+    right: 2% !important;
+}
+
+.icon-next{
+    height: 150px !important;
+    font-size: 120px !important;
+}
+
+.icon-prev{
+    height: 150px !important;
+    font-size: 120px !important;
 }

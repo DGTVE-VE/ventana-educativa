@@ -4,7 +4,6 @@
 <link href="css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css" />
 <link href="css/ihover.css" rel="stylesheet" type="text/css">
 <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-
 <div class="row" id="vista_principal">
     <div id="myCarousel1" class="carousel slide">
         <!--Wrapper for Slides--> 
@@ -12,15 +11,17 @@
             <!--El primer elemento debe tener la clase 'active'-->
             
             <div class="item" data-bind="css:{'active':$index() == 0}">               
-                <div id="divvideo" class="col-xs-12 col-md-12 frame">
-                    <div class="fade1"></div>
+                <div id="divvideo" class="col-xs-12 col-md-12">                    
                     <a data-bind="attr:{href: 'vod/serie/'+idSerie()}" class=" thumb-sinopsis">
-                        <img class="img-responsive" data-bind="attr:{src: thumbnail}" alt="Imagen serie">
+                        <img id="imgFullIndex" class="img-responsive" data-bind="attr:{src: thumbnail}" alt="Imagen serie">
+                        <!--<img src="imagenes/QUEONDACONELSEXO.png">-->
                     </a>                    
+                    
                 </div>
+                
                 <div class="container" id="contenidos">
-                    <div class="carousel-caption">
-                        <h1 id="divtitulo" data-bind="text: titulo"></h1>
+                    <div class="carousel-caption" id="tipografiaIndex">
+                        <!--<h1 id="divtitulo" data-bind="text: titulo"></h1>-->
                         <p id="divsinopsis" class="col-xs-6 col-md-1  content mCustomScrollbar" data-bind="text: descripcion"></p>
                     </div>
                 </div>
@@ -56,7 +57,7 @@
                 <div class="serie-slider col-md-10 col-lg-10 col-sm-6 col-xs-4" data-bind="foreach: { data: series}">   
                     <div id="img-contenedor" class="ih-item square effect8 scale_down" data-bind="if: $root.initSlick($index(), $parent.series().length)">
                         <a data-bind="attr:{href:'vod/serie/'+idSerie()} ">
-                            <img class="seriethum img" data-bind="attr:{src:thumbnail}" alt="Thumbnail">
+                            <img class="seriethum img" data-bind="attr:{src:thumbnail}" alt="Thumbnail">                            
                             <div class="info">
                                 <h3 data-bind="text: titulo"></h3>
                                 <p id="descripIndex" class="mCustomScrollbar" data-bind="text: descripcion"></p>
