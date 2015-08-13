@@ -277,7 +277,9 @@ class SerieMySqlDAO implements SerieDAO{
 		$serie->idSerie = $row['id_serie'];
 		$serie->idInstitucion = $row['id_institucion'];
 		$serie->titulo = $row['titulo'];
+                $serie->sinopsis = $row['sinopsis'];
 		$serie->descripcion = $row['descripcion'];
+                $serie->background = $row['background'];
 		$serie->thumbnail = $row['thumbnail'];
 		$serie->tags = $row['tags'];
 		$serie->temporadas = $row['temporadas'];
