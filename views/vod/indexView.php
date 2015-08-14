@@ -13,7 +13,7 @@
             <div class="item" data-bind="css:{'active':$index() == 0}">               
                 <div id="divvideo" class="col-xs-12 col-md-12">                    
                     <a data-bind="attr:{href: 'vod/serie/'+idSerie()}" class=" thumb-sinopsis">
-                        <img id="imgFullIndex" class="img-responsive" data-bind="attr:{src: thumbnail}" alt="Imagen serie">
+                        <img id="imgFullIndex" class="img-responsive" data-bind="attr:{src: background}" alt="Imagen serie">
                         <!--<img src="imagenes/QUEONDACONELSEXO.png">-->
                     </a>                    
                     
@@ -22,7 +22,7 @@
                 <div class="container" id="contenidos">
                     <div class="carousel-caption" id="tipografiaIndex">
                         <!--<h1 id="divtitulo" data-bind="text: titulo"></h1>-->
-                        <p id="divsinopsis" class="col-xs-6 col-md-1  content mCustomScrollbar" data-bind="text: descripcion"></p>
+                        <p id="divsinopsis" class="col-xs-6 col-md-1  content mCustomScrollbar" data-bind="text: sinopsis"></p>
                     </div>
                 </div>
 
@@ -60,7 +60,7 @@
                             <img class="seriethum img" data-bind="attr:{src:thumbnail}" alt="Thumbnail">                            
                             <div class="info">
                                 <h3 data-bind="text: titulo"></h3>
-                                <p id="descripIndex" class="mCustomScrollbar" data-bind="text: descripcion"></p>
+                                <p id="descripIndex" class="mCustomScrollbar" data-bind="text: sinopsis"></p>
                             </div>
                         </a>
                     </div>                    
