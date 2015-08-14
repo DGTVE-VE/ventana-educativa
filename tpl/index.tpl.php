@@ -47,7 +47,8 @@ and open the template in the editor.
                 js.src = "//connect.facebook.net/es_LA/sdk.js";
                 fjs.parentNode.insertBefore(js, fjs);
                 
-            }(document, 'script', 'facebook-jssdk'));</script>
+            }(document, 'script', 'facebook-jssdk'));
+    </script>
         
         <header id="menu" class="page-header fixed-top">
             <!--Menú para resolución grande-->
