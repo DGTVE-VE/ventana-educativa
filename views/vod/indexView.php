@@ -42,10 +42,11 @@
             <span class="icon-next"></span>
         </a>                                                
         <!--<div class="col-md-12"> Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel1" data-slide-to="0" class="active"></li>
+        <ol class="carousel-indicators" data-bind="foreach: recomendaciones">
+            <li data-target="#myCarousel1" data-bind="css: $index() == 0 ? ' active' : '', attr:{'data-slide-to':$index()}"></li>
+<!--            <li data-target="#myCarousel1" data-slide-to="0" class="active"></li>
             <li data-target="#myCarousel1" data-slide-to="1"></li>
-            <li data-target="#myCarousel1" data-slide-to="2"></li>
+            <li data-target="#myCarousel1" data-slide-to="2"></li>-->
         </ol>
         <!--</div>-->            
     </div><!--Fin Slider pantalla completa-->
