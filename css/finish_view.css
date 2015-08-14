@@ -8,10 +8,15 @@ and open the template in the editor.
     Author     : JITOLEDO
 */
 
+*{
+    /*border: 2px dashed red;*/
+}
 html{
+    
     -webkit-text-size-adjust:100% !important;
     -ms-text-size-adjust:100% !important;
  }
+ 
 .fondo-video{
      margin:0 !important;
 /*    background: url('../imagenes/paisaje_1.jpg') no-repeat  fixed !important;*/
@@ -27,14 +32,52 @@ html{
     color:#6bc0f4 !important;
 }
 .h1, h1 {
-  font-size: 36px !important;
+  font-size: 30px !important;
   margin: 5px !important;
   color: #fff !important;
 }
 .container{
       margin-left: 5% !important;
       width: 85% !important;
+      position: relative;
 }
 .rating-xs {
     font-size: 27px !important;
+}
+p{
+    color: white !important;
+}
+
+.frame {
+    width: 315px;
+    height: 165px;
+    margin: 20px;
+    position: relative;
+}
+
+.fade1 {
+      /*margin-left: 5% !important;*/
+      width: 100% !important;
+      height: 100%;
+    position:absolute;
+background: rgba(5,5,5,0);
+/* Old Browsers */background: -moz-linear-gradient(top, rgba(5,5,5,0) 0%, rgba(5,5,5,0) 11%, rgba(5,5,5,1) 74%, rgba(5,5,5,1) 100%);
+ /* FF3.6+ */background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(5,5,5,0)), color-stop(11%, rgba(5,5,5,0)), color-stop(74%, rgba(5,5,5,1)), color-stop(100%, rgba(5,5,5,1)));
+/* Chrome, Safari4+ */background: -webkit-linear-gradient(top, rgba(5,5,5,0) 0%, rgba(5,5,5,0) 11%, rgba(5,5,5,1) 74%, rgba(5,5,5,1) 100%);
+ /* Chrome10+,Safari5.1+ */background: -o-linear-gradient(top, rgba(5,5,5,0) 0%, rgba(5,5,5,0) 11%, rgba(5,5,5,1) 74%, rgba(5,5,5,1) 100%);
+ /* Opera 11.10+ */background: -ms-linear-gradient(top, rgba(5,5,5,0) 0%, rgba(5,5,5,0) 11%, rgba(5,5,5,1) 74%, rgba(5,5,5,1) 100%);
+ /* IE 10+ */background: linear-gradient(to bottom, rgba(5,5,5,0) 0%, rgba(5,5,5,0) 11%, rgba(5,5,5,1) 74%, rgba(5,5,5,1) 100%);
+/* W3C */filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#050505', endColorstr='#050505', GradientType=0 );
+/* IE6-9 */
+}
+
+#divRecomendaciones{
+    height: 250px;
+}
+#imgRecomendaciones{
+    height:80% !important;
+    /*width: 350px !important;*/
+}
+h4{
+    color: white !important; 
 }
