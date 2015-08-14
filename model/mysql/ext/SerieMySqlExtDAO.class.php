@@ -15,9 +15,9 @@ class SerieMySqlExtDAO extends SerieMySqlDAO {
      * @return SerieCategoriasMySql 
      */
     public function querySeriesInCategoria($categoria) {
-        $sql = 'SELECT  s.id_serie, s.id_institucion, s.titulo, 
-                            s.descripcion, s.thumbnail, s.tags, s.temporadas, 
-                            s.calificacion, s.visible, s.fecha_creacion, 
+        $sql = 'SELECT  s.id_serie, s.id_institucion, s.titulo, s.sinopsis,
+                            s.descripcion, s.background, s.thumbnail, s.tags, 
+                            s.temporadas, s.calificacion, s.visible, s.fecha_creacion, 
                             s.fecha_modificacion
                     FROM 
                             serie s, serie_categorias sc
