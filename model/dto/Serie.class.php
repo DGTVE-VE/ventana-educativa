@@ -12,8 +12,12 @@
 		var $idInstitucion;
 
 		var $titulo;
+                
+                var $sinopsis;
 
 		var $descripcion;
+                
+                var $background;
 
 		var $thumbnail;
 

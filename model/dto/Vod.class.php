@@ -24,6 +24,8 @@
 		var $subserie;
 
 		var $subtitulo;
+                
+                var $descripcion;
 
 		var $tituloTraducido;
 
@@ -78,12 +80,14 @@
 		var $url;
 
 		var $thumbnail;
+                
+                var $background;
 
 		var $visible;
                 
-        var $youtubeListId;
+                var $youtubeListId;
 
-        var $youtubeId;
+                var $youtubeId;
 
 		var $fechaCreacion;
 
