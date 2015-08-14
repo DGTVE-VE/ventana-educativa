@@ -55,7 +55,7 @@
                 <div><a id="titserie" data-bind="text: categoria, attr:{'name':categoria}"></a></div>
                 <div class="col-lg-1 col-md-1 col-sm-3 col-xs-4"></div>
                 <div class="serie-slider col-md-10 col-lg-10 col-sm-6 col-xs-4" data-bind="foreach: { data: series}">   
-                    <div id="img-contenedor" class="ih-item square effect8 scale_down" data-bind="if: $root.initSlick($index(), $parent.series().length)">
+                    <div id="img-contenedor" class="ih-item square effect6 scale_down" data-bind="if: $root.initSlick($index(), $parent.series().length)">
                         <a data-bind="attr:{href:'vod/serie/'+idSerie()} ">
                             <img class="seriethum img" data-bind="attr:{src:thumbnail}" alt="Thumbnail">                            
                             <div class="info">
