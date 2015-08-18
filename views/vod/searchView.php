@@ -6,7 +6,7 @@
         <div class="col-md-2" >
             <a data-bind="attr:{href:'/ventana-educativa/vod/youtube/'+idVod()}, text:titulo"></a>
         </div>
-        <div class="col-md-4" data-bind="text:sinopsis"></div>
+        <div class="col-md-12" data-bind="text:sinopsis"></div>
     </div>
 </div>
 
