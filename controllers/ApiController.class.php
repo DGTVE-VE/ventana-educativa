@@ -48,7 +48,8 @@ class ApiController extends _BaseController{
 //    print $method.'<br>';
 //    print $params.'<br>';
     $_SESSION['autoload_dir'] = "api/$version/";
-    $class = $class . '_api';
+    
+    $class = ucfirst($class) . '_api';
     $api = new $class;
     call_user_func_array(array($api, $method), explode ("/",$params));    
   }
