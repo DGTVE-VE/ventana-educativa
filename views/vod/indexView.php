@@ -52,7 +52,7 @@
     </div><!--Fin Slider pantalla completa-->
     <div class="row">
         <div class="col-md-12" id="IVSliderSeries" data-bind="foreach: { data: categorias}">
-            <!--<div class="row">-->
+            <!-- ko if: series().length -->            
                 <div><a id="titserie" data-bind="text: categoria, attr:{'name':categoria}"></a></div>
                 <div class="col-lg-1 col-md-1 col-sm-3 col-xs-4"></div>
                 <div class="serie-slider col-md-10 col-lg-10 col-sm-6 col-xs-4" data-bind="foreach: { data: series}">   
@@ -66,8 +66,8 @@
                         </a>
                     </div>                    
                 </div> 
-                <div class="col-lg-1 col-md-1  col-sm-3 col-xs-4"></div>
-            <!--</div>-->
+                <div class="col-lg-1 col-md-1  col-sm-3 col-xs-4"></div>            
+            <!-- /ko -->
         </div>
         <hr>
     </div>        
