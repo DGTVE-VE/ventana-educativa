@@ -1,7 +1,6 @@
 /* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+        <!--Script para "renderizar" el boton (de Google), obtener los datos del usuario (en Google),
+        "postearlos" al servidor y redireccionar al index del VOD-->
  */
 
 
@@ -41,8 +40,8 @@
             function renderButton() {
                 gapi.signin2.render('my-signin2', {
                     'scope': 'https://www.googleapis.com/auth/plus.login',
-//                    'width': 55,
-//                    'height': 50,
+                    //'width': 55,
+                    //'height': 50,
                     'longtitle': true,
                     'theme': 'dark',
                     'onsuccess': onSuccess,
@@ -51,16 +50,12 @@
             }
             
             function signOut(){
-                alert('entro al signout Google');
+//                alert('entro al signout Google');
                 var auth2 = gapi.auth2.getAuthInstance();
                 auth2.signOut().then(function(){
-                    console.log('the user is out');
+                    console.log('User signed out.');
                 });
                 
             }
-            
-            $(document).on('click', '.logout', function (e) {
-//                alert('google deslogeo');
-//                e.preventDefault();
-                signOut();
-            });
+
+            $(document).on('click', '.logout', function(){signOut();});

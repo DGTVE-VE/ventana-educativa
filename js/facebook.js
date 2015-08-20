@@ -52,7 +52,7 @@ $(function () {
 //deja de ejecutar para comprobar el estado del usuario en todo momento por lo 
 //cual el vod parpadea pues se esta redirigiendo siempre.
 
-            //getFacebookData();
+//            getFacebookData();
         }
 
         else {
@@ -113,6 +113,11 @@ $(function () {
                         getFacebookData();
                     }
                 }, {scope: scopes});
+            }else{
+                if (response.status === 'connected' && response.authResponse) {
+                        alert('else');
+                        getFacebookData();
+                    }
             }
         });
     };
@@ -137,6 +142,7 @@ $(function () {
 //evento click en el boton de login
     $(document).on('click', '#login', function (e) {
 //        e.preventDefault();
+        alert('entro');
         facebookLogin();
     });
 
