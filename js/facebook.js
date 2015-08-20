@@ -11,7 +11,7 @@ $(function () {
     var idUser;
     var imageUser;
 
-    var api = "http://localhost/ventana-educativa/api/v1/";
+    //var api = "http://localhost/ventana-educativa/api/v1/";
     
 
 
