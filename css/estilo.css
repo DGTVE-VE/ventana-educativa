@@ -880,4 +880,15 @@ form.form-search:before {
 
 .search-sinopsis{
     color: #FFF;
+    margin-top:50px;
+    
+}
+
+.search-titulo{
+    color: #FFF;
+  
+}
+
+.search-video{
+    margin-top: 50px;
 }
