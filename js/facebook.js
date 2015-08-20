@@ -11,7 +11,7 @@ $(function () {
     var idUser;
     var imageUser;
 
-    var api = "http://localhost/ventana-educativa/api/v1/";
+    //var api = "http://localhost/ventana-educativa/api/v1/";
     
 
 
@@ -154,7 +154,7 @@ $(function () {
 //evento click en el boton de login
     $(document).on('click', '#login', function (e) {
 //        e.preventDefault();
-        alert('entro');
+//        alert('entro');
         facebookLogin();
 //          compruebaEstado();
     });

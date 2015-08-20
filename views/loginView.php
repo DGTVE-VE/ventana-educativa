@@ -29,7 +29,7 @@
         <!--<link href="css/estilo.css" rel="stylesheet">-->
         <!--<link href="css/docs.css" rel="stylesheet" type="text/css">-->
         <link href="css/login.css" rel="stylesheet" type="text/css">
-
+        <script> var api = <?php print json_encode($_SESSION[CONFIG]['api']['url']); ?>; </script>
     </head>
     <body class="full-page" id="bodyLog">
         
