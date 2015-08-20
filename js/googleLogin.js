@@ -4,7 +4,7 @@
  */
 
 
-            var api = "http://localhost/ventana-educativa/api/v1/";
+//            var api = "http://172.16.200.12/ventana-educativa/api/v1/";
             function onSuccess(googleUser) {
                 //Para obtener los datos del usuario
                 /*console.log('Logged in as: ' + googleUser.getBasicProfile().getName());*/
@@ -50,7 +50,6 @@
             }
             
             function signOut(){
-//                alert('entro al signout Google');
                 var auth2 = gapi.auth2.getAuthInstance();
                 auth2.signOut().then(function(){
                     console.log('User signed out.');
