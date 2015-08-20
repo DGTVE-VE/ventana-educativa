@@ -1,11 +1,11 @@
 <div id="search-div" class="container" data-bind="foreach:capitulos ">
     <div class="row">
-        <div class="col-md-4 search-video">
+        <div class="col-md-6  search-video">
+            <a class="search-titulo" data-bind="attr:{href:'/ventana-educativa/vod/youtube/'+idVod()}, text:titulo"></a>
+            <br>
             <a data-bind="attr:{href:'/ventana-educativa/vod/youtube/'+idVod()}"><img data-bind="attr:{src: thumbnail}"></a>
         </div>
-        <div class="col-md-2 text-center search-titulo" >
-            <a data-bind="attr:{href:'/ventana-educativa/vod/youtube/'+idVod()}, text:titulo"></a>
-        </div>
+        
         <div class="col-md-6 text-justify search-sinopsis" data-bind="text:sinopsis"></div>
     </div>
 </div>
