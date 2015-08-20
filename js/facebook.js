@@ -104,6 +104,7 @@ $(function () {
     };
 
     var facebookLogin = function () {
+//        alert('entro al login');
         checkLoginState(function (response) {
             if (!response) {
 //                alert(response);
@@ -113,6 +114,17 @@ $(function () {
                         getFacebookData();
                     }
                 }, {scope: scopes});
+            }
+        });
+    };
+    
+    var compruebaEstado = function (){
+        alert('entro al metodo');
+        checkLoginState(function (response){
+            if(!response){
+                alert('no estas conectado');
+            }else{
+                alert('estas conectado');
             }
         });
     };
@@ -138,6 +150,7 @@ $(function () {
     $(document).on('click', '#login', function (e) {
 //        e.preventDefault();
         facebookLogin();
+//          compruebaEstado();
     });
 
     $(document).on('click', '.logout', function (e) {
