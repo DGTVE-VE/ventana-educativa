@@ -876,3 +876,19 @@ form.form-search:before {
     font-size: 120px !important;
 }
 
+/* ESTILO DEL SEARCH */
+
+.search-sinopsis{
+    color: #FFF;
+    margin-top:50px;
+    
+}
+
+.search-titulo{
+    color: #FFF;
+  
+}
+
+.search-video{
+    margin-top: 50px;
+}
