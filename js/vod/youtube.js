@@ -160,7 +160,7 @@ function onPlayerReady(event) {
 function onPlayerStateChange(event) {
     if (event.data === 0) {
         id = window.location.href.toString().substring(pos + 1);
-         alert('done' + id);
+//         alert('done' + id);
         window.location.assign('vod/finish/' + id);    
     }
 }

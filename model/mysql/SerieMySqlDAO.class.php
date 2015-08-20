@@ -58,12 +58,17 @@ class SerieMySqlDAO implements SerieDAO{
  	 * @param SerieMySql serie
  	 */
 	public function insert($serie){
-		$sql = 'INSERT INTO serie (id_institucion, titulo, descripcion, thumbnail, tags, temporadas, calificacion, visible, fecha_creacion, fecha_modificacion) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+		$sql = 'INSERT INTO serie (id_institucion, titulo, sinopsis, descripcion, '
+                        . 'background, thumbnail, tags, temporadas, calificacion, visible, '
+                        . 'fecha_creacion, fecha_modificacion) '
+                        . 'VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
 		$sqlQuery = new SqlQuery($sql);
 		
 		$sqlQuery->setNumber($serie->idInstitucion);
 		$sqlQuery->set($serie->titulo);
+                $sqlQuery->set($serie->sinopsis);
 		$sqlQuery->set($serie->descripcion);
+                $sqlQuery->set($serie->background);
 		$sqlQuery->set($serie->thumbnail);
 		$sqlQuery->set($serie->tags);
 		$sqlQuery->setNumber($serie->temporadas);
@@ -83,19 +88,26 @@ class SerieMySqlDAO implements SerieDAO{
  	 * @param SerieMySql serie
  	 */
 	public function update($serie){
-		$sql = 'UPDATE serie SET id_institucion = ?, titulo = ?, descripcion = ?, thumbnail = ?, tags = ?, temporadas = ?, calificacion = ?, visible = ?, fecha_creacion = ?, fecha_modificacion = ? WHERE id_serie = ?';
+		$sql = 'UPDATE serie '
+                        . 'SET id_institucion = ?, titulo = ?, sinopsis = ?, '
+                        . 'descripcion = ?, background = ?, thumbnail = ?, '
+                        . 'tags = ?, temporadas = ?, calificacion = ?, '
+                        . 'visible = ?, fecha_creacion = ?, fecha_modificacion = ? '
+                        . 'WHERE id_serie = ?';
 		$sqlQuery = new SqlQuery($sql);
 		
 		$sqlQuery->setNumber($serie->idInstitucion);
 		$sqlQuery->set($serie->titulo);
+                $sqlQuery->set($serie->sinopsis);
 		$sqlQuery->set($serie->descripcion);
+                $sqlQuery->set($serie->background);
 		$sqlQuery->set($serie->thumbnail);
 		$sqlQuery->set($serie->tags);
 		$sqlQuery->setNumber($serie->temporadas);
 		$sqlQuery->setNumber($serie->calificacion);
 		$sqlQuery->setNumber($serie->visible);
 		$sqlQuery->set($serie->fechaCreacion);
-		$sqlQuery->set($serie->fechaModificacion);
+//		$sqlQuery->set($serie->fechaModificacion);
                 $sqlQuery->set(date("Y-m-d H:i:s"));
 
 		$sqlQuery->setNumber($serie->idSerie);
@@ -265,7 +277,9 @@ class SerieMySqlDAO implements SerieDAO{
 		$serie->idSerie = $row['id_serie'];
 		$serie->idInstitucion = $row['id_institucion'];
 		$serie->titulo = $row['titulo'];
+                $serie->sinopsis = $row['sinopsis'];
 		$serie->descripcion = $row['descripcion'];
+                $serie->background = $row['background'];
 		$serie->thumbnail = $row['thumbnail'];
 		$serie->tags = $row['tags'];
 		$serie->temporadas = $row['temporadas'];
