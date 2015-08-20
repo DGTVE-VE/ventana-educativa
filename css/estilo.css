@@ -876,3 +876,8 @@ form.form-search:before {
     font-size: 120px !important;
 }
 
+/* ESTILO DEL SEARCH */
+
+.search-sinopsis{
+    color: #FFF;
+}
