@@ -11,7 +11,7 @@ $(function () {
     var idUser;
     var imageUser;
 
-    var api = "http://localhost/ventana-educativa/api/v1/";
+    //var api = "http://localhost/ventana-educativa/api/v1/";
     
 
 
@@ -52,7 +52,7 @@ $(function () {
 //deja de ejecutar para comprobar el estado del usuario en todo momento por lo 
 //cual el vod parpadea pues se esta redirigiendo siempre.
 
-            //getFacebookData();
+//            getFacebookData();
         }
 
         else {
@@ -104,6 +104,7 @@ $(function () {
     };
 
     var facebookLogin = function () {
+//        alert('entro al login');
         checkLoginState(function (response) {
             if (!response) {
 //                alert(response);
@@ -113,6 +114,22 @@ $(function () {
                         getFacebookData();
                     }
                 }, {scope: scopes});
+            }else{
+                if (response.status === 'connected' && response.authResponse) {
+                        alert('else');
+                        getFacebookData();
+                    }
+            }
+        });
+    };
+    
+    var compruebaEstado = function (){
+        alert('entro al metodo');
+        checkLoginState(function (response){
+            if(!response){
+                alert('no estas conectado');
+            }else{
+                alert('estas conectado');
             }
         });
     };
@@ -137,7 +154,9 @@ $(function () {
 //evento click en el boton de login
     $(document).on('click', '#login', function (e) {
 //        e.preventDefault();
+//        alert('entro');
         facebookLogin();
+//          compruebaEstado();
     });
 
     $(document).on('click', '.logout', function (e) {
