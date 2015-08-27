@@ -6,7 +6,7 @@ function goSearchEnter (event){
 }
 
 function goSearch (){  
-    var url = "http://172.16.107.157/ventana-educativa/vod/search/"+document.getElementById("searchText").value;
+    var url = "/ventana-educativa/vod/search/"+document.getElementById("searchText").value;
     window.location.assign (url);
 }
 
