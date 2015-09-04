@@ -4,10 +4,10 @@
  */
 
 
-//            var api = "http://172.16.200.12/ventana-educativa/api/v1/";
+            //var api = "http://localhost/ventana-educativa/api/v1/";
             function onSuccess(googleUser) {
+                
                 //Para obtener los datos del usuario
-                /*console.log('Logged in as: ' + googleUser.getBasicProfile().getName());*/
                 GoogleID = googleUser.getBasicProfile().getId();
                 GoogleName = googleUser.getBasicProfile().getName();
                 GoogleImageURL = googleUser.getBasicProfile().getImageUrl();
@@ -54,7 +54,6 @@
                 auth2.signOut().then(function(){
                     console.log('User signed out.');
                 });
-                
             }
 
             $(document).on('click', '.logout', function(){signOut();});
