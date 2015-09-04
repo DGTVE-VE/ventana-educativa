@@ -39,7 +39,7 @@
                 <a href="#"><span class="glyphicon glyphicon-play"></span></a><span id="textoBlanco">Agregar a mi lista</span>                                               
                 <input id="input-1" class="rating" data-show-clear="false" data-show-caption="false" data-size="xs" data-min="0" data-max="5" data-step="1">
             </div>    
-            <div class="col-md-3 col-xs-12 social">
+<!--            <div class="col-md-3 col-xs-12 social">
                 <span class="glyphicon glyphicon-share"></span><span id="textoBlanco">   Compartir</span>
                 <ul>
                     <li><a href="#"><i class="fa fa-lg fa-facebook"></i></a></li>
@@ -47,7 +47,7 @@
                     <li><a href="#"><i class="fa fa-lg fa-google-plus"></i></a></li>
                     <li><a href="#"><i class="fa fa-lg fa-envelope"></i></a></li>
                 </ul>
-            </div>
+            </div>-->
             <div class="col-md-7"></div>
         </div>
             <!--<div class="col-md-12"><input id="input-1" class="rating" data-show-clear="false" data-show-caption="false" data-size="xs" data-min="0" data-max="5" data-step="1"></div>-->
