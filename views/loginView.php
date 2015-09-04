@@ -10,7 +10,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <!--Google Client ID de la aplicacion-->
-        <meta name="google-signin-client_id" content="429845958607-tp7ikljr7278ar68vkdl6tde7hhbhjgh.apps.googleusercontent.com">
+        <meta name="google-signin-client_id" content="429845958607-837g2j6dfn5lm42krcalg6jcrsqanrlc.apps.googleusercontent.com">
 
         <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/4.9.0/bootstrap-social.css" rel="stylesheet" type="text/css"> 
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" type="text/css">
@@ -23,13 +23,13 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
         <!-- Script for the login with Facebook -->
         <script src="js/facebook.js"></script>
-        <!--Script para "renderizar" el boton (de Google), obtener los datos del usuario (en Google),
-        "postearlos" al servidor y redireccionar al index del VOD-->
-        <script src="js/googleLogin.js"></script>
         <!--<link href="css/estilo.css" rel="stylesheet">-->
         <!--<link href="css/docs.css" rel="stylesheet" type="text/css">-->
         <link href="css/login.css" rel="stylesheet" type="text/css">
         <script> var api = <?php print json_encode($_SESSION[CONFIG]['api']['url']); ?>; </script>
+        <!--Script para "renderizar" el boton (de Google), obtener los datos del usuario (en Google),
+        "postearlos" al servidor y redireccionar al index del VOD-->
+        <script src="js/googleLogin.js"></script>
     </head>
     <body class="full-page" id="bodyLog">
         
