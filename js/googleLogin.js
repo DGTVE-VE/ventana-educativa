@@ -6,18 +6,20 @@
 
             //var api = "http://localhost/ventana-educativa/api/v1/";
             function onSuccess(googleUser) {
-                
+                alert('estas logeado como: '+ googleUser.getBasicProfile().getName());
                 //Para obtener los datos del usuario
                 GoogleID = googleUser.getBasicProfile().getId();
                 GoogleName = googleUser.getBasicProfile().getName();
                 GoogleImageURL = googleUser.getBasicProfile().getImageUrl();
                 GoogleEmail = googleUser.getBasicProfile().getEmail();
-
+               
                 var datos = {   'GoogleID': GoogleID,
                                 'GoogleName': GoogleName,
                                 'GoogleImageURL': GoogleImageURL,
                                 'GoogleEmail': GoogleEmail
                             };
+                
+                
                 $.ajax({
                     url: api + 'usuario/loginGoogle',
                     type: 'POST',

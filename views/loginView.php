@@ -23,6 +23,12 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
         <!-- Script for the login with Facebook -->
         <script src="js/facebook.js"></script>
+        
+         <!--Incluyendo la libreria para integrar el "logeo" con Google-->
+        <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+        
+        
+        
         <!--<link href="css/estilo.css" rel="stylesheet">-->
         <!--<link href="css/docs.css" rel="stylesheet" type="text/css">-->
         <link href="css/login.css" rel="stylesheet" type="text/css">
@@ -86,7 +92,6 @@
             </div>
         </div>
 
-        <!--Incluyendo la libreria para integrar el "logeo" con Google-->
-        <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+       
     </body>
 </html>
