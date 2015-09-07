@@ -7,6 +7,7 @@
             //var api = "http://localhost/ventana-educativa/api/v1/";
             function onSuccess(googleUser) {
                 alert('estas logeado como: '+ googleUser.getBasicProfile().getName());
+                console.log('estas logeado como: ' + googleUser.getBasicProfile().getName());
                 //Para obtener los datos del usuario
                 GoogleID = googleUser.getBasicProfile().getId();
                 GoogleName = googleUser.getBasicProfile().getName();
