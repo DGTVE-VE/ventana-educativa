@@ -39,6 +39,7 @@
              
             function onFailure(error) {
                 console.log(error);
+                alert('hay un error');
             }
             function renderButton() {
                 gapi.signin2.render('my-signin2', {
