@@ -146,13 +146,14 @@ $(function () {
     $(document).on('click', '#login', function (e) {
 //     e.preventDefault();
 //     alert('entro');
-        console.log('login');
+//        console.log('login');
         facebookLogin();
 //          compruebaEstado();
     });
 
     $(document).on('click', '.logout', function (e) {
 //        e.preventDefault();
+        console.log('logout');
         facebookLogout();
     });
 
