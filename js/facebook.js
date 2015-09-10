@@ -52,7 +52,7 @@ $(function () {
 //deja de ejecutar para comprobar el estado del usuario en todo momento por lo 
 //cual el vod parpadea pues se esta redirigiendo siempre.
 
-//            getFacebookData();
+            getFacebookData();
         }
 
         else {
@@ -104,7 +104,7 @@ $(function () {
     };
 
     var facebookLogin = function () {
-//        alert('entro al login');
+      //  alert('entro al login');
         checkLoginState(function (response) {
             if (!response) {
 //                alert(response);
@@ -123,16 +123,7 @@ $(function () {
         });
     };
     
-    var compruebaEstado = function (){
-        alert('entro al metodo');
-        checkLoginState(function (response){
-            if(!response){
-                alert('no estas conectado');
-            }else{
-                alert('estas conectado');
-            }
-        });
-    };
+    
 
 
 
@@ -154,7 +145,7 @@ $(function () {
 //evento click en el boton de login
     $(document).on('click', '#login', function (e) {
 //        e.preventDefault();
-//        alert('entro');
+//     alert('entro');
         facebookLogin();
 //          compruebaEstado();
     });
