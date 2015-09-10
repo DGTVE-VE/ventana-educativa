@@ -52,7 +52,7 @@ $(function () {
 //deja de ejecutar para comprobar el estado del usuario en todo momento por lo 
 //cual el vod parpadea pues se esta redirigiendo siempre.
 
-            getFacebookData();
+//            getFacebookData();
         }
 
         else {
