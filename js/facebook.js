@@ -144,8 +144,9 @@ $(function () {
 
 //evento click en el boton de login
     $(document).on('click', '#login', function (e) {
-//        e.preventDefault();
+//     e.preventDefault();
 //     alert('entro');
+        console.log('login');
         facebookLogin();
 //          compruebaEstado();
     });
