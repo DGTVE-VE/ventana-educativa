@@ -130,13 +130,13 @@ $(function () {
 
     var facebookLogout = function () {
         alert('entro al signout Facebook');
-        FB.getLoginStatus(function (response) {
-            if (response.status === 'connected') {
+//        FB.getLoginStatus(function (response) {
+//            if (response.status === 'connected') {
                 FB.logout(function (response) {
-//                    alert('deslogueo');
+                    alert('deslogueo');
                 });
-            }
-        });
+//            }
+//        });
 
     };
 
