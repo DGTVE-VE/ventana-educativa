@@ -118,7 +118,7 @@ $(function () {
             }else{
                 if (response.status === 'connected' && response.authResponse) {
                         //alert('else');
-                        //getFacebookData();
+                        getFacebookData();
                         window.location.assign('vod/');
                     }
             }
