@@ -152,7 +152,7 @@ $(function () {
 //          compruebaEstado();
     });
 
-    $(document).on('click', '.logout', function (e) {
+    $(document).on('click', '#logout', function (e) {
 //        e.preventDefault();
         console.log('logout');
         facebookLogout();
