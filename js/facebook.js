@@ -10,6 +10,7 @@ $(function () {
     var emailUser;
     var idUser;
     var imageUser;
+    var conected = 0;
 
     //var api = "http://localhost/ventana-educativa/api/v1/";
     
