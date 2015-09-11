@@ -130,14 +130,9 @@ $(function () {
 
     var facebookLogout = function () {
         alert('entro al signout Facebook');
-//        FB.getLoginStatus(function (response) {
-//            if (response.status === 'connected') {
                 FB.logout(function (response) {
                     alert('deslogueo');
                 });
-//            }
-//        });
-
     };
 
 
@@ -145,17 +140,13 @@ $(function () {
 
 //evento click en el boton de login
     $(document).on('click', '#login', function (e) {
-//     e.preventDefault();
-//     alert('entro');
-//        console.log('login');
         facebookLogin();
-//          compruebaEstado();
     });
 
     $(document).on('click', '.logout', function (e) {
-//        e.preventDefault();
         console.log('logout');
         facebookLogout();
+        window.location.assign('vod/closeSession');
     });
 
 });
