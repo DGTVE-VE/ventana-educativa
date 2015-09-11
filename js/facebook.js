@@ -129,7 +129,7 @@ $(function () {
 
 
     var facebookLogout = function () {
-        alert('entro al signout Facebook');
+        //alert('entro al signout Facebook');
                 FB.logout(function (response) {
                     alert('deslogueo');
                 });
