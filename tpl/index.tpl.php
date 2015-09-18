@@ -109,7 +109,7 @@ and open the template in the editor.
                         <a href="#"><img class="col-md-3" src="imagenes/logovem.png"></a>
                         <a href="#"><img class="col-md-3" src="imagenes/logoDGTVEsolo.png" alt=""></a>
                         
-                        <a  class="logout">
+                        <a class="logout">
                             <label class="glyphicon col-md-3 glyphicon-off VHcerrarSesion"></label>
                         </a>
                         
