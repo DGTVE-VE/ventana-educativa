@@ -114,7 +114,7 @@ $(function () {
 //                        alert('aqui estoy');
                         getFacebookData();
                     }
-                }, {scope: scopes});
+                }, {scope: scopes})
             }else{
                 if (response.status === 'connected' && response.authResponse) {
                         alert('else');
