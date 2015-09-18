@@ -115,9 +115,13 @@ $(function () {
                         getFacebookData();
                     }
                 }, {scope: scopes});
-            }else{
-                alert('estas conectado ya');
+            }else
+            if(response){
+                alert('estas conectado ya!');
             }
+            
+            
+            
 //            else{
 //                if (response.status === 'connected' && response.authResponse) {
 //                        alert('else');
