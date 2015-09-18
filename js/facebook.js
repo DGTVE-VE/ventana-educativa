@@ -116,19 +116,12 @@ $(function () {
                     }
                 }, {scope: scopes});
             }else{
-            if(response){
-                alert('estas conectado ya!');
+                if (response.status === 'connected' && response.authResponse) {
+                        alert('else');
+                        //getFacebookData();
+                        window.location.assign('vod/');
+                    }
             }
-        }
-            
-            
-//            else{
-//                if (response.status === 'connected' && response.authResponse) {
-//                        alert('else');
-//                        //getFacebookData();
-//                        window.location.assign('vod/');
-//                    }
-//            }
         });
     };
     
