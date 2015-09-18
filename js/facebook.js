@@ -115,11 +115,11 @@ $(function () {
                         getFacebookData();
                     }
                 }, {scope: scopes});
-            }else
+            }else{
             if(response){
                 alert('estas conectado ya!');
             }
-            
+        }
             
             
 //            else{
