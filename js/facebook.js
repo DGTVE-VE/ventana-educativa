@@ -115,8 +115,9 @@ $(function () {
                         getFacebookData();
                     }
                 }, {scope: scopes});
+            }else{
+                alert('estas conectado ya');
             }
-            alert('llego al fin');
 //            else{
 //                if (response.status === 'connected' && response.authResponse) {
 //                        alert('else');
