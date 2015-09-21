@@ -66,6 +66,9 @@ $(function () {
         console.log ('Entró a checkLoginState');
         FB.getLoginStatus(function (response) {
             console.log ('Response = '+response);
+            var respuesta = {};
+            respuesta = response;
+            console.log('esto tiene response:' + respuesta);
             statusChangeCallback(response, function (data) {
                 console.log ('Data = '+data);
                 callback(data);
