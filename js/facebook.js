@@ -63,8 +63,11 @@ $(function () {
     };
 //esta función se llama cuando alguien termino con el boton de login.
     var checkLoginState = function (callback) {
+        console.log ('Entró a checkLoginState');
         FB.getLoginStatus(function (response) {
+            console.log ('Response = '+response);
             statusChangeCallback(response, function (data) {
+                console.log ('Data = '+data);
                 callback(data);
             });
         });
@@ -105,18 +108,17 @@ $(function () {
     };
 
     var facebookLogin = function () {
+        console.log ('Entró a facebookLogin');
         checkLoginState(function (response) {
-            alert(response);
+            console.log ('checkLoginState: '+response);            
             if(response){
                 alert('estas conectado ya');
-            }else{
-            if (!response) {
+            }else{            
                 FB.login(function (response) {
                     if (response.status === 'connected' && response.authResponse) {
                         getFacebookData();
                     }
-                }, {scope: scopes});
-            }
+                }, {scope: scopes});            
         }
         });
     };
@@ -137,6 +139,7 @@ $(function () {
 
 //evento click en el boton de login
     $(document).on('click', '#login', function (e) {
+        console.log ('On -> va a facebook login');
         facebookLogin();
     });
 
