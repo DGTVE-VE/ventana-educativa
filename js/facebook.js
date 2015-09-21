@@ -127,9 +127,12 @@ $(function () {
 
 
     var facebookLogout = function () {
-        alert('entro al signout Facebook');
-        FB.logout(function (response) {
-            
+        checkLoginState(function (response) {
+            FB.logout(function (response) {
+                if(response.status !== 'connected'){
+                    alert('deslogueo');
+                }
+            });
         });
     };
 
