@@ -106,6 +106,7 @@ $(function () {
 
     var facebookLogin = function () {
         checkLoginState(function (response) {
+            alert(response);
             if(response){
                 alert('estas conectado ya');
             }else{
