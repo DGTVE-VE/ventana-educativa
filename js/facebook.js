@@ -54,7 +54,7 @@ $(function () {
 //cual el vod parpadea pues se esta redirigiendo siempre.
 
 //            getFacebookData();
-              facebookConnected();  
+             
         }
 
         else {
@@ -63,11 +63,7 @@ $(function () {
         }
     };
     
-    var facebookConnected = function(){
-        alert('entro al metodo de conectado');
-        window.location.assign('vod/');
-        
-    };
+   
 //esta función se llama cuando alguien termino con el boton de login.
     var checkLoginState = function (callback) {
         console.log ('Entró a checkLoginState');
@@ -120,11 +116,11 @@ $(function () {
     };
 
     var facebookLogin = function () {
-        checkLoginState(function (response) {   
-            if(response){
-                alert('estas conectado ya!!!!');
-                window.location.assign('vod/');
-            }else{            
+        checkLoginState(function (response) {
+            if(response.status === 'connected'){
+                getFacebookData();
+                //window.location.assign('vod/');
+            }else{
                 FB.login(function (response) {
                     if (response.status === 'connected' && response.authResponse) {
                         getFacebookData();
@@ -150,7 +146,6 @@ $(function () {
 
 //evento click en el boton de login
     $(document).on('click', '#login', function (e) {
-        console.log ('On -> va a facebook login');
         facebookLogin();
     });
 
