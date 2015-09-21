@@ -105,18 +105,18 @@ $(function () {
     };
 
     var facebookLogin = function () {
-      //  alert('entro al login');
         checkLoginState(function (response) {
             if (!response) {
-//                alert(response);
                 FB.login(function (response) {
                     if (response.status === 'connected' && response.authResponse) {
-//                        alert('aqui estoy');
                         getFacebookData();
                     }
                 }, {scope: scopes});
-            }else
-            alert('llamada');
+            }else{
+                if(response && response.status === 'connected' && response.authResponse){
+                    alert('else');
+                }
+            }
         });
     };
     
