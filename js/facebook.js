@@ -114,18 +114,15 @@ $(function () {
 //                        alert('aqui estoy');
                         getFacebookData();
                     }
-                }, {scope: scopes})
+                }, {scope: scopes});
             }else{
-                if (response.status === 'connected' && response.authResponse) {
-                        alert('else');
-                        //getFacebookData();
-                        window.location.assign('vod/');
-                    }
+                alert('else');
             }
+            
         });
     };
     
-    
+   
 
 
 
