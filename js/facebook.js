@@ -106,17 +106,17 @@ $(function () {
 
     var facebookLogin = function () {
         checkLoginState(function (response) {
+            if(response){
+                alert('estas conectado ya');
+            }else{
             if (!response) {
                 FB.login(function (response) {
                     if (response.status === 'connected' && response.authResponse) {
                         getFacebookData();
                     }
                 }, {scope: scopes});
-            }else{
-                if(response && response.status === 'connected' && response.authResponse){
-                    alert('else');
-                }
             }
+        }
         });
     };
     
