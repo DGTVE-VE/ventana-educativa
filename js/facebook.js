@@ -10,7 +10,6 @@ $(function () {
     var emailUser;
     var idUser;
     var imageUser;
-    var conected = 0;
 
     //var api = "http://localhost/ventana-educativa/api/v1/";
     
@@ -130,8 +129,7 @@ $(function () {
     var facebookLogout = function () {
         alert('entro al signout Facebook');
         FB.logout(function (response) {
-            // user is now logged out
-            window.location.assign('vod/closeSession');
+            
         });
     };
 
