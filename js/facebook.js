@@ -70,6 +70,7 @@ $(function () {
                 console.log ('Data = '+data);
                 callback(data);
             });
+            console.log ('Saliendo getLoginStatus');
         });
     };
 //con este metodo se tiene acceso a los datos del usuario despues de hacer Login    
