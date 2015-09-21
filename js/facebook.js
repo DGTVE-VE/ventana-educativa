@@ -66,14 +66,15 @@ $(function () {
         console.log ('Entró a checkLoginState');
         FB.getLoginStatus(function (response) {
             console.log ('Response = '+response);
-            var respuesta = {};
-            respuesta = response;
-            console.log('esto tiene response:' + respuesta);
+            if(response.status === 'connected'){
+                alert('estas conectado');
+            }else{
             statusChangeCallback(response, function (data) {
                 console.log ('Data = '+data);
                 callback(data);
             });
             console.log ('Saliendo getLoginStatus');
+        }
         });
     };
 //con este metodo se tiene acceso a los datos del usuario despues de hacer Login    
