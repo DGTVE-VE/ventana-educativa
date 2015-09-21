@@ -116,7 +116,9 @@ $(function () {
                     }
                 }, {scope: scopes});
             }else{
-                alert('else');
+                if(response){
+                    alert('else');
+                }
             }
             
         });
