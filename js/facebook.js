@@ -146,7 +146,7 @@ $(function () {
     $(document).on('click', '.logout', function (e) {
         console.log('logout');
         facebookLogout();
-        //window.location.assign('vod/closeSession');
+        window.location.assign('vod/closeSession');
     });
 
 });
