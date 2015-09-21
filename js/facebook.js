@@ -131,6 +131,7 @@ $(function () {
         alert('entro al signout Facebook');
         FB.logout(function (response) {
             // user is now logged out
+            window.location.assign('vod/closeSession');
         });
     };
 
@@ -143,12 +144,8 @@ $(function () {
     });
 
     $(document).on('click', '.logout', function (e) {
-        FB.logout(function (response) {
-            // user is now logged out
-        });
-        
-//        console.log('logout');
-//        facebookLogout();
+        console.log('logout');
+        facebookLogout();
         //window.location.assign('vod/closeSession');
     });
 
