@@ -54,6 +54,7 @@ $(function () {
 //cual el vod parpadea pues se esta redirigiendo siempre.
 
 //            getFacebookData();
+            callback(true);
         }
 
         else {
@@ -113,11 +114,10 @@ $(function () {
     };
 
     var facebookLogin = function () {
-        console.log ('Entró a facebookLogin');
-        checkLoginState(function (response) {
-            console.log ('checkLoginState: '+response);            
-            if(response.status === 'connected'){
+        checkLoginState(function (response) {   
+            if(response){
                 alert('estas conectado ya!!!!');
+                window.location.assign('vod/');
             }else{            
                 FB.login(function (response) {
                     if (response.status === 'connected' && response.authResponse) {
