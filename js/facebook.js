@@ -116,8 +116,8 @@ $(function () {
         console.log ('Entró a facebookLogin');
         checkLoginState(function (response) {
             console.log ('checkLoginState: '+response);            
-            if(response){
-                alert('estas conectado ya');
+            if(response.status === 'connected'){
+                alert('estas conectado ya!!!!');
             }else{            
                 FB.login(function (response) {
                     if (response.status === 'connected' && response.authResponse) {
