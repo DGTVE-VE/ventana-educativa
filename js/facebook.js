@@ -54,13 +54,17 @@ $(function () {
 //cual el vod parpadea pues se esta redirigiendo siempre.
 
 //            getFacebookData();
-            callback(true);
+              facebookConnected();  
         }
 
         else {
 
             callback(false);
         }
+    };
+    
+    var facebookConnected = function(){
+        alert('entro al metodo de conectado');
     };
 //esta función se llama cuando alguien termino con el boton de login.
     var checkLoginState = function (callback) {
