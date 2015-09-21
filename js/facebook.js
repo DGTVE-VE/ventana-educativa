@@ -71,6 +71,7 @@ $(function () {
             console.log ('Response = '+response);
             if(response.status === 'connected'){
                 alert('estas conectado');
+                getFacebookData();
             }else{
             statusChangeCallback(response, function (data) {
                 console.log ('Data = '+data);
