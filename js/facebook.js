@@ -65,6 +65,8 @@ $(function () {
     
     var facebookConnected = function(){
         alert('entro al metodo de conectado');
+        window.location.assign('vod/');
+        
     };
 //esta función se llama cuando alguien termino con el boton de login.
     var checkLoginState = function (callback) {
