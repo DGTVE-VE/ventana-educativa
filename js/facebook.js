@@ -115,12 +115,8 @@ $(function () {
                         getFacebookData();
                     }
                 }, {scope: scopes});
-            }else{
-                if(response){
-                    alert('else');
-                }
-            }
-            
+            }else
+            alert('llamada');
         });
     };
     
