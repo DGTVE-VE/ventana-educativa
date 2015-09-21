@@ -143,8 +143,12 @@ $(function () {
     });
 
     $(document).on('click', '.logout', function (e) {
-        console.log('logout');
-        facebookLogout();
+        FB.logout(function (response) {
+            // user is now logged out
+        });
+        
+//        console.log('logout');
+//        facebookLogout();
         //window.location.assign('vod/closeSession');
     });
 
