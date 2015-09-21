@@ -66,9 +66,7 @@ $(function () {
    
 //esta función se llama cuando alguien termino con el boton de login.
     var checkLoginState = function (callback) {
-        console.log ('Entró a checkLoginState');
         FB.getLoginStatus(function (response) {
-            console.log ('Response = '+response);
             if(response.status === 'connected'){
                 alert('estas conectado');
                 getFacebookData();
@@ -77,7 +75,6 @@ $(function () {
                 console.log ('Data = '+data);
                 callback(data);
             });
-            console.log ('Saliendo getLoginStatus');
         }
         });
     };
@@ -118,16 +115,11 @@ $(function () {
 
     var facebookLogin = function () {
         checkLoginState(function (response) {
-            if(response.status === 'connected'){
-                getFacebookData();
-                //window.location.assign('vod/');
-            }else{
                 FB.login(function (response) {
                     if (response.status === 'connected' && response.authResponse) {
                         getFacebookData();
                     }
                 }, {scope: scopes});            
-        }
         });
     };
     
