@@ -127,16 +127,13 @@ $(function () {
 
 
     var facebookLogout = function () {
-        FB.getLoginStatus(function (response) {
-            if (response.status === 'connected') {
                 alert('estas conectado');
                 FB.logout(function (response) {
                     if(response.status !== 'connected'){
                         alert('ya estas fuera de facebook');
                     }
                 });
-            }
-        });
+        
     };
 
 
