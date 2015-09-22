@@ -62,5 +62,6 @@
             }
 
             $(document).on('click', '#logout', function(){
+                alert('click logout google');
                 signOut();
             });
