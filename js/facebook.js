@@ -67,7 +67,6 @@ $(function () {
     var checkLoginState = function (callback) {
         FB.getLoginStatus(function (response) {
             if(response.status === 'connected'){
-                alert('estas conectado');
                 getFacebookData();
             }else{
             statusChangeCallback(response, function (data) {
@@ -86,7 +85,6 @@ $(function () {
             emailUser = response.email;
             imageUser = 'http://graph.facebook.com/' + response.id + '/picture?type=large';
 
-//            alert('tu nombre es: ' + nameUser + 'y tu correo es: ' + response.email );
 
             var datos = {'nameUser': nameUser,
                 'emailUser': emailUser,
@@ -127,13 +125,11 @@ $(function () {
 
 
     var facebookLogout = function () {
-                alert('estas conectado');
-                FB.logout(function (response) {
-                    if(response.status !== 'connected'){
-                        alert('ya estas fuera de facebook');
-                    }
-                });
         
+        FB.logout(function (response) {
+
+        });
+
     };
 
 
