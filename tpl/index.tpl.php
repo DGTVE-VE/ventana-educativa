@@ -77,6 +77,7 @@ and open the template in the editor.
                                 <p class="glyphicon glyphicon-off VHcerrarSesion logout"></p>
                             </a>
                             
+                            
                         </div>
                         <div class="col-md-3 col-xs-3 col-lg-3 pull-right">
                             <!-- add search form -->

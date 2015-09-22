@@ -86,7 +86,8 @@
                         <!--Boton para "logeo" con Google-->
                         <div class="col-md-6 text-center">
                             <a id="my-signin2" class="btn btn-social-icon btn-group-justified btn-google"><i id="btngoogle-plus" class="fa fa-google-plus"></i></a>
-                        </div>                        
+                        </div> 
+                        <button class="logout">Cerrar Sesión</button>
                     </div>
                 </div>
             </div>
