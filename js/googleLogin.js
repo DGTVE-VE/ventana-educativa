@@ -61,4 +61,6 @@
                 });
             }
 
-            //$(document).on('click', '.logout', function(){signOut();});
+            $(document).on('click', '.logout', function(){
+                signOut();
+            });
