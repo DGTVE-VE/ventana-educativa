@@ -73,7 +73,7 @@ and open the template in the editor.
                             Televisión <br> Educativa
                         </div>
                         <div class="col-md-1 col-xs-2">
-                            <a class="logout">
+                            <a id="logout" class="logout">
                                 <p class="glyphicon glyphicon-off VHcerrarSesion logout"></p>
                             </a>
                             
@@ -110,7 +110,7 @@ and open the template in the editor.
                         <a href="#"><img class="col-md-3" src="imagenes/logovem.png"></a>
                         <a href="#"><img class="col-md-3" src="imagenes/logoDGTVEsolo.png" alt=""></a>
                         
-                        <a class="logout">
+                        <a id="logout" class="logout">
                             <label class="glyphicon col-md-3 glyphicon-off VHcerrarSesion"></label>
                         </a>
                         
