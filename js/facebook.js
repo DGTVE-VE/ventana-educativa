@@ -127,13 +127,9 @@ $(function () {
 
 
     var facebookLogout = function () {
-        checkLoginState(function (response) {
             FB.logout(function (response) {
-                if(response.status !== 'connected'){
-                    alert('deslogueo');
-                }
+                
             });
-        });
     };
 
 
