@@ -126,10 +126,15 @@ $(function () {
 
 
 
-    var facebookLogout = function () {
-            FB.logout(function (response) {
-                
-            });
+    var facebookLogout = function (callback) { 
+        FB.getLoginStatus(function(response){
+            if(response.status === 'connected'){
+                alert('estas conectado');
+            }else if(response.status ==='not_authorized'){
+                alert('no estas autorizado');
+            }else
+                alert('el usuario no esta dentro de facebook');
+        });
     };
 
 
