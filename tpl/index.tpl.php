@@ -26,8 +26,8 @@ and open the template in the editor.
         <script type="text/javascript" src="js/jquery.mCustomScrollbar.concat.min.js"></script>
         <script src="js/facebook.js"></script>
         <script src="js/googleLogin.js"></script>
-         <!--Incluyendo la libreria para integrar el "logeo" con Google-->
-        <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+         <!--Incluyendo la libreria para integrar el "deslogueo" con Google-->
+        <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
 
         <script> var api = <?php print json_encode($_SESSION[CONFIG]['api']['url']); ?>; </script>
         <script src="js/vod/search.js"></script>
