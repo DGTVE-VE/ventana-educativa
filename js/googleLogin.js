@@ -6,8 +6,8 @@
 
             //var api = "http://localhost/ventana-educativa/api/v1/";
             function onSuccess(googleUser) {
-                alert('estas logeado como: '+ googleUser.getBasicProfile().getName());
-                console.log('estas logeado como: ' + googleUser.getBasicProfile().getName());
+                //alert('estas logeado como: '+ googleUser.getBasicProfile().getName());
+                //console.log('estas logeado como: ' + googleUser.getBasicProfile().getName());
                 //Para obtener los datos del usuario
                 GoogleID = googleUser.getBasicProfile().getId();
                 GoogleName = googleUser.getBasicProfile().getName();
@@ -63,11 +63,11 @@
 //            }
 
               function signOut(){
-                  alert('entro al metodo signOut de Google');
+                  //alert('entro al metodo signOut de Google');
                   var objetoAuth = gapi.auth2.getAuthInstance();
-                  console.log(objetoAuth);
+                  alert(objetoAuth);
                   var isConnected = GoogleAuth.isSignedIn.get();
-                  console.log('el usuario esta conectado? ' + isConnected);
+                  alert('el usuario esta conectado? ' + isConnected);
               }
 
             $(document).on('click', '#logout', function(){
