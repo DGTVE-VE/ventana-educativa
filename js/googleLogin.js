@@ -64,6 +64,8 @@
 
               function signOut(){
                   alert('entro al metodo signOut de Google');
+                  var objetoAuth = gapi.auth2.getAuthInstance();
+                  console.log(objetoAuth);
                   var isConnected = GoogleAuth.isSignedIn.get();
                   console.log('el usuario esta conectado? ' + isConnected);
               }
