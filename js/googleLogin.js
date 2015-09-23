@@ -54,20 +54,20 @@
                 });
             }
 
-            function signOut(){
-                alert('entro al metodo signOut de google');
-                auth2.signOut().then(function(){
-                    console.log('User signed out.');
-                });
-            }
+//            function signOut(){
+//                alert('entro al metodo signOut de google');
+//                auth2.signOut().then(function(){
+//                    console.log('User signed out.');
+//                });
+//            }
 
-//              function signOut(){
-//                  //alert('entro al metodo signOut de Google');
-//                  var objetoAuth = gapi.auth2.getAuthInstance();
-//                  alert(objetoAuth);
-//                  var isConnected = GoogleAuth.isSignedIn.get();
-//                  alert('el usuario esta conectado? ' + isConnected);
-//              }
+              function signOut(){
+                  //alert('entro al metodo signOut de Google');
+                  var objetoAuth = gapi.auth2.getAuthInstance();
+                  alert(objetoAuth);
+                  var isConnected = GoogleAuth.isSignedIn.get();
+                  alert('el usuario esta conectado? ' + isConnected);
+              }
 
             $(document).on('click', '#logout', function(){
 //                alert('click logout google');
