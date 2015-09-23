@@ -10,6 +10,7 @@ and open the template in the editor.
         <base href="http://<?php print $_SESSION[CONFIG]['host']['url']; ?>">
               <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-signin-client_id" content="429845958607-837g2j6dfn5lm42krcalg6jcrsqanrlc.apps.googleusercontent.com">
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">        
@@ -25,6 +26,8 @@ and open the template in the editor.
         <script type="text/javascript" src="js/jquery.mCustomScrollbar.concat.min.js"></script>
         <script src="js/facebook.js"></script>
         <script src="js/googleLogin.js"></script>
+         <!--Incluyendo la libreria para integrar el "logeo" con Google-->
+        <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
 
         <script> var api = <?php print json_encode($_SESSION[CONFIG]['api']['url']); ?>; </script>
         <script src="js/vod/search.js"></script>
