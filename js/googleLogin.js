@@ -10,6 +10,7 @@
                 //console.log('estas logeado como: ' + googleUser.getBasicProfile().getName());
                 //Para obtener los datos del usuario
                 GoogleID = googleUser.getBasicProfile().getId();
+                console.log('tu id de google es: ' + GoogleID);
                 GoogleName = googleUser.getBasicProfile().getName();
                 GoogleImageURL = googleUser.getBasicProfile().getImageUrl();
                 GoogleEmail = googleUser.getBasicProfile().getEmail();
