@@ -45,9 +45,11 @@
             }
             function renderButton() {
                 gapi.signin2.render('my-signin2', {
+                    'clientid':'429845958607-837g2j6dfn5lm42krcalg6jcrsqanrlc.apps.googleusercontent.com',
                     'scope': 'https://www.googleapis.com/auth/plus.login',
                     //'width': 55,
                     //'height': 50,
+                    'cookiepolicy' : 'single_host_origin',
                     'longtitle': true,
                     'theme': 'dark',
                     'onsuccess': onSuccess,
@@ -60,7 +62,7 @@
                     var auth2 = gapi.auth2.getAuthInstance();
                     auth2.signOut().then(function () {
                         console.log('User signed out.');
-                        GoogleAuth.signOut();
+                       
                     });
                 }
 
@@ -72,10 +74,15 @@
                         });
                     });
                 }
-              
+                
+                function checkState(){
+                    
+                    
+                }
               
 
             $(document).on('click', '#logout', function(){
 //                alert('click logout google');
                 signOut();
+                checkState();
             });
