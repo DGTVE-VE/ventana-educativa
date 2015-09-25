@@ -69,16 +69,11 @@
                 function onLoad() {
                     gapi.load('auth2', function () {
                         gapi.auth2.init({
-                         client_id: 'CLIENT_ID.apps.googleusercontent.com'
                            
                         });
                     });
                 }
                 
-                function checkState(){
-                    
-                    
-                }
               
 
             $(document).on('click', '#logout', function(){
