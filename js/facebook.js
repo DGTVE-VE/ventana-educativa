@@ -31,7 +31,8 @@ $(function () {
 
    
 
-
+//esta función checa el estado actual del cliente y regresa una respuesta para 
+//manejo de la aplicación 
     FB.getLoginStatus(function (response) {
         statusChangeCallback(response, function () {
 
@@ -83,7 +84,8 @@ $(function () {
             idUser = response.id;
             nameUser = response.name;
             emailUser = response.email;
-            imageUser = 'http://graph.facebook.com/' + response.id + '/picture?type=large';
+            imageUser = 'http://graph.facebook.com/' + response.id
+                    + '/picture?type=large';
 
 
             var datos = {'nameUser': nameUser,
@@ -110,10 +112,13 @@ $(function () {
         });
     };
 
+//esta es la función establecida por el api de facebook para el logueo del 
+//cliente a su cuenta
     var facebookLogin = function () {
         checkLoginState(function (response) {
                 FB.login(function (response) {
-                    if (response.status === 'connected' && response.authResponse) {
+                    if (response.status === 
+                            'connected' && response.authResponse) {
                         getFacebookData();
                     }
                 }, {scope: scopes});            
@@ -122,7 +127,8 @@ $(function () {
     
    
 
-
+//Esta función es la establecida por el api de facebook para el logout de la 
+//cuenta
 
     var facebookLogout = function () {
         
@@ -139,7 +145,7 @@ $(function () {
     $(document).on('click', '#login', function (e) {
         facebookLogin();
     });
-
+//evento click del boton Logout y redirección al loginView 
     $(document).on('click', '.logout', function (e) {
         console.log('logout');
         facebookLogout();
