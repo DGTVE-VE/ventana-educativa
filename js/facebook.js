@@ -10,7 +10,6 @@ $(function () {
     var emailUser;
     var idUser;
     var imageUser;
-    var conected = 0;
 
     //var api = "http://localhost/ventana-educativa/api/v1/";
     
@@ -32,7 +31,8 @@ $(function () {
 
    
 
-
+//esta función checa el estado actual del cliente y regresa una respuesta para 
+//manejo de la aplicación 
     FB.getLoginStatus(function (response) {
         statusChangeCallback(response, function () {
 
@@ -54,6 +54,7 @@ $(function () {
 //cual el vod parpadea pues se esta redirigiendo siempre.
 
 //            getFacebookData();
+             
         }
 
         else {
@@ -61,12 +62,19 @@ $(function () {
             callback(false);
         }
     };
+    
+   
 //esta función se llama cuando alguien termino con el boton de login.
     var checkLoginState = function (callback) {
         FB.getLoginStatus(function (response) {
+            if(response.status === 'connected'){
+                getFacebookData();
+            }else{
             statusChangeCallback(response, function (data) {
+                console.log ('Data = '+data);
                 callback(data);
             });
+        }
         });
     };
 //con este metodo se tiene acceso a los datos del usuario despues de hacer Login    
@@ -76,9 +84,9 @@ $(function () {
             idUser = response.id;
             nameUser = response.name;
             emailUser = response.email;
-            imageUser = 'http://graph.facebook.com/' + response.id + '/picture?type=large';
+            imageUser = 'http://graph.facebook.com/' + response.id
+                    + '/picture?type=large';
 
-//            alert('tu nombre es: ' + nameUser + 'y tu correo es: ' + response.email );
 
             var datos = {'nameUser': nameUser,
                 'emailUser': emailUser,
@@ -104,36 +112,30 @@ $(function () {
         });
     };
 
+//esta es la función establecida por el api de facebook para el logueo del 
+//cliente a su cuenta
     var facebookLogin = function () {
-      //  alert('entro al login');
         checkLoginState(function (response) {
-            if (!response) {
-//                alert(response);
                 FB.login(function (response) {
-                    if (response.status === 'connected' && response.authResponse) {
-//                        alert('aqui estoy');
+                    if (response.status === 
+                            'connected' && response.authResponse) {
                         getFacebookData();
                     }
-                }, {scope: scopes});
-            }else{
-                if (response.status === 'connected' && response.authResponse) {
-                        //alert('else');
-                        getFacebookData();
-                        window.location.assign('vod/');
-                    }
-            }
+                }, {scope: scopes});            
         });
     };
     
-    
+   
 
-
+//Esta función es la establecida por el api de facebook para el logout de la 
+//cuenta
 
     var facebookLogout = function () {
-        //alert('entro al signout Facebook');
-                FB.logout(function (response) {
-                    alert('deslogueo');
-                });
+        
+        FB.logout(function (response) {
+
+        });
+
     };
 
 
@@ -143,7 +145,7 @@ $(function () {
     $(document).on('click', '#login', function (e) {
         facebookLogin();
     });
-
+//evento click del boton Logout y redirección al loginView 
     $(document).on('click', '.logout', function (e) {
         console.log('logout');
         facebookLogout();
