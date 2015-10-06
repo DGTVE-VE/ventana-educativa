@@ -122,6 +122,10 @@ interface VodDAO{
 	public function queryByThumbnail($value);
 
 	public function queryByVisible($value);
+    
+    public function queryByYoutubeListId($value);
+    
+    public function queryByYoutubeId($value);
 
 	public function queryByFechaCreacion($value);
 

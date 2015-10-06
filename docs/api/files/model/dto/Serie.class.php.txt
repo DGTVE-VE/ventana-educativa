@@ -5,19 +5,34 @@
      	 * @author: http://phpdao.com
      	 * @date: 2015-02-17 19:47	 
 	 */
-	class Serie{
+	class Serie implements _DTO{
 		
 		var $idSerie;
-		var $idInstitucion;
-		var $titulo;
-		var $descripcion;
-		var $thumbnail;
-		var $tags;
-		var $temporadas;
-		var $calificacion;
-		var $visible;
-		var $fechaCreacion;
-		var $fechaModificacion;
-		
+
+		var $idInstitucion;
+
+		var $titulo;
+                
+                var $sinopsis;
+
+		var $descripcion;
+                
+                var $background;
+
+		var $thumbnail;
+
+		var $tags;
+
+		var $temporadas;
+
+		var $calificacion;
+
+		var $visible;
+
+		var $fechaCreacion;
+
+		var $fechaModificacion;
+
+		
 	}
 ?>

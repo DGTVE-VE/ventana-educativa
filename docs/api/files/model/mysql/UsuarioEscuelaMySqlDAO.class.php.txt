@@ -95,7 +95,7 @@ class UsuarioEscuelaMySqlDAO implements UsuarioEscuelaDAO{
 		$sqlQuery->setNumber($usuarioEscuela->cursaActualmente);
 		$sqlQuery->set($usuarioEscuela->titulo);
 		$sqlQuery->set($usuarioEscuela->fechaCreacionl);
-//		$sqlQuery->set($usuarioEscuela->fechaModificacion);
+		$sqlQuery->set($usuarioEscuela->fechaModificacion);
                 $sqlQuery->set(date("Y-m-d H:i:s"));
 
 		

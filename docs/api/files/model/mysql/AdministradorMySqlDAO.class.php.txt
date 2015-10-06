@@ -94,7 +94,7 @@ class AdministradorMySqlDAO implements AdministradorDAO{
 		$sqlQuery->setNumber($administrador->idInstitucion);
 		$sqlQuery->setNumber($administrador->superadministrador);
 		$sqlQuery->set($administrador->fechaCreacion);
-//		$sqlQuery->set($administrador->fechaModificacion);
+		$sqlQuery->set($administrador->fechaModificacion);
                 $sqlQuery->set(date("Y-m-d H:i:s"));
 
 		$sqlQuery->setNumber($administrador->idAdministrador);

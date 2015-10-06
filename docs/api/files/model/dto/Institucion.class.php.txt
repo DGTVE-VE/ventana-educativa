@@ -5,16 +5,24 @@
      	 * @author: http://phpdao.com
      	 * @date: 2015-02-17 19:47	 
 	 */
-	class Institucion{
+	class Institucion implements _DTO{
 		
 		var $idInstitucion;
-		var $nombre;
-		var $contacto;
-		var $telefono;
-		var $correo;
-		var $abreviatura;
-		var $fechaCreacion;
-		var $fechaModificacion;
-		
+
+		var $nombre;
+
+		var $contacto;
+
+		var $telefono;
+
+		var $correo;
+
+		var $abreviatura;
+
+		var $fechaCreacion;
+
+		var $fechaModificacion;
+
+		
 	}
 ?>

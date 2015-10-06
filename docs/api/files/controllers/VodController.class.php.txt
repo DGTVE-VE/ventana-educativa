@@ -5,29 +5,34 @@
  *
  * @author Israel
  */
-class VodController extends _BaseController{
-      
-  public function serie ($id){    
-    include ('views/vod/serieView.php');
-  }
-  
-  public function youtube ($id){
-    include ('views/vod/youtubeView.php');
-  }
-  
-  public function defaultAction (){
-//    parent::validateUser ();    
-    /* @var $daoSerieCategoria SerieDAO */
-    $daoSerieCategoria = DAOFactory::getSerieDAO();
+class VodController extends _BaseController {
 
-    /* @var $recomendacion Serie[] */
-    $recomendaciones = $daoSerieCategoria->querySeriesInCategoria("Recomendaciones");
+    public function test() {
+        include ('views/vod/testView.php');
+    }
 
-    /* @var $daoVod VodDAO */
-    $daoVod = DAOFactory::getVodDAO();
+    public function serie($id) {
+        $_SESSION[CONTENIDO_INCLUIDO] = file_get_contents('views/vod/serieView.php');
+        include 'tpl/index.tpl.php';
+    }
 
-    $vods = $daoVod->queryAll();
-    include 'views/vod/indexView.php';
-  }
+    public function youtube($id) {
+        include ('views/vod/youtubeView.php');
+    }
+
+    public function defaultAction() {
+        $_SESSION[CONTENIDO_INCLUIDO] = file_get_contents('views/vod/indexView.php');
+        include 'tpl/index.tpl.php';
+    }
+
+    public function search() {
+        $_SESSION[CONTENIDO_INCLUIDO] = file_get_contents('views/vod/searchView.php');
+        include 'tpl/index.tpl.php';        
+    }
+
+    public function finish($id) {
+        include 'views/vod/finishView.php';
+    }
+
 }
 

@@ -91,7 +91,7 @@ class PaginaMySqlDAO implements PaginaDAO{
 		$sqlQuery->set($pagina->url);
 		$sqlQuery->set($pagina->numeroInterno);
 		$sqlQuery->set($pagina->fechaCreacion);
-//		$sqlQuery->set($pagina->fechaModificacion);
+		$sqlQuery->set($pagina->fechaModificacion);
                 $sqlQuery->set(date("Y-m-d H:i:s"));
 
 		

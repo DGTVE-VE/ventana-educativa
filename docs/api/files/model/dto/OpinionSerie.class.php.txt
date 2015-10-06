@@ -5,7 +5,7 @@
      	 * @author: http://phpdao.com
      	 * @date: 2015-02-17 19:47	 
 	 */
-	class OpinionSerie{
+	class OpinionSerie implements _DTO{
 		
 		var $idSerie;
 

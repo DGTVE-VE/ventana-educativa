@@ -111,7 +111,7 @@ class UsuarioMySqlDAO implements UsuarioDAO{
 
 		$sqlQuery->setNumber($usuario->idUsuario);
 		return $this->executeUpdate($sqlQuery);
-	}
+     	}
 
 	/**
  	 * Delete all rows
@@ -175,14 +175,14 @@ class UsuarioMySqlDAO implements UsuarioDAO{
 		$sql = 'SELECT * FROM usuario WHERE correo = ?';
 		$sqlQuery = new SqlQuery($sql);
 		$sqlQuery->set($value);
-		return $this->getList($sqlQuery);
+		return $this->getRow($sqlQuery);
 	}
 
 	public function queryByFacebook($value){
 		$sql = 'SELECT * FROM usuario WHERE facebook = ?';
 		$sqlQuery = new SqlQuery($sql);
 		$sqlQuery->set($value);
-		return $this->getList($sqlQuery);
+		return $this->getRow($sqlQuery);
 	}
 
 	public function queryByGoogle($value){
@@ -196,21 +196,21 @@ class UsuarioMySqlDAO implements UsuarioDAO{
 		$sql = 'SELECT * FROM usuario WHERE live = ?';
 		$sqlQuery = new SqlQuery($sql);
 		$sqlQuery->set($value);
-		return $this->getList($sqlQuery);
+		return $this->getRow($sqlQuery);
 	}
 
 	public function queryByTwitter($value){
 		$sql = 'SELECT * FROM usuario WHERE twitter = ?';
 		$sqlQuery = new SqlQuery($sql);
 		$sqlQuery->set($value);
-		return $this->getList($sqlQuery);
+		return $this->getRow($sqlQuery);
 	}
 
 	public function queryByAvatar($value){
 		$sql = 'SELECT * FROM usuario WHERE avatar = ?';
 		$sqlQuery = new SqlQuery($sql);
 		$sqlQuery->set($value);
-		return $this->getList($sqlQuery);
+		return $this->getRow($sqlQuery);
 	}
 
 	public function queryByBackground($value){

@@ -5,7 +5,7 @@
      	 * @author: http://phpdao.com
      	 * @date: 2015-02-17 19:47	 
 	 */
-	class Vod{
+	class Vod implements _DTO{
 		
 		var $idVod;
 
@@ -24,6 +24,8 @@
 		var $subserie;
 
 		var $subtitulo;
+                
+                var $descripcion;
 
 		var $tituloTraducido;
 
@@ -78,11 +80,13 @@
 		var $url;
 
 		var $thumbnail;
+                
+                var $background;
 
 		var $visible;
                 
                 var $youtubeListId;
-                
+
                 var $youtubeId;
 
 		var $fechaCreacion;

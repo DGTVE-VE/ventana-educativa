@@ -37,22 +37,29 @@ class SimpleFrontController {
       $path = substr($path, strlen(SimpleFrontController::$basePath));
 
     }
+    
 //    print $path;
     $arr = explode("/", $path);
 //    print_r ($arr);
+//    print (count($arr));
     if (count($arr) > 0) {
       $this->setController($arr[0]);
     }
     if (count($arr) > 1) {
       $this->setAction($arr[1]);
     }
+    
     if (count($arr) > 2) {
-      $this->setParams(explode("/", $arr[2]));
+        for ($i = 2; $i<count($arr); $i++){
+            $this->params[] = $arr[$i];
+        }        
     }
   }
 
   public function setController($controller) {
     $controller = ucfirst(strtolower($controller)) . "Controller";
+//    print ($controller);
+//    print (class_exists($controller));
     if (class_exists($controller)) {
       $this->controller = $controller;
     }

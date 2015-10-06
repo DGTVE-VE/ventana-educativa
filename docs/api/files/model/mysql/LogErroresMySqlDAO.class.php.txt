@@ -82,7 +82,7 @@ class LogErroresMySqlDAO implements LogErroresDAO{
 		$sqlQuery->set($logErrore->log);
 		$sqlQuery->set($logErrore->tipoError);
 		$sqlQuery->set($logErrore->fechaCreacion);
-//		$sqlQuery->set($logErrore->fechaModificacion);
+		$sqlQuery->set($logErrore->fechaModificacion);
                 $sqlQuery->set(date("Y-m-d H:i:s"));
 
 		$sqlQuery->setNumber($logErrore->idLogError);

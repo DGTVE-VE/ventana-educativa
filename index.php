@@ -31,3 +31,4 @@ $_SESSION[CONFIG] = parse_ini_file("config.ini", true);
  */
 $frontController = new SimpleFrontController();
 $frontController->run();
+

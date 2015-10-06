@@ -90,7 +90,7 @@ class LibroConsumidoMySqlDAO implements LibroConsumidoDAO{
 		$sqlQuery->setNumber($libroConsumido->paginaInicio);
 		$sqlQuery->setNumber($libroConsumido->paginaFin);
 		$sqlQuery->set($libroConsumido->fechaCreacion);
-//		$sqlQuery->set($libroConsumido->fechaModificacion);
+		$sqlQuery->set($libroConsumido->fechaModificacion);
                 $sqlQuery->set(date("Y-m-d H:i:s"));
 
 		$sqlQuery->setNumber($libroConsumido->idLibroConsumido);

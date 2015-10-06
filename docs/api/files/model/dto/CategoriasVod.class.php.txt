@@ -5,12 +5,16 @@
      	 * @author: http://phpdao.com
      	 * @date: 2015-02-17 19:47	 
 	 */
-	class CategoriasVod{
+	class CategoriasVod implements _DTO{
 		
 		var $categoriasCategoria;
-		var $vodIdVod;
-		var $fechaCreacion;
-		var $fechaModificacion;
-		
+
+		var $vodIdVod;
+
+		var $fechaCreacion;
+
+		var $fechaModificacion;
+
+		
 	}
 ?>

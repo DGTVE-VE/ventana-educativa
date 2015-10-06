@@ -87,7 +87,7 @@ class CategoriasVodMySqlDAO implements CategoriasVodDAO{
 		$sqlQuery = new SqlQuery($sql);
 		
 		$sqlQuery->set($categoriasVod->fechaCreacion);
-//		$sqlQuery->set($categoriasVod->fechaModificacion);
+		$sqlQuery->set($categoriasVod->fechaModificacion);
                 $sqlQuery->set(date("Y-m-d H:i:s"));
 
 		
