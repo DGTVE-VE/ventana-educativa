@@ -6,7 +6,7 @@
  * @date: 27.11.2007
  */
 class ConnectionProperty{
-	private $host = '172.16.107.157';
+	private $host = '172.16.101.28';
 	private $user = 'vema';
 	private $password = 'vema';
 	private $database = 'vema';
