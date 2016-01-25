@@ -6,10 +6,11 @@
  * @date: 27.11.2007
  */
 class ConnectionProperty{
-	private $host = '172.16.101.28';
+	private $host = '172.16.200.12';
+//	private $host = '172.16.101.28';        
 	private $user = 'vema';
-	private $password = 'vema';
-	private $database = 'vema';
+	private $password = 'root';
+	private $database = '2015lamp';
         
         public function __construct() {
             $config = parse_ini_file("config.ini", true);
